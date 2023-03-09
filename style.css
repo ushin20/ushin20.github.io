@@ -1,0 +1,39 @@
+.row {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.row-1 {
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 30px;
+    justify-content: center;
+}
+  
+.image-block {
+    width: 40%;
+}
+
+.text-block {
+    width: 60%;
+}
+
+.SNS-block {
+    width: 90%;
+    margin-left: 10px;
+}
+
+.circle {
+    border-radius: 100%;
+    height: 50px;
+    width: 50px;
+    display: inline-block;
+    line-height: 50px;
+    text-align: center;
+    background: gray;
+    color: white;
+    margin-right: 10px;
+}
