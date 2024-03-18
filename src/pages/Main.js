@@ -6,7 +6,7 @@ function Main() {
         <div className="main-container">
             <div className="profile">
                 <div className="name">Yooshin Kim</div>
-                <div className="jobTitle">Engineer / Computer Scientist</div>
+                <div className="jobTitle">Developer / Computer Scientist</div>
                 <div className="work">
                     Currently working full-time as an integrated MS & Ph.D student at&nbsp;
                     <a href="https://ctal-dgist.github.io">CTAL</a>, DGIST
