@@ -1,0 +1,61 @@
+.contact-container {
+  width: 90%;
+  margin-left: 10%;
+  margin-right: auto;
+}
+@keyframes sweepUp {
+  0% {
+    opacity: 1;
+    transform: translateY(200%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.contact-container .h1-container {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.contact-container .h1-container h1 {
+  margin: 0;
+  font-family: "Cormorant Infant", serif;
+  margin-top: 30vh;
+  font-size: 17vw;
+  font-weight: 300;
+  opacity: 0;
+  animation: sweepUp 1s ease;
+  animation-fill-mode: forwards; /* keep after aniamtion */
+  animation-delay: 0.9s;
+}
+
+.contact-container .p-container {
+  overflow: hidden;
+}
+.contact-container p {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 2em;
+  margin-bottom: 2em;
+  animation: sweepUp 1s ease;
+}
+.contact-container p a {
+  color: black;
+  text-decoration: none;
+  border-bottom: 2px solid black;
+  transition: border-color 0.25s ease;
+}
+.contact-container p a:hover {
+  text-decoration: line-through;
+  border-bottom-color: transparent;
+}
+@media (max-width: 768px) {
+  .contact-container {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .contact-container h1 {
+    margin-top: 7vh;
+  }
+}
