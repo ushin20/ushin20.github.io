@@ -26,11 +26,18 @@
     height: 90vh;
     box-sizing: border-box;
     margin-top: 5vh;
-    padding-right: 10%;
+    margin-right: 10%;
+    padding-right: 10px;
     text-align: right;
     overflow: hidden;
     overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none; 
 }
+.project-container .projects-list::-webkit-scrollbar {
+    display: none;
+}
+
 .project-container .projects-list .one-project {
     margin-bottom: 35px;
 }
