@@ -17,6 +17,16 @@ function Publication() {
             (link)
           </a>
         </p>
+        <p className='title'>Preprint</p>
+        <p>
+          Kim, Y., Kwon, N., & Shin, D. (2024). KDPrint: Passive Authentication
+          using Keystroke Dynamics-to-Image Encoding via Standardization.{" "}
+          <i>arXiv preprint</i>&nbsp;
+          <a href='https://doi.org/10.48550/arXiv.2405.01080'>
+            <i>arXiv:2405.01080</i>
+          </a>
+          &nbsp; (2024)
+        </p>
       </div>
     </div>
   );
