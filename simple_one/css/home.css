@@ -1,53 +1,16 @@
-* {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font: inherit;
-  font-size: 100%;
-  font-family: Tahoma, Verdana, Segoe, sans-serif;
-}
-
-:root {
-  --gold: #9d904d;
-  --bg-gold: #e9e5d2;
-  --green: #17736e;
-}
-
-ol,
-ul {
-  list-style: none;
-  line-height: 2em;
-}
-
-body {
-  font-size: 1em;
-  background: #fff;
-  color: #333;
-  -webkit-font-smoothin: antialiased;
-  -webkit-text-size-adjust: 100%;
-}
-@media (prefers-color-scheme: dark) {
-  body {
-    background: #111;
-    color: #eee;
-  }
-}
-
-.container {
-  margin: 0 auto;
-  padding: 0 16px;
-  max-width: 1024px;
-}
 .container .hero {
   display: flex;
   align-items: center;
-  height: 35vh;
+  min-height: 40vh;
+  margin-bottom: 2em;
+}
+.container .hero .hero-wrapper {
+  margin-top: 10vh;
 }
 .container .hero .my-logo {
   display: block;
-  width: 80px;
-  height: 80px;
+  width: 5em;
+  height: 5em;
   background-image: url(../assets/logo.png);
   background-size: 100%;
   background-repeat: no-repeat;
@@ -60,24 +23,51 @@ body {
   margin-bottom: 0.5em;
 }
 
-.container .hero .hero-contact {
-  font-size: 1em;
-  cursor: pointer;
+.container .hero .hero-info {
+  font-size: 0.8em;
 }
-.container .hero .hero-contact li {
-  display: inline-block;
+.container .hero .hero-info li {
   line-height: 2em;
-  margin-right: 1em;
+  font-size: 1.1em;
 }
-.container .hero .hero-contact li a {
+.container .hero .hero-info li a {
+  font-size: 1.2em;
   text-decoration: none;
-  color: #333;
+  color: var(--green);
 }
-@media (prefers-color-scheme: dark) {
-  .container .hero .hero-contact li a {
-    color: #eee;
+.container .hero .hero-info li a:hover {
+  text-decoration: line-through;
+}
+
+.container .home .page-wrapper li {
+  margin-bottom: 2em;
+}
+@media (max-width: 768px) {
+  .container .home .page-wrapper li {
+    margin-bottom: 1em;
   }
 }
-.container .hero .hero-contact li a:hover {
+.container .home .page-wrapper li a {
+  text-decoration: none;
+  text-transform: capitalize;
+  color: var(--font-color);
+  font-size: 7vw;
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+}
+.container .home .page-wrapper li a:hover {
   color: var(--green);
+  font-style: italic;
+  font-size: 10vw;
+}
+@media (max-width: 768px) {
+  .container .home .page-wrapper li a {
+    font-size: 10vw;
+    color: var(--green);
+  }
+
+  .container .home .page-wrapper li a:hover {
+    font-style: normal;
+    font-size: 10vw;
+  }
 }
