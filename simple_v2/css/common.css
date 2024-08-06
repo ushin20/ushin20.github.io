@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+
 :root {
   --green: #1e3c2f;
   --lime: #efeba7;
@@ -11,3 +13,12 @@
     neue-haas-grotesk-text, sans-serif - english p
     Sohne
 */
+* {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+
+  margin: 0;
+  padding: 0;
+}
