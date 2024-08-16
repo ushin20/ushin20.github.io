@@ -1,9 +1,0 @@
-.home {
-  display: flex;
-  flex-direction: row;
-}
-@media (max-width: 768px) {
-  .home {
-    flex-direction: column;
-  }
-}

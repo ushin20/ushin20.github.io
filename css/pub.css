@@ -1,0 +1,74 @@
+.frame {
+    min-height: 100vh;
+}
+.frame .content h1 {
+    position: relative;
+    margin-bottom: 20px;
+}
+.frame .content h1::after {
+    content: '';
+    position: absolute; /* 부모 요소를 기준으로 위치를 설정 */
+    left: 0;
+    bottom: -20px; /* h1 아래에 밑줄이 위치하도록 설정 */
+    width: 25%; /* h1의 너비에 맞게 밑줄 길이를 설정 */
+    height: 2px; /* 밑줄의 두께를 설정 */
+    background-color: currentColor; /* 밑줄의 색상 설정 */
+    display: block; /* 블록 요소처럼 동작하게 설정 */
+}
+
+.frame .content .pub-section {
+    width: 50%;
+}
+.frame .content .pub-section h2::before {
+    content: '#'; /* 해시태그 추가 */
+    margin-right: 0.5em; /* 해시태그와 텍스트 사이에 간격 추가 */
+    color: black; /* 해시태그 색상 설정 (필요 시 변경) */
+}
+.frame .content .pub-section h2 {
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    font-size: 2em;
+}
+.frame .content .pub-section ol {
+    margin-top: 1em;
+}
+.frame .content .pub-section ol li {
+    list-style: none;
+    position: relative;
+    left: 2em;
+    padding-left: 1em;
+    border-left: 1px solid black;
+    padding-top: 1.5em;
+    padding-bottom: 1em;
+}
+.frame .content .pub-section ol li a::before {
+    content: '';
+    position: absolute;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    background-color: black;
+    left: 1em;
+    top: 0.5em;
+    transform: translateY(-50%);
+}
+.frame .content .pub-section ol li a {
+    text-decoration: none;
+    color: currentColor;
+    word-break: keep-all;
+}
+.frame .content .pub-section ol li a span {
+    font-style: italic;
+}
+
+@media only screen and (max-width: 600px) {
+    .frame .content .pub-section {
+        width: 100%;
+    }
+    .frame .content .pub-section h2 {
+        font-size: 1.5em;
+    }
+    .frame .content .pub-section ol li {
+        width: 80vw;
+    }
+}

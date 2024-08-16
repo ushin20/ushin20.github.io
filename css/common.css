@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@font-face {
+    font-family: 'SuisseIntlBold';
+    src: url('/fonts/fonnts.com-Suisse_Intl_Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* 
+    inter
+    GlossyDisplay - english h 
+    neue-haas-grotesk-text, sans-serif - english p
+    Sohne
+    "Bodoni Moda SC", serif;
+*/
+* {
+    font-family: 'Inter', sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0 4vw;
+}
+
+main .frame {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+}
+
+.frame .topbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 2em;
+}
+.frame .topbar .logo-container {
+    width: 3em;
+}
+.frame .topbar .logo-container img {
+    width: 100%;
+}
+.frame .topbar p {
+    font-weight: 500;
+}
+.frame .topbar .pages-container a,
+.frame .topbar .email {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    position: relative;
+    display: inline-block;
+}
+.frame .topbar .pages-container a::after,
+.frame .topbar .email::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: currentColor; /* 텍스트 색상과 동일한 밑줄 */
+    left: 0;
+    bottom: -4px;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 1s ease;
+}
+.frame .topbar .pages-container a:hover::after,
+.frame .topbar .email:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+.frame .topbar .email {
+    color: black;
+    font-weight: 500;
+    padding-bottom: 4px;
+    border-bottom: 1px solid currentColor;
+}
+.frame .content {
+    padding-top: 4em;
+    margin-bottom: auto;
+    height: 100%;
+}
+.frame .content h1 {
+    font-family: 'SuisseIntlBold', sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 5vw;
+    line-height: 1em;
+}
+.frame .content .intro {
+    width: 50%;
+    margin-top: 1em;
+    font-size: 1.25em;
+}
+.frame .content .email-continaer {
+    padding-top: 4em;
+}
+.frame .content .email-continaer .email {
+    padding: 1em 2em;
+    border: 2px solid black;
+    border-radius: 1em;
+    color: black;
+    text-decoration: none;
+    transition: color 1s ease;
+}
+.frame .content .email-continaer .email:hover {
+    color: white;
+    background-color: rgb(30, 31, 33);
+}
+
+@media only screen and (max-width: 600px) {
+    .frame .topbar p {
+        display: none;
+    }
+    .frame .topbar .email {
+        display: none;
+    }
+    .frame .content h1 {
+        font-size: 2.5em;
+    }
+    .frame .content .intro {
+        width: 100%;
+    }
+}
