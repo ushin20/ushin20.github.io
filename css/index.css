@@ -1,31 +1,31 @@
 .frame .sns {
-    padding-bottom: 2em;
-    text-align: right;
+  padding-bottom: 2em;
+  text-align: right;
 }
 
 .cat,
 .cat1 {
-    position: fixed;
-    bottom: 20px;
-    right: -100px;
-    width: 100px;
-    height: 100px;
-    background-image: url('/assets/adorable-cat.gif');
-    background-size: cover;
-    animation: run 4s linear infinite;
+  position: fixed;
+  bottom: 20px;
+  right: -100px;
+  width: 100px;
+  height: 100px;
+  background-image: url("/assets/modified_cat.gif");
+  background-size: cover;
+  animation: run 4s linear infinite;
 }
 .cat1 {
-    bottom: 90px;
-    animation: run 3.5s linear infinite;
+  bottom: 90px;
+  animation: run 3.5s linear infinite;
 }
 @keyframes run {
-    0% {
-        right: -100px;
-    }
-    50% {
-        right: 50%;
-    }
-    100% {
-        right: 100%;
-    }
+  0% {
+    right: -100px;
+  }
+  50% {
+    right: 50%;
+  }
+  100% {
+    right: 100%;
+  }
 }
