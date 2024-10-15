@@ -1,6 +1,6 @@
 # CTAL Webpage Design
 
-Welcome to the official website of the **Cyber-Physical Systems Technology and Application Laboratory (CTAL)** at DGIST. This site was designed with the goal of providing a comprehensive overview of our research, team, and achievements. Below are some key aspects of the website:
+Welcome to the official website of the **Computational Theory and Application Laboratory (CTAL)** at DGIST. This site was designed with the goal of providing a comprehensive overview of our research, team, and achievements. Below are some key aspects of the website:
 
 ## Key Features
 
