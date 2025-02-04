@@ -60,8 +60,8 @@
             var recent = posts[0];
             $recentPostContainer.append(
               '<li class="recent-post-item">' +
-                '<a href="/archive/bone.html?=' +
-                encodeURIComponent(recent.title) +
+                '<a href="/archive/bone.html?md=' +
+                recent.title +
                 '">' +
                 "<h2>" +
                 recent.title.slice(0, -3) +
@@ -80,8 +80,8 @@
           $.each(posts.slice(1), function (index, post) {
             $allPostsContainer.append(
               '<li class="post-item">' +
-                '<a href="/archive/bone.html?=' +
-                encodeURIComponent(post.title) +
+                '<a href="/archive/bone.html?md=' +
+                post.title +
                 '">' +
                 "<h2>" +
                 post.title.slice(0, -3) +
