@@ -1,0 +1,67 @@
+/* 전체 아카이브 컨테이너: 수직 배치 */
+.archive-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 10px;
+}
+/* UL 초기화 */
+.recent-post ul,
+.posts ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+/* 최신 포스트 기본 스타일 (큰 카드) */
+.recent-post-item {
+  border: 2px solid #333;
+  background: #f9f9f9;
+  padding: 20px;
+  transition: transform 0.3s, background-color 0.3s, color 0.3s;
+  transform: scale(1);
+  border-radius: 12px; /* 둥근 모서리 적용 */
+}
+.recent-post-item h2 {
+  font-size: 2em;
+  margin: 0 0 10px;
+}
+.recent-post-item p {
+  font-size: 1em;
+  color: #666;
+  margin: 0;
+}
+/* 일반 포스트 기본 스타일 (수직 100% 폭, 작은 카드) */
+.post-item {
+  border: 1px solid #ccc;
+  background: #fff;
+  padding: 10px;
+  margin: 10px 0;
+  width: 100%;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, background-color 0.3s, color 0.3s;
+  transform: scale(1);
+  border-radius: 12px; /* 둥근 모서리 적용 */
+}
+.post-item h2 {
+  font-size: 1.2em;
+  margin: 0 0 5px;
+}
+.post-item p {
+  font-size: 0.9em;
+  color: #666;
+  margin: 0;
+}
+/* 강조 스타일: 배경색과 텍스트 색 변경 */
+.hover-emphasize {
+  background-color: rgb(50, 51, 53) !important;
+  color: white !important;
+}
+/* 강조 상태일 때 날짜, 카테고리(p 태그)의 색을 완전한 흰색으로 */
+.hover-emphasize p {
+  color: #ffffffa4 !important;
+}
+/* 링크 기본 스타일 초기화 */
+a {
+  text-decoration: none;
+  color: inherit;
+}

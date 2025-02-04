@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>ushin20 - post</title>
+    <link rel="stylesheet" href="/css/common.css" />
+    <link rel="stylesheet" href="/archive/bone.css" />
+    <script src="/js/meta.js" defer></script>
+  </head>
+
+  <body>
+    <main>
+      <div class="frame">
+        <div class="topbar">
+          <a class="logo-container" href="/index.html">
+            <img src="/assets/logo.png" alt="" />
+          </a>
+          <p>Ushin20uShin20usHin20ushIn20ushiN20</p>
+          <div class="pages-container">
+            <a href="/pages/publication.html">Publications</a>,
+            <a href="/pages/project.html">Projects</a>,
+            <a href="/pages/about.html">About</a>,
+            <a href="/pages/archive.html">Archive</a>
+          </div>
+          <a href="" class="email"> yooshin0303@dgist.ac.kr </a>
+        </div>
+
+        <div class="meta-info" id="meta"></div>
+        <div id="content"></div>
+      </div>
+    </main>
+    <!-- jQuery 라이브러리 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Marked 라이브러리 (Markdown -> HTML 변환) -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <script>
+      (function () {
+        var search = window.location.search;
+        if (!search || search.length < 3) {
+          document.getElementById("content").innerHTML =
+            "<p>No post specified.</p>";
+          return;
+        }
+        var mdFileName = decodeURIComponent(search.substring(2));
+        var mdFilePath = "/archive/_posts/" + mdFileName;
+
+        $.get(mdFilePath, function (data) {
+          var parts = data.split(/---[\r\n]+/);
+          if (parts.length >= 3) {
+            var metaContent = parts[1].trim();
+            var markdownContent = parts.slice(2).join("---").trim();
+            var metaLines = metaContent.split("\n");
+
+            var metaHtml = "";
+            metaLines.forEach(function (line) {
+              var key = line.split(":")[0].trim();
+              var value = line
+                .substring(line.indexOf(":") + 1)
+                .trim()
+                .replace(/^"|"$/g, "");
+
+              if (key.toLowerCase() === "title") {
+                metaHtml += `<h1>${value}</h1>`;
+              } else if (key.toLowerCase() === "published") {
+                metaHtml += `<p>${key} in ${value}</p>`;
+              } else {
+                metaHtml += `<p>${key}: ${value}</p>`;
+              }
+            });
+
+            document.getElementById("meta").innerHTML = metaHtml;
+            document.getElementById("content").innerHTML =
+              marked.parse(markdownContent);
+          } else {
+            document.getElementById("content").innerHTML = marked.parse(data);
+          }
+        }).fail(function () {
+          document.getElementById("content").innerHTML =
+            "<p>404:Error loading post: " + mdFileName + "</p>";
+        });
+      })();
+    </script>
+  </body>
+</html>
