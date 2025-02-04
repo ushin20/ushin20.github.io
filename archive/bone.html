@@ -25,7 +25,7 @@
           <a href="" class="email"> yooshin0303@dgist.ac.kr </a>
         </div>
 
-        <div class="meta-info" id="meta"></div>
+        <div id="post-info"></div>
         <div id="content"></div>
       </div>
     </main>
@@ -45,8 +45,6 @@
 
         var mdFileName = decodeURIComponent(search.substring(2));
         var mdFilePath = "/archive/posts/" + mdFileName;
-
-        console.log(mdFilePath);
 
         fetch(mdFilePath)
           .then((response) => {
@@ -81,7 +79,7 @@
                 }
               });
 
-              document.getElementById("meta").innerHTML = metaHtml;
+              document.getElementById("post-info").innerHTML = metaHtml;
               document.getElementById("content").innerHTML =
                 marked.parse(markdownContent);
             } else {
