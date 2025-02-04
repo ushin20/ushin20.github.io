@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <title>ushin20 - post</title>
     <link rel="stylesheet" href="/css/common.css" />
-    <link rel="stylesheet" href="/blog/bone.css" />
+    <link rel="stylesheet" href="/articles/bone.css" />
     <script src="/js/meta.js" defer></script>
   </head>
 
@@ -20,7 +20,7 @@
             <a href="/pages/publication.html">Publications</a>,
             <a href="/pages/project.html">Projects</a>,
             <a href="/pages/about.html">About</a>,
-            <a href="/pages/blog.html">Blog</a>
+            <a href="/pages/article.html">Article</a>
           </div>
           <a href="" class="email"> yooshin0303@dgist.ac.kr </a>
         </div>
@@ -41,7 +41,7 @@
         console.log("Markdown file requested:", mdFile);
 
         if (mdFile) {
-          fetch(`/blog/posts/${mdFile}`)
+          fetch(`/articles/mds/${mdFile}`)
             .then((response) => {
               if (!response.ok) {
                 throw new Error(
