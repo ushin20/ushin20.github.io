@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>ushin20 - archive</title>
+    <title>ushin20 - blog</title>
     <link rel="stylesheet" href="/css/common.css" />
-    <link rel="stylesheet" href="/css/archive.css" />
+    <link rel="stylesheet" href="/css/blog.css" />
     <script src="/js/meta.js" defer></script>
   </head>
 
@@ -20,13 +20,13 @@
             <a href="/pages/publication.html">Publications</a>,
             <a href="/pages/project.html">Projects</a>,
             <a href="/pages/about.html">About</a>,
-            <a href="/pages/archive.html">Archive</a>
+            <a href="/pages/blog.html">Blog</a>
           </div>
           <a href="" class="email"> yooshin0303@dgist.ac.kr </a>
         </div>
 
         <div class="content">
-          <h1>Archive</h1>
+          <h1>Blog</h1>
           <div class="archive-container">
             <!-- 최신 포스트 영역 -->
             <div class="recent-post">
@@ -46,7 +46,7 @@
 
     <script>
       $(document).ready(function () {
-        $.getJSON("/archive/posts.json", function (posts) {
+        $.getJSON("/blog/posts.json", function (posts) {
           // 날짜 기준 내림차순 정렬 (최신 포스트가 첫 번째)
           posts.sort(function (a, b) {
             return new Date(b.date) - new Date(a.date);
@@ -60,7 +60,7 @@
             var recent = posts[0];
             $recentPostContainer.append(
               '<li class="recent-post-item">' +
-                '<a href="/archive/bone.html?md=' +
+                '<a href="/blog/bone.html?md=' +
                 recent.title +
                 '">' +
                 "<h2>" +
@@ -80,7 +80,7 @@
           $.each(posts.slice(1), function (index, post) {
             $allPostsContainer.append(
               '<li class="post-item">' +
-                '<a href="/archive/bone.html?md=' +
+                '<a href="/blog/bone.html?md=' +
                 post.title +
                 '">' +
                 "<h2>" +
