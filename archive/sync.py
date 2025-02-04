@@ -3,7 +3,7 @@ import re
 import os
 from datetime import datetime
 
-POSTS_DIR = "./archive/_posts"
+POSTS_DIR = "./archive/posts"
 OUTPUT_JSON = "./archive/posts.json"
 
 def extract_metadata(md_file):
