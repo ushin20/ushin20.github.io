@@ -35,68 +35,38 @@
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
     <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const urlParams = new URLSearchParams(window.location.search);
-        const mdFile = urlParams.get("md");
-        console.log("Markdown file requested:", mdFile);
+      // URL 파라미터에서 md 파일 이름을 가져옴
+      const urlParams = new URLSearchParams(window.location.search);
+      const mdFile = urlParams.get("md");
 
-        if (mdFile) {
-          fetch(`/archive/posts/${mdFile}`)
-            .then((response) => {
-              if (!response.ok) {
-                throw new Error(
-                  `Cannot fetch file: ${mdFile}. Status: ${response.status}`
-                );
-              }
-              return response.text(); // 파일 내용을 텍스트로 변환
-            })
-            .then((data) => {
-              var parts = data.split(/---[\r\n]+/);
-              if (parts.length >= 3) {
-                var metaContent = parts[1].trim();
-                var markdownContent = parts.slice(2).join("---").trim();
-                var metaLines = metaContent.split("\n");
-
-                var metaHtml = "";
-                metaLines.forEach(function (line) {
-                  var key = line.split(":")[0].trim();
-                  var value = line
-                    .substring(line.indexOf(":") + 1)
-                    .trim()
-                    .replace(/^"|"$/g, "");
-
-                  if (key.toLowerCase() === "title") {
-                    metaHtml += `<h1>${value}</h1>`;
-                  } else if (key.toLowerCase() === "published") {
-                    metaHtml += `<p>${key} in ${value}</p>`;
-                  } else {
-                    metaHtml += `<p>${key}: ${value}</p>`;
-                  }
-                });
-
-                document.getElementById("post-info").innerHTML = metaHtml;
-                document.getElementById("content").innerHTML =
-                  marked.parse(markdownContent);
-              } else {
-                document.getElementById("content").innerHTML =
-                  marked.parse(data);
-              }
-            })
-            .catch((error) => {
-              console.error("Error loading markdown:", error);
-              document.getElementById("content").innerHTML = `
+      if (mdFile) {
+        fetch(`/archive/posts/${mdFile}`)
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(
+                `Cannot fetch file: ${mdFile}. Status: ${response.status}`
+              );
+            }
+            return response.text();
+          })
+          .then((text) => {
+            document.getElementById("content").innerHTML = marked.parse(text); // Markdown을 HTML로 변환
+          })
+          .catch((error) => {
+            console.error("Error loading markdown:", error);
+            // 에러 발생 시 404 메시지와 뒤로가기 링크를 추가
+            document.getElementById("content").innerHTML = `
                     <div id='Error404'>
-                        <p>404: The requested page was not found.</p>
-                        <a href='javascript:history.back()'>뒤로가기</a>
+                      <p>404: The requested page was not found.</p>
+                      <a href="javascript:history.back()">뒤로가기</a>
                     </div>
-                `;
-            });
-        } else {
-          console.error("No md file specified in the URL.");
-          document.getElementById("content").innerText =
-            "No project selected. Please provide an md file in the URL parameters.";
-        }
-      });
+                  `;
+          });
+      } else {
+        console.error("No md file specified in the URL.");
+        document.getElementById("content").innerText =
+          "No project selected. Please provide an md file in the URL parameters.";
+      }
     </script>
   </body>
 </html>
