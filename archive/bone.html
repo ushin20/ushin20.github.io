@@ -43,7 +43,7 @@
           return;
         }
         var mdFileName = decodeURIComponent(search.substring(2));
-        var mdFilePath = "/archive/_posts/" + mdFileName;
+        var mdFilePath = "/archive/posts/" + mdFileName;
 
         $.get(mdFilePath, function (data) {
           var parts = data.split(/---[\r\n]+/);
