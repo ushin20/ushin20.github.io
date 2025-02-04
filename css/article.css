@@ -20,6 +20,7 @@
   transition: transform 0.3s, background-color 0.3s, color 0.3s;
   transform: scale(1);
   border-radius: 12px; /* 둥근 모서리 적용 */
+  margin-top: 1em;
 }
 .recent-post-item h2 {
   font-size: 2em;
