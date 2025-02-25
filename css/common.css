@@ -55,6 +55,10 @@ main .frame {
 .frame .topbar p {
   font-weight: 500;
 }
+.frame .topbar .sites {
+  display: flex;
+  gap: 10px;
+}
 .frame .topbar .pages-container a,
 .frame .topbar .email {
   text-decoration: none;
