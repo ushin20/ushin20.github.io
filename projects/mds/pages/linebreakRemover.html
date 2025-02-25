@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Remove Line Breaks</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        padding: 20px;
+        background-color: #f4f4f4;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: row;
+        width: 90%;
+        height: 50%;
+        max-width: 800px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+        position: relative;
+      }
+
+      .input-area,
+      .output-area {
+        flex: 1;
+        padding: 15px;
+        box-sizing: border-box;
+        border: none;
+        outline: none;
+        resize: none;
+        font-size: 16px;
+      }
+
+      .input-area {
+        background: #f9f9f9;
+        border-right: 2px solid #ccc;
+      }
+
+      .output-area {
+        background: white;
+        border-left: 2px solid #ccc;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        overflow-y: auto;
+        min-height: 150px;
+      }
+
+      .copy-btn {
+        background: black;
+        color: white;
+        margin-top: 10px;
+        padding: 8px 12px;
+        border-radius: 5px;
+        font-size: 14px;
+        cursor: pointer;
+        border: none;
+        transition: background-color 0.2s;
+      }
+
+      .copy-btn:hover {
+        background: #333;
+      }
+
+      /* 반응형 디자인 */
+      @media (max-width: 600px) {
+        .container {
+          flex-direction: column;
+        }
+        .input-area {
+          border-right: none;
+          border-bottom: 2px solid #ccc;
+        }
+        .output-area {
+          border-left: none;
+          border-top: 2px solid #ccc;
+        }
+        .copy-btn {
+          position: relative;
+          bottom: auto;
+          right: auto;
+          margin: 10px auto;
+          display: block;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Remove Line Breaks</h2>
+
+    <div class="container">
+      <textarea
+        class="input-area"
+        placeholder="Enter text here..."
+        oninput="removeLineBreaks()"></textarea>
+      <div class="output-area" id="outputArea"></div>
+    </div>
+    <button class="copy-btn" onclick="copyToClipboard()">Copy</button>
+    <script>
+      function removeLineBreaks() {
+        const inputText = document.querySelector(".input-area").value;
+        const outputArea = document.getElementById("outputArea");
+
+        // 줄바꿈 제거 및 공백 정리
+        const cleanedText = inputText.replace(/\s*\n\s*/g, " ");
+        outputArea.textContent = cleanedText;
+      }
+
+      function copyToClipboard() {
+        const outputText = document.getElementById("outputArea").textContent;
+        navigator.clipboard.writeText(outputText).catch((err) => {
+          console.error("Failed to copy: ", err);
+        });
+      }
+    </script>
+  </body>
+</html>
