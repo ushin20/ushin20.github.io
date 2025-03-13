@@ -1,113 +1,102 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>ushin20 - blog</title>
-    <link rel="stylesheet" href="/css/common.css" />
-    <link rel="stylesheet" href="/css/article.css" />
-    <script src="/js/meta.js" defer></script>
-  </head>
+    <head>
+        <meta charset="utf-8" />
+        <title>ushin20 - blog</title>
+        <link rel="stylesheet" href="/css/common.css" />
+        <link rel="stylesheet" href="/css/article.css" />
+        <script src="/js/meta.js" defer></script>
+    </head>
 
-  <body>
-    <main>
-      <div class="frame">
-        <div class="content">
-          <h1>Articles</h1>
-          <div class="archive-container">
-            <!-- 최신 포스트 영역 -->
-            <div class="recent-post">
-              <ul id="recent-post"></ul>
+    <body>
+        <main>
+            <div class="frame">
+                <div class="content">
+                    <h1>Articles</h1>
+                    <div class="archive-container">
+                        <!-- 최신 포스트 영역 -->
+                        <div class="recent-post">
+                            <ul id="recent-post"></ul>
+                        </div>
+                        <!-- 일반 포스트 영역 -->
+                        <div class="posts">
+                            <ul id="all-posts"></ul>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!-- 일반 포스트 영역 -->
-            <div class="posts">
-              <ul id="all-posts"></ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
+        </main>
 
-    <!-- jQuery 라이브러리 -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <!-- jQuery 라이브러리 -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <script>
-      $(document).ready(function () {
-        $.getJSON("/articles/posts.json", function (posts) {
-          // 날짜 기준 내림차순 정렬 (최신 포스트가 첫 번째)
-          posts.sort(function (a, b) {
-            return new Date(b.date) - new Date(a.date);
-          });
+        <script>
+            $(document).ready(function () {
+                $.getJSON('/articles/posts.json', function (posts) {
+                    // 날짜 기준 내림차순 정렬 (최신 포스트가 첫 번째)
+                    posts.sort(function (a, b) {
+                        return new Date(b.date) - new Date(a.date);
+                    });
 
-          var $recentPostContainer = $("#recent-post");
-          var $allPostsContainer = $("#all-posts");
+                    var $recentPostContainer = $('#recent-post');
+                    var $allPostsContainer = $('#all-posts');
 
-          // 최신 포스트 렌더링 (제목의 마지막 3글자 제거)
-          if (posts.length > 0) {
-            var recent = posts[0];
-            $recentPostContainer.append(
-              '<li class="recent-post-item">' +
-                '<a href="/articles/bone.html?md=' +
-                recent.title +
-                '">' +
-                "<h2>" +
-                recent.title.slice(0, -3) +
-                "</h2>" +
-                "<p>" +
-                recent.date +
-                ", " +
-                recent.category +
-                "</p>" +
-                "</a>" +
-                "</li>"
-            );
-          }
+                    // 최신 포스트 렌더링
+                    if (posts.length > 0) {
+                        var recent = posts[0];
+                        $recentPostContainer.append(
+                            '<li class="recent-post-item">' +
+                                '<a href="/articles/bone.html?md=' +
+                                recent.filename +
+                                '">' +
+                                '<h2>' +
+                                recent.title.slice(1, -1) +
+                                '</h2>' +
+                                '<p>' +
+                                recent.author.slice(1, -1) +
+                                '</p>' +
+                                '<p>' +
+                                recent.published.slice(1, -1) +
+                                '</p>' +
+                                '<div class="tag-container"><div class="date"><i class="fa-solid fa-calendar-days"></i> ' +
+                                recent.date +
+                                '</div><div class="tag">' +
+                                recent.category +
+                                '</div></div>' +
+                                '</a>' +
+                                '</li>'
+                        );
+                    }
 
-          // 일반 포스트 렌더링 (각 포스트는 100% 폭의 작은 카드)
-          $.each(posts.slice(1), function (index, post) {
-            $allPostsContainer.append(
-              '<li class="post-item">' +
-                '<a href="/articles/bone.html?md=' +
-                post.title +
-                '">' +
-                "<h2>" +
-                post.title.slice(0, -3) +
-                "</h2>" +
-                "<p>" +
-                post.date +
-                ", " +
-                post.category +
-                "</p>" +
-                "</a>" +
-                "</li>"
-            );
-          });
-
-          // 페이지 로드시 최근 포스트는 기본 강조 상태로 설정
-          $(".recent-post-item").addClass("hover-emphasize");
-        }).fail(function (jqxhr, textStatus, error) {
-          console.error("Error loading posts: " + textStatus + ", " + error);
-        });
-
-        // 일반 포스트에 마우스가 올라가면 해당 포스트 강조하고 최근 포스트 강조 해제
-        $(document).on("mouseenter", ".post-item", function () {
-          $(this).addClass("hover-emphasize");
-          $(".recent-post-item").removeClass("hover-emphasize");
-        });
-
-        // 일반 포스트에서 마우스가 벗어나면 해당 포스트 강조 해제 후 최근 포스트 강조 복원
-        $(document).on("mouseleave", ".post-item", function () {
-          $(this).removeClass("hover-emphasize");
-          $(".recent-post-item").addClass("hover-emphasize");
-        });
-
-        // 최근 포스트에 마우스가 올라가면 항상 강조 상태 유지
-        $(document).on("mouseenter", ".recent-post-item", function () {
-          $(this).addClass("hover-emphasize");
-        });
-        $(document).on("mouseleave", ".recent-post-item", function () {
-          $(this).addClass("hover-emphasize");
-        });
-      });
-    </script>
-  </body>
+                    // 일반 포스트 렌더링
+                    $.each(posts.slice(1), function (index, post) {
+                        $allPostsContainer.append(
+                            '<li class="post-item">' +
+                                '<a href="/articles/bone.html?md=' +
+                                post.filename +
+                                '">' +
+                                '<h2>' +
+                                post.title.slice(1, -1) +
+                                '</h2>' +
+                                '<p>' +
+                                post.author.slice(1, -1) +
+                                '</p>' +
+                                '<p>' +
+                                post.published.slice(1, -1) +
+                                '</p>' +
+                                '<div class="tag-container"><div class="date"><i class="fa-solid fa-calendar-days"></i> ' +
+                                recent.date +
+                                '</div><div class="tag">' +
+                                recent.category +
+                                '</div></div>' +
+                                '</a>' +
+                                '</li>'
+                        );
+                    });
+                }).fail(function (jqxhr, textStatus, error) {
+                    console.error('Error loading posts: ' + textStatus + ', ' + error);
+                });
+            });
+        </script>
+    </body>
 </html>
