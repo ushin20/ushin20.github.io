@@ -75,7 +75,15 @@
 }
 .recent-post-item .tag-container .tag,
 .post-item .tag-container .tag {
-    text-transform: lowercase;
+    display: inline-block;
+    background-color: #f4f4f4;  /* 밝은 회색 */
+    color: #333;
+    font-size: 0.75em;
+    padding: 4px 10px;
+    margin: 2px;
+    border-radius: 15px;
+    font-weight: 600;
+    text-transform: capitalize;
 }
 /* 링크 기본 스타일 초기화 */
 a {

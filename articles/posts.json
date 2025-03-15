@@ -3,9 +3,9 @@
     "title": "'Anomaly Detection based on Robust Spatial-temporal Modeling for Industrial Control Systems'",
     "author": "'Li, Shijie and Liu, Junjiao and Pan, Zhiwen and Lv, Shichao and Si, Shuaizong and Sun, Limin'",
     "published": "'2022 IEEE 19th International Conference on Mobile Ad Hoc and Smart Systems (MASS)'",
-    "date": "2024-03-14",
+    "date": "2025-03-14",
     "category": "anomaly detection",
-    "filename": "\bAD-RoSM.md"
+    "filename": "AD-RoSM.md"
   },
   {
     "title": "'TSMixer: An All-MLP Architecture for Times Series Forecasting'",

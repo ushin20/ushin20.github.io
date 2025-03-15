@@ -41,56 +41,45 @@
                     var $recentPostContainer = $('#recent-post');
                     var $allPostsContainer = $('#all-posts');
 
+                    function createTagHTML(categories) {
+                        return categories
+                            .split(', ')
+                            .map((cat) => `<div class="tag">${cat}</div>`)
+                            .join('');
+                    }
+
                     // 최신 포스트 렌더링
                     if (posts.length > 0) {
                         var recent = posts[0];
                         $recentPostContainer.append(
-                            '<li class="recent-post-item">' +
-                                '<a href="/articles/bone.html?md=' +
-                                recent.filename +
-                                '">' +
-                                '<h2>' +
-                                recent.title.slice(1, -1) +
-                                '</h2>' +
-                                '<p>' +
-                                recent.author.slice(1, -1) +
-                                '</p>' +
-                                '<p>' +
-                                recent.published.slice(1, -1) +
-                                '</p>' +
-                                '<div class="tag-container"><div class="date"><i class="fa-solid fa-calendar-days"></i> ' +
-                                recent.date +
-                                '</div><div class="tag">' +
-                                recent.category +
-                                '</div></div>' +
-                                '</a>' +
-                                '</li>'
+                            `<li class="recent-post-item">
+                    <a href="/articles/bone.html?md=${recent.filename}">
+                        <h2>${recent.title.slice(1, -1)}</h2>
+                        <p>${recent.author.slice(1, -1)}</p>
+                        <p>${recent.published.slice(1, -1)}</p>
+                        <div class="tag-container">
+                            <div class="date"><i class="fa-solid fa-calendar-days"></i> ${recent.date}</div>
+                            ${createTagHTML(recent.category)}
+                        </div>
+                    </a>
+                </li>`
                         );
                     }
 
                     // 일반 포스트 렌더링
                     $.each(posts.slice(1), function (index, post) {
                         $allPostsContainer.append(
-                            '<li class="post-item">' +
-                                '<a href="/articles/bone.html?md=' +
-                                post.filename +
-                                '">' +
-                                '<h2>' +
-                                post.title.slice(1, -1) +
-                                '</h2>' +
-                                '<p>' +
-                                post.author.slice(1, -1) +
-                                '</p>' +
-                                '<p>' +
-                                post.published.slice(1, -1) +
-                                '</p>' +
-                                '<div class="tag-container"><div class="date"><i class="fa-solid fa-calendar-days"></i> ' +
-                                recent.date +
-                                '</div><div class="tag">' +
-                                recent.category +
-                                '</div></div>' +
-                                '</a>' +
-                                '</li>'
+                            `<li class="post-item">
+                    <a href="/articles/bone.html?md=${post.filename}">
+                        <h2>${post.title.slice(1, -1)}</h2>
+                        <p>${post.author.slice(1, -1)}</p>
+                        <p>${post.published.slice(1, -1)}</p>
+                        <div class="tag-container">
+                            <div class="date"><i class="fa-solid fa-calendar-days"></i> ${post.date}</div>
+                            ${createTagHTML(post.category)}
+                        </div>
+                    </a>
+                </li>`
                         );
                     });
                 }).fail(function (jqxhr, textStatus, error) {

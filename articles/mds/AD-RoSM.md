@@ -2,7 +2,7 @@
 title: 'Anomaly Detection based on Robust Spatial-temporal Modeling for Industrial Control Systems'
 Author: 'Li, Shijie and Liu, Junjiao and Pan, Zhiwen and Lv, Shichao and Si, Shuaizong and Sun, Limin'
 Published: '2022 IEEE 19th International Conference on Mobile Ad Hoc and Smart Systems (MASS)'
-Date: 2024-03-14
+Date: 2025-03-14
 Category: anomaly detection
 ---
 
