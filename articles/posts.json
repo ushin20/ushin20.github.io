@@ -1,16 +1,24 @@
 [
   {
-    "title": "'Anomaly Detection based on Robust Spatial-temporal Modeling for Industrial Control Systems'",
-    "author": "'Li, Shijie and Liu, Junjiao and Pan, Zhiwen and Lv, Shichao and Si, Shuaizong and Sun, Limin'",
-    "published": "'2022 IEEE 19th International Conference on Mobile Ad Hoc and Smart Systems (MASS)'",
+    "title": "Process-Oriented heterogeneous graph learning in GNN-Based ICS anomalous pattern recognition",
+    "author": "Shuaiyi L(y)u, Kai Wang, Liren Zhang, and Bailing Wanga",
+    "published": "Pattern Recognition",
+    "date": "2025-03-18",
+    "category": "anomaly detection",
+    "filename": "AHGA.md"
+  },
+  {
+    "title": "Anomaly Detection based on Robust Spatial-temporal Modeling for Industrial Control Systems",
+    "author": "Li, Shijie and Liu, Junjiao and Pan, Zhiwen and Lv, Shichao and Si, Shuaizong and Sun, Limin",
+    "published": "2022 IEEE 19th International Conference on Mobile Ad Hoc and Smart Systems (MASS)",
     "date": "2025-03-14",
     "category": "anomaly detection",
     "filename": "AD-RoSM.md"
   },
   {
-    "title": "'TSMixer: An All-MLP Architecture for Times Series Forecasting'",
-    "author": "'Si-An Chen, Chunn-Liang Li, Nathanael C. Yoder, Sercan O. Ank and Tomas Pfister.'",
-    "published": "'Transactions on Machine Learning Research'",
+    "title": "TSMixer: An All-MLP Architecture for Times Series Forecasting",
+    "author": "Si-An Chen, Chunn-Liang Li, Nathanael C. Yoder, Sercan O. Ank and Tomas Pfister.",
+    "published": "Transactions on Machine Learning Research",
     "date": "2024-02-05",
     "category": "anomaly detection",
     "filename": "TSMixer.md"
