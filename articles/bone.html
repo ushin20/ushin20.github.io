@@ -13,11 +13,16 @@
           inlineMath: [
             ["$", "$"],
             ["\\(", "\\)"],
-          ], // 인라인 수식($...$) 허용
+          ], // 인라인 수식 허용
+          displayMath: [
+            ["$$", "$$"],
+            ["\\[", "\\]"],
+          ], // 블록 수식 허용
+          processEnvironments: true, // AMS 수식 환경 처리
+          packages: ["base", "ams"], // AMS 패키지 로드
         },
       };
     </script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script
       id="MathJax-script"
       async
@@ -41,7 +46,6 @@
       document.addEventListener("DOMContentLoaded", () => {
         const urlParams = new URLSearchParams(window.location.search);
         const mdFile = urlParams.get("md");
-        console.log("Markdown file requested:", mdFile);
 
         if (mdFile) {
           fetch(`/articles/mds/${mdFile}`)
@@ -84,12 +88,26 @@
                 document.getElementById("post-info").innerHTML = metaHtml;
                 document.getElementById("content").innerHTML =
                   marked.parse(markdownContent);
+                document.querySelectorAll("#content table").forEach((table) => {
+                  const wrapper = document.createElement("div");
+                  wrapper.classList.add("table-container");
+                  table.parentNode.insertBefore(wrapper, table);
+                  wrapper.appendChild(table);
+                });
 
-                MathJax.typeset();
+                MathJax.typesetPromise();
               } else {
                 document.getElementById("content").innerHTML =
                   marked.parse(data);
-                MathJax.typeset();
+
+                document.querySelectorAll("#content table").forEach((table) => {
+                  const wrapper = document.createElement("div");
+                  wrapper.classList.add("table-container");
+                  table.parentNode.insertBefore(wrapper, table);
+                  wrapper.appendChild(table);
+                });
+
+                MathJax.typesetPromise();
               }
             })
             .catch((error) => {
