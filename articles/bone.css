@@ -82,12 +82,16 @@
 /* 본문 텍스트 */
 #content p {
   color: #444;
-  line-height: 1.25em;
+  line-height: 1.5em;
   margin-bottom: 10px;
   word-wrap: break-word; /* 긴 단어(수식 포함) 줄바꿈 */
   overflow-x: auto; /* 넘칠 경우 가로 스크롤 */
-  overflow-y: hidden;
   white-space: normal; /* 기본적으로 줄바꿈 허용 */
+  overflow-y: hidden;
+}
+
+mjx-container {
+  font-size: 1em !important; /* 원하는 크기로 조정 */
 }
 
 /* 링크 스타일 */
