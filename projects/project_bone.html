@@ -6,6 +6,13 @@
     <link rel="stylesheet" href="/css/common.css" />
     <link rel="stylesheet" href="/projects/project_bone.css" />
     <script src="/js/meta.js" defer></script>
+
+    <!-- head 태그 안에 추가 -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-dark.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
   </head>
 
   <body>
@@ -31,6 +38,10 @@
           })
           .then((text) => {
             document.getElementById("content").innerHTML = marked.parse(text); // Markdown을 HTML로 변환
+
+            document.querySelectorAll("pre code").forEach((block) => {
+              hljs.highlightElement(block);
+            });
           })
           .catch((error) => {
             console.error("Error loading markdown:", error);
