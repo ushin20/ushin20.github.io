@@ -76,3 +76,46 @@ for index, url in enumerate(pl.video_urls, start=1):
 print("\n🎉 모든 다운로드 완료!")
 
 ```
+
+In this case, the saved audio file will be `.m4a`. If you want to change it to `.mp3`, use the code below.
+
+```python
+import subprocess
+import os
+
+def convert_m4a_to_mp3(m4a_file_path, mp3_file_path):
+    print(f"🎧 변환 시작: {os.path.basename(m4a_file_path)}")
+
+    command = f'ffmpeg -hide_banner -y -loglevel error -i "{m4a_file_path}" -vn -ar 44100 -ac 2 -ab 192k -f mp3 "{mp3_file_path}"'
+    try:
+        subprocess.check_call(command, shell=True)
+        print(f"✅ 변환 완료: {mp3_file_path}")
+    except subprocess.CalledProcessError:
+        print(f"❌ 변환 실패: {m4a_file_path}")
+        raise
+
+def convert_all_m4a(input_directory, output_directory):
+    os.makedirs(output_directory, exist_ok=True)
+
+    for filename in os.listdir(input_directory):
+        if filename.endswith(".m4a"):
+            m4a_file_path = os.path.join(input_directory, filename)
+            mp3_file_name = filename.replace('.m4a', '.mp3')
+            mp3_file_path = os.path.join(output_directory, mp3_file_name)
+
+            if os.path.exists(mp3_file_path):
+                print(f"⏭ 이미 존재: {mp3_file_name}")
+                continue  # 건너뜀
+
+            try:
+                convert_m4a_to_mp3(m4a_file_path, mp3_file_path)
+            except Exception as e:
+                print(f"⚠️ 오류 발생 - 건너뜀: {e}")
+
+# 실행
+input_directory = "downloads/"
+output_directory = "downloads2/"
+convert_all_m4a(input_directory, output_directory)
+```
+
+DONE!
