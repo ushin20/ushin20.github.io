@@ -247,3 +247,4 @@ $?$ 포인트
 - Link inference decoder를 어떻게 평가한거임?
 - Device(node) level에서 이상탐지하면 최종 이상탐지는 어케함? 하나만 이상이면 시스템 이상임?
 - Open review 받았는데, 리뷰가 안보임
+- Device level anomaly detection -> label 어케함?
