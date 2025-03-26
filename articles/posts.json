@@ -1,5 +1,13 @@
 [
   {
+    "title": "Anomaly Detection Method for Complex Systems Based on a Domain-Adaptive Causal Decoupling Model",
+    "author": "Chong Wang and Jie Liu",
+    "published": "IEEE Transactions on Industrial Informatics, VOL. 21, NO. 3, MARCH 2025",
+    "date": "2025-03-26",
+    "category": "anomaly detection",
+    "filename": "Anomlay-detection-method-for-complex-systems-based-on-a-domain-adaptive-causal-decoupling-model.md"
+  },
+  {
     "title": "Process-Oriented heterogeneous graph learning in GNN-Based ICS anomalous pattern recognition",
     "author": "Shuaiyi L(y)u, Kai Wang, Liren Zhang, and Bailing Wanga",
     "published": "Pattern Recognition",

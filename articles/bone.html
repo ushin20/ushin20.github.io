@@ -87,7 +87,14 @@
 
                 document.getElementById("post-info").innerHTML = metaHtml;
                 document.getElementById("content").innerHTML =
-                  marked.parse(markdownContent);
+                  marked.parse(markdownContent) +
+                  `
+                  <div class="post-footer">
+                    <div style="text-align: center; margin-top: 10px;">
+                      <a href="javascript:history.back()" class="back-button">뒤로가기</a>
+                    </div>
+                  </div>
+                `;
                 document.querySelectorAll("#content table").forEach((table) => {
                   const wrapper = document.createElement("div");
                   wrapper.classList.add("table-container");
