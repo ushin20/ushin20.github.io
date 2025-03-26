@@ -124,6 +124,59 @@ main .frame {
   background-color: rgb(30, 31, 33);
 }
 
+/* Conference menu */
+.conference-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.conference-icon {
+  cursor: pointer;
+  padding-bottom: 4px;
+  border-bottom: 1px solid currentColor;
+}
+.conference-icon::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: currentColor; /* 텍스트 색상과 동일한 밑줄 */
+  left: 0;
+  bottom: -4px;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 1s ease;
+}
+.conference-icon:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.conference-menu {
+  display: none;
+  position: absolute;
+  top: 30px;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  padding: 8px 12px;
+  z-index: 100;
+  white-space: nowrap;
+  min-width: 100px;
+}
+
+.conference-menu a {
+  display: block;
+  text-decoration: none;
+  color: black;
+  padding: 4px;
+  border-bottom: 1px solid currentColor;
+}
+.conference-menu a:hover {
+  font-weight: 900;
+}
+
 @media only screen and (max-width: 600px) {
   .frame .topbar p {
     display: none;
