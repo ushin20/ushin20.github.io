@@ -1,11 +1,11 @@
 [
   {
-    "title": "Anomaly Detection Method for Complex Systems Based on a Domain-Adaptive Causal Decoupling Model",
-    "author": "Chong Wang and Jie Liu",
-    "published": "IEEE Transactions on Industrial Informatics, VOL. 21, NO. 3, MARCH 2025",
+    "title": "Fully-Connected Spatial-Temporal Graph for Multivariate Time-Series Data",
+    "author": "Yucheng Wang, Yuecong Xu, Jianfei Yang, Min Wu, Xiaoli Li, Lihua Xie, Zhenghua Chen",
+    "published": "The Thirty-Eighth AAAI Conference on Artificial Intelligence",
     "date": "2025-03-26",
-    "category": "anomaly detection",
-    "filename": "Anomlay-detection-method-for-complex-systems-based-on-a-domain-adaptive-causal-decoupling-model.md"
+    "category": "time-series forecasting",
+    "filename": "2025-03-26.md"
   },
   {
     "title": "Process-Oriented heterogeneous graph learning in GNN-Based ICS anomalous pattern recognition",
@@ -13,7 +13,7 @@
     "published": "Pattern Recognition",
     "date": "2025-03-18",
     "category": "anomaly detection",
-    "filename": "AHGA.md"
+    "filename": "2025-03-18.md"
   },
   {
     "title": "Anomaly Detection based on Robust Spatial-temporal Modeling for Industrial Control Systems",
@@ -21,7 +21,7 @@
     "published": "2022 IEEE 19th International Conference on Mobile Ad Hoc and Smart Systems (MASS)",
     "date": "2025-03-14",
     "category": "anomaly detection",
-    "filename": "AD-RoSM.md"
+    "filename": "2025-03-14.md"
   },
   {
     "title": "TSMixer: An All-MLP Architecture for Times Series Forecasting",
@@ -29,6 +29,6 @@
     "published": "Transactions on Machine Learning Research",
     "date": "2024-02-05",
     "category": "anomaly detection",
-    "filename": "TSMixer.md"
+    "filename": "2024-02-05.md"
   }
 ]
