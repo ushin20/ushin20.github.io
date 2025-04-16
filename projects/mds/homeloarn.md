@@ -1,4 +1,4 @@
-# Home loan cal.
+# Home loan cal
 
 This tool calculates cost.
 
