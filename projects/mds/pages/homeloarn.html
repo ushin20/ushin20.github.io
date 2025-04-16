@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>월세 & 집매매 계산기</title>
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background-color: #f4f6f8;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 100vh;
+        margin: 0;
+        padding: 2rem;
+      }
+
+      .wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        max-width: 1000px;
+        width: 100%;
+        justify-content: center;
+        margin: auto;
+      }
+
+      .container {
+        background-color: white;
+        padding: 2rem;
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 400px;
+        flex: 1;
+      }
+
+      h2 {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        color: #333;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 1rem;
+        color: #555;
+      }
+
+      input {
+        width: 100%;
+        padding: 0.6rem;
+        margin-top: 0.4rem;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 1rem;
+      }
+
+      button {
+        width: 100%;
+        padding: 0.8rem;
+        background-color: #4f46e5;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-size: 1rem;
+        cursor: pointer;
+        margin-top: 1rem;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #4338ca;
+      }
+
+      .result {
+        margin-top: 1.5rem;
+        background-color: #f0f4ff;
+        padding: 1rem;
+        border-radius: 12px;
+        color: #333;
+      }
+
+      .result strong {
+        color: #1d4ed8;
+        font-size: 1.2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- 월세 계산기 -->
+      <div class="container">
+        <h2>💰 월세 계산기</h2>
+        <label
+          >보증금 (만원)
+          <input type="number" id="deposit" placeholder="예: 5000" />
+        </label>
+        <label
+          >월세 (만원)
+          <input type="number" id="rent" placeholder="예: 50" />
+        </label>
+        <label
+          >대출금 비율 (%)
+          <input type="number" id="loanRate" placeholder="예: 80" />
+        </label>
+        <label
+          >이자율 (%/연)
+          <input type="number" id="interestRate" placeholder="예: 4.5" />
+        </label>
+        <button onclick="calculateRent()">계산하기</button>
+        <div id="rentResult" class="result"></div>
+      </div>
+
+      <!-- 집매매 대출 이자 계산기 -->
+      <div class="container">
+        <h2>🏠 집 매매 이자 계산기</h2>
+        <label
+          >집값 (만원)
+          <input type="number" id="homePrice" placeholder="예: 50000" />
+        </label>
+        <label
+          >이자율 (%/연)
+          <input type="number" id="purchaseInterest" placeholder="예: 4.5" />
+        </label>
+        <button onclick="calculatePurchase()">계산하기</button>
+        <div id="purchaseResult" class="result"></div>
+      </div>
+    </div>
+
+    <script>
+      function calculateRent() {
+        const deposit = Number(document.getElementById("deposit").value);
+        const rent = Number(document.getElementById("rent").value);
+        const loanRate = Number(document.getElementById("loanRate").value);
+        const interestRate = Number(
+          document.getElementById("interestRate").value
+        );
+
+        if (!deposit || !rent || !loanRate || !interestRate) {
+          document.getElementById(
+            "rentResult"
+          ).innerHTML = `<strong>모든 값을 입력해주세요.</strong>`;
+          return;
+        }
+
+        const loanAmount = deposit * (loanRate / 100);
+        const monthlyInterest = (loanAmount * (interestRate / 100)) / 12;
+        const totalMonthlyCost = rent + monthlyInterest;
+
+        document.getElementById("rentResult").innerHTML = `
+        대출금: ${loanAmount.toFixed(1)} 만원<br/>
+        월이자: ${monthlyInterest.toFixed(1)} 만원<br/>
+        👉 총 월지출: <strong>${totalMonthlyCost.toFixed(1)} 만원</strong>
+      `;
+      }
+
+      function calculatePurchase() {
+        const homePrice = Number(document.getElementById("homePrice").value);
+        const interestRate = Number(
+          document.getElementById("purchaseInterest").value
+        );
+
+        if (!homePrice || !interestRate) {
+          document.getElementById(
+            "purchaseResult"
+          ).innerHTML = `<strong>모든 값을 입력해주세요.</strong>`;
+          return;
+        }
+
+        const yearlyInterest = homePrice * (interestRate / 100);
+        const monthlyInterest = yearlyInterest / 12;
+
+        document.getElementById("purchaseResult").innerHTML = `
+        연이자: ${yearlyInterest.toFixed(1)} 만원<br/>
+        월이자: <strong>${monthlyInterest.toFixed(1)} 만원</strong>
+      `;
+      }
+    </script>
+  </body>
+</html>
