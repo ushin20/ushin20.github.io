@@ -34,7 +34,7 @@
 .frame .content .section h2 {
   font-size: 1.75em;
   text-transform: none;
-  line-height: 2em;
+  margin: 0.5em 0;
   font-weight: 600;
 }
 
@@ -105,62 +105,73 @@
   font-weight: 700;
 }
 
-.section .content-container .paper {
-  display: flex;
-  flex-direction: row;
+.paper-table {
   width: 100%;
-  gap: 1em;
-  margin: 1em 0;
+  border-spacing: 1em 1.5em; /* 간격 */
 }
 
-.section .content-container .paper .paper-img {
-  flex: 1; /* 권장: 너비 명시(예: 200px) */
-  display: flex; /* 내부 img가 100% 높이를 가질 수 있도록 */
-  align-items: center;
+.paper-img {
+  width: 150px;
   text-align: center;
+  vertical-align: middle;
 }
 
-.section .content-container .paper .paper-img img {
-  display: block; /* 베이스라인 여백 제거 */
-  width: 80%;
-  object-fit: contain; /* 비율 유지하며 꽉 채우기 (잘림 허용) */
+.paper-img img {
+  width: 75%;
+  object-fit: contain;
 }
 
-.section .content-container .paper .paper-desc {
-  flex: 3; /* 남은 공간 채우기 */
-  display: flex;
-  flex-direction: column;
+.paper-desc {
+  vertical-align: top;
+  font-size: 0.9em;
 }
 
-/* 커스텀 태그는 블록화(줄바꿈) 권장 */
-.section .content-container .paper .paper-desc papertitle,
-.section .content-container .paper .paper-desc authors,
-.section .content-container .paper .paper-desc venue {
+.paper-desc papertitle,
+.paper-desc authors,
+.paper-desc venue {
   display: block;
   line-height: 1.25;
 }
 
-.section .content-container .paper .paper-desc papertitle {
+.paper-desc papertitle {
   font-weight: bold;
   margin-bottom: 5px;
 }
 
-.section .content-container .paper .paper-desc venue {
+.paper-desc venue {
   font-style: italic;
 }
 
 .frame .content .footnote {
   padding-bottom: 200px;
 }
+
 @media only screen and (max-width: 600px) {
-  .frame .content p {
+  .frame .content .section {
+    flex-direction: column;
+  }
+  .frame .content .section .link-box {
+    margin: 2em 0;
+  }
+  .frame .content .section .img-container {
+    width: 70%;
+    margin: 2em auto;
+  }
+  .frame .content .section .content-container {
     width: 100%;
   }
-  .frame .content .me-container {
-    flex-direction: column-reverse;
-    gap: 1em;
+  .paper-table tr {
+    display: block; /* 행을 블록처럼 */
+    margin-bottom: 2em; /* 행 사이 간격 */
   }
-  .frame .content .me-container .img-container {
-    width: 100%;
+
+  .paper-table td {
+    display: block; /* 셀을 세로 쌓기 */
+    width: 100%; /* 화면 전체 */
+    text-align: center; /* 이미지 가운데 */
+  }
+
+  .paper-table .paper-img img {
+    width: 50%; /* 모바일에서 이미지 조금 줄이기 */
   }
 }
