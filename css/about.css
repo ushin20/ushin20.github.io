@@ -2,38 +2,156 @@
   display: flex;
   flex-direction: column;
 }
-.frame .content .intro {
-  font-size: 1.5em;
-  font-weight: bold;
-}
-.frame .content p {
-  width: 50%;
-  margin: 1em 0;
-  text-align: justify;
-}
-.frame .content .me-container {
+.frame .content .section {
+  max-width: 1024px;
+  font-size: 1em;
+  margin: 1em 0 2em 0;
   display: flex;
   flex-direction: row;
-  margin-top: auto;
-  padding-bottom: 2em;
+  justify-content: space-between;
 }
-.frame .content .me-container .arrow-bottom {
-  width: 100%;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-}
-.frame .content .me-container .img-container {
-  width: 30vw;
-  margin-left: auto;
-  margin-right: 5vw;
-}
-.frame .content .me-container .img-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.frame .content .section b {
+  font-weight: bold;
 }
 
+.frame .content .section .content-container {
+  width: 70%;
+  display: flex; /* 핵심 */
+  flex-direction: column; /* 핵심: 세로 레이아웃 */
+}
+
+.frame .content .section .img-container {
+  width: 25%;
+}
+
+.frame .content .section .img-container img {
+  width: 100%;
+  object-fit: cover; /* 이미지가 꽉 차게 (비율 유지하면서 잘림) */
+  /* object-fit: contain;   // 잘림 없이 맞추고 싶으면 이걸로 */
+  border-radius: 20px;
+}
+
+.frame .content .section h2 {
+  font-size: 1.75em;
+  text-transform: none;
+  line-height: 2em;
+  font-weight: 600;
+}
+
+.frame .content .section a {
+  position: relative;
+  color: #1e5dab;
+  text-decoration: none;
+  font-weight: 400;
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+
+.frame .content .section a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 1.5px;
+  background-color: #1e5dab;
+  transform: scaleX(0);
+  transform-origin: left; /* 기본은 왼쪽 기준 */
+  transition: transform 0.3s ease;
+}
+
+/* hover 들어올 때: 왼쪽→오른쪽 */
+.frame .content .section a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* hover 나갈 때: 오른쪽→왼쪽 */
+.frame .content .section a:not(:hover)::after {
+  transform: scaleX(0);
+  transform-origin: right;
+}
+
+.frame .content .section .link-box {
+  text-align: center;
+  margin: auto 0;
+}
+
+.section .content-container .italic {
+  font-style: italic;
+  font-size: 1.25em;
+}
+
+.section ul {
+  list-style-position: inside; /* 불릿을 안쪽으로 들여쓰기 */
+  padding-left: 0; /* 기본 padding 제거 */
+  margin: 0.5em 0; /* 위아래 여백만 */
+}
+
+.section li {
+  line-height: 1.4em; /* 줄 간격 줄이기 */
+  font-size: 0.95em; /* 글씨 약간 작게 (옵션) */
+}
+
+.section ul li b {
+  font-weight: 100;
+}
+
+.section .content-container prize {
+  color: #daa520;
+  font-weight: 700;
+}
+.section .content-container a.venue {
+  font-weight: 700;
+}
+
+.section .content-container .paper {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 1em;
+  margin: 1em 0;
+}
+
+.section .content-container .paper .paper-img {
+  flex: 1; /* 권장: 너비 명시(예: 200px) */
+  display: flex; /* 내부 img가 100% 높이를 가질 수 있도록 */
+  align-items: center;
+  text-align: center;
+}
+
+.section .content-container .paper .paper-img img {
+  display: block; /* 베이스라인 여백 제거 */
+  width: 80%;
+  object-fit: contain; /* 비율 유지하며 꽉 채우기 (잘림 허용) */
+}
+
+.section .content-container .paper .paper-desc {
+  flex: 3; /* 남은 공간 채우기 */
+  display: flex;
+  flex-direction: column;
+}
+
+/* 커스텀 태그는 블록화(줄바꿈) 권장 */
+.section .content-container .paper .paper-desc papertitle,
+.section .content-container .paper .paper-desc authors,
+.section .content-container .paper .paper-desc venue {
+  display: block;
+  line-height: 1.25;
+}
+
+.section .content-container .paper .paper-desc papertitle {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.section .content-container .paper .paper-desc venue {
+  font-style: italic;
+}
+
+.frame .content .footnote {
+  padding-bottom: 200px;
+}
 @media only screen and (max-width: 600px) {
   .frame .content p {
     width: 100%;
