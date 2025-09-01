@@ -177,15 +177,123 @@ main .frame {
   font-weight: 900;
 }
 
+/* 공통: 토글 버튼 기본 숨김 */
+.topbar .menu-toggle {
+  display: none;
+  background: none;
+  border: 0;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+/* 공통: 네비 래퍼 */
+.topbar .topbar-nav {
+  display: contents; /* 데스크톱에서는 기존 레이아웃 유지 */
+}
+
+/* 모바일 */
 @media only screen and (max-width: 600px) {
+  body {
+    padding: 0 3vw;
+  }
+
+  .frame .content h1 {
+    font-size: 2.5em;
+  }
+  .frame .content .intro {
+    width: 100%;
+  }
+
+  .frame .topbar {
+    position: relative;
+    gap: 0.75rem;
+  }
+
+  /* 햄버거 표시 */
+  .topbar .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* 모바일에서는 패널로 묶어서 숨김 */
+  .topbar .topbar-nav {
+    display: none; /* 기본 숨김 */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin-top: 0.75rem;
+    background: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    border-radius: 0.75rem;
+    padding: 0.9rem 1rem;
+    z-index: 200;
+  }
+
+  /* 열렸을 때 표시 */
+  .topbar.open .topbar-nav {
+    display: block;
+  }
+
+  /* 패널 내부 배치: 세로 스택 */
+  .topbar .topbar-nav .pages-container,
+  .topbar .topbar-nav .sites {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 0.9rem;
+    align-items: center;
+    line-height: 2;
+  }
+
+  /* 페이지 링크는 쉼표 제거 느낌으로 줄바꿈 친화 */
+  .topbar .topbar-nav .pages-container a {
+    display: inline-block;
+  }
+  .topbar .topbar-nav .pages-container a::before {
+    content: "•";
+    margin: 0 0.4rem;
+    color: #999;
+    font-weight: 400;
+  }
+
+  /* 상단바의 기존 링크/아이콘 숨김 규칙 정리 */
   .frame .topbar p {
     display: none;
   }
-  .frame .topbar .email {
+
+  /* 데스크톱 스타일의 밑줄/hover는 유지하되 모바일에서 과한 밑줄은 완화 */
+  .conference-icon {
+    border-bottom: none; /* 밑줄 제거 */
+    padding-bottom: 0; /* 공간도 없애기 */
+  }
+  .conference-icon::after {
+    display: none; /* hover 애니메이션 밑줄 제거 */
+  }
+  .frame .topbar .pages-container a::after,
+  .frame .topbar .email::after {
     display: none;
   }
+  .frame .topbar .email {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  /* 컨퍼런스 드롭다운: 패널 내부에서도 자연스럽게 */
+  .conference-wrapper {
+    position: relative;
+  }
+  .conference-menu {
+    top: calc(100% + 0.4rem);
+    right: auto;
+    left: 0;
+  }
+
+  /* 타이포 크기 약간 줄임 */
   .frame .content h1 {
-    font-size: 2.5em;
+    font-size: 2.2em;
   }
   .frame .content .intro {
     width: 100%;
