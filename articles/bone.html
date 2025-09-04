@@ -13,21 +13,23 @@
           inlineMath: [
             ["$", "$"],
             ["\\(", "\\)"],
-          ], // 인라인 수식 허용
+          ],
           displayMath: [
             ["$$", "$$"],
             ["\\[", "\\]"],
-          ], // 블록 수식 허용
-          processEnvironments: true, // AMS 수식 환경 처리
-          packages: ["base", "ams"], // AMS 패키지 로드
+          ],
+          processEnvironments: true,
+          packages: ["base", "ams"],
+        },
+        svg: {
+          fontCache: "global", // 성능/일관성 좋음 ("local"/"none"도 가능)
+          mtextInheritFont: false, // 수식 텍스트를 시스템 폰트가 아닌 TeX 폰트로
+          scale: 1, // 필요시 0.95~1.1로 조절
         },
       };
     </script>
-    <script
-      id="MathJax-script"
-      async
-      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
-    ></script>
+
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
   </head>
 
   <body>
@@ -47,89 +49,83 @@
         const urlParams = new URLSearchParams(window.location.search);
         const mdFile = urlParams.get("md");
 
+        const renderTables = () => {
+          document.querySelectorAll("#content table").forEach((table) => {
+            const wrapper = document.createElement("div");
+            wrapper.classList.add("table-container");
+            table.parentNode.insertBefore(wrapper, table);
+            wrapper.appendChild(table);
+          });
+        };
+
+        const typesetContent = async () => {
+          // MathJax가 로드/초기화될 때까지 대기
+          if (window.MathJax?.startup?.promise) {
+            await window.MathJax.startup.promise;
+          }
+          if (window.MathJax?.typesetPromise) {
+            // #content 영역만 타입셋
+            await window.MathJax.typesetPromise([document.getElementById("content")]);
+          } else {
+            console.warn("MathJax is not ready yet.");
+          }
+        };
+
         if (mdFile) {
           fetch(`/articles/mds/${mdFile}`)
-            .then((response) => {
-              if (!response.ok) {
-                throw new Error(
-                  `Cannot fetch file: ${mdFile}. Status: ${response.status}`
-                );
-              }
-              return response.text(); // 파일 내용을 텍스트로 변환
+            .then((res) => {
+              if (!res.ok) throw new Error(`Cannot fetch file: ${mdFile}. Status: ${res.status}`);
+              return res.text();
             })
-            .then((data) => {
-              var parts = data.split(/---[\r\n]+/);
+            .then(async (data) => {
+              let markdownContent = data;
+              const parts = data.split(/---[\r\n]+/);
               if (parts.length >= 3) {
-                var metaContent = parts[1].trim();
-                var markdownContent = parts.slice(2).join("---").trim();
-                var metaLines = metaContent.split("\n");
+                const metaContent = parts[1].trim();
+                markdownContent = parts.slice(2).join("---").trim();
 
-                var metaHtml = "";
-                metaLines.forEach(function (line) {
-                  var key = line.split(":")[0].trim();
-                  var value = line
+                // 메타 렌더링
+                const metaLines = metaContent.split("\n");
+                let metaHtml = "";
+                metaLines.forEach((line) => {
+                  const key = line.split(":")[0].trim().toLowerCase();
+                  const value = line
                     .substring(line.indexOf(":") + 1)
                     .trim()
                     .replace(/^"|"$/g, "");
-
-                  if (key.toLowerCase() === "title") {
-                    metaHtml += `<h1>${value}</h1>`;
-                  } else if (key.toLowerCase() === "author") {
-                    metaHtml += `<p>${value}</p>`;
-                  } else if (key.toLowerCase() === "published") {
-                    metaHtml += `<p>${key} in ${value}</p>`;
-                  } else if (key.toLowerCase() === "date") {
-                    metaHtml += `<p><i class="fa-solid fa-calendar-days"></i> ${value}</p>`;
-                  } ///else {
-                  ///  metaHtml += `<p class="tag">${value}</p>`;
-                  ///}
+                  if (key === "title") metaHtml += `<h1>${value}</h1>`;
+                  else if (key === "author") metaHtml += `<p>${value}</p>`;
+                  else if (key === "published") metaHtml += `<p>${key} in ${value}</p>`;
+                  else if (key === "date") metaHtml += `<p><i class="fa-solid fa-calendar-days"></i> ${value}</p>`;
                 });
-
                 document.getElementById("post-info").innerHTML = metaHtml;
-                document.getElementById("content").innerHTML =
-                  marked.parse(markdownContent) +
-                  `
-                  <div class="post-footer">
-                    <div style="text-align: center; margin-top: 10px;">
-                      <a href="javascript:history.back()" class="back-button">뒤로가기</a>
-                    </div>
-                  </div>
-                `;
-                document.querySelectorAll("#content table").forEach((table) => {
-                  const wrapper = document.createElement("div");
-                  wrapper.classList.add("table-container");
-                  table.parentNode.insertBefore(wrapper, table);
-                  wrapper.appendChild(table);
-                });
-
-                MathJax.typesetPromise();
-              } else {
-                document.getElementById("content").innerHTML =
-                  marked.parse(data);
-
-                document.querySelectorAll("#content table").forEach((table) => {
-                  const wrapper = document.createElement("div");
-                  wrapper.classList.add("table-container");
-                  table.parentNode.insertBefore(wrapper, table);
-                  wrapper.appendChild(table);
-                });
-
-                MathJax.typesetPromise();
               }
+
+              // 본문 마크다운 → HTML
+              document.getElementById("content").innerHTML =
+                marked.parse(markdownContent) +
+                `
+              <div class="post-footer">
+                <div style="text-align: center; margin-top: 10px;">
+                  <a href="javascript:history.back()" class="back-button">뒤로가기</a>
+                </div>
+              </div>
+            `;
+
+              renderTables();
+              await typesetContent();
             })
-            .catch((error) => {
-              console.error("Error loading markdown:", error);
+            .catch((err) => {
+              console.error("Error loading markdown:", err);
               document.getElementById("content").innerHTML = `
-                          <div id='Error404'>
-                              <p>404: The requested page was not found.</p>
-                              <a href='javascript:history.back()'>뒤로가기</a>
-                          </div>
-                      `;
+            <div id='Error404'>
+              <p>404: The requested page was not found.</p>
+              <a href='javascript:history.back()'>뒤로가기</a>
+            </div>`;
             });
         } else {
           console.error("No md file specified in the URL.");
-          document.getElementById("content").innerText =
-            "No project selected. Please provide an md file in the URL parameters.";
+          document.getElementById("content").innerText = "No project selected. Please provide an md file in the URL parameters.";
         }
       });
     </script>

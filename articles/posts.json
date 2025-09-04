@@ -1,5 +1,13 @@
 [
   {
+    "title": "SensitiveHUE: Multivariate Time Series Anomaly Detection by Enhancing the Sensitivity to Normal Patterns",
+    "author": "Feng, Yuye and Zhang, Wei and Fu, Yao and Jiang, Weihao and Zhu, Jiang and Ren, Wenqi.",
+    "published": "KDD '24: Proceedings of the 30th ACM SIGKDD Conference on Knowledge Discovery and Data Mining",
+    "date": "2025-09-04",
+    "category": "anomaly detection",
+    "filename": "2025-09-04.md"
+  },
+  {
     "title": "Fully-Connected Spatial-Temporal Graph for Multivariate Time-Series Data",
     "author": "Yucheng Wang, Yuecong Xu, Jianfei Yang, Min Wu, Xiaoli Li, Lihua Xie, Zhenghua Chen",
     "published": "The Thirty-Eighth AAAI Conference on Artificial Intelligence",

@@ -90,10 +90,14 @@
   overflow-y: hidden;
 }
 
-mjx-container {
-  font-size: 1em !important; /* 원하는 크기로 조정 */
+mjx-container,
+mjx-container * {
+  font-size: 0.95em;
+  letter-spacing: 0 !important;
+  line-height: normal !important;
+  text-transform: none !important;
+  /* font-family 강제는 필요 없음 (SVG는 경로로 그림) */
 }
-
 /* 링크 스타일 */
 #content a {
   display: inline-block;
@@ -199,10 +203,7 @@ mjx-container {
 }
 #content .img-container {
   display: grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(200px, 1fr)
-  ); /* 자동으로 여러 열 생성 */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 자동으로 여러 열 생성 */
   gap: 10px; /* 이미지 간의 여백 */
   overflow-x: auto; /* X축 스크롤 활성화 */
   white-space: nowrap; /* 자식 요소들이 줄바꿈 없이 한 줄로 배치되게 함 */
@@ -256,6 +257,9 @@ mjx-container {
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
+strong {
+  font-weight: bold;
+}
 /* 작은 화면 대응 (반응형 디자인) */
 @media (max-width: 768px) {
   #content {
