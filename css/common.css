@@ -186,6 +186,7 @@ main .frame {
   line-height: 1;
   cursor: pointer;
   padding: 0.25rem;
+  color: inherit;
 }
 
 /* 공통: 네비 래퍼 */
