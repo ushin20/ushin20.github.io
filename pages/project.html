@@ -1,105 +1,44 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>ushin20 - project</title>
+    <title>Projects | Yooshin Kim</title>
     <link rel="stylesheet" href="/css/common.css" />
     <link rel="stylesheet" href="/css/project.css" />
     <script src="/js/meta.js" defer></script>
+    <script src="/js/projects.js" defer></script>
   </head>
 
   <body>
     <main>
       <div class="frame">
         <div class="content">
-          <h1>Selected works<br />since 2022</h1>
+          <section class="page-header">
+            <p class="eyebrow">Projects</p>
+            <h1>Research work and personal builds</h1>
+            <p class="lead">
+              Research projects show my industrial AI security direction. Personal projects show the tools, interfaces,
+              and small systems I build when I want to move quickly from idea to usable artifact.
+            </p>
+          </section>
 
-          <div class="project-container">
-            <!-- Project list -->
-            <div class="project" data-md="openreview">
-              <div class="info">
-                <div class="title">Openreview Renderer</div>
-                <div class="date">Oct 2025</div>
-              </div>
-              <img src="/assets/me.jpg" alt="project" />
+          <section class="section-block">
+            <div class="section-heading">
+              <p>Track 01</p>
+              <h2>Research projects</h2>
             </div>
+            <div class="project-grid" id="research-projects"></div>
+          </section>
 
-            <div class="project" data-md="homeloarn">
-              <div class="info">
-                <div class="title">Rent, sale calculator</div>
-                <div class="date">Apr 2025</div>
-              </div>
-              <img src="/assets/me.jpg" alt="project" />
+          <section class="section-block">
+            <div class="section-heading">
+              <p>Track 02</p>
+              <h2>Personal projects</h2>
             </div>
-
-            <div class="project" data-md="utube-to-mp3">
-              <div class="info">
-                <div class="title">Youtube to MP3</div>
-                <div class="date">Mar 2025</div>
-              </div>
-              <img src="/assets/me.jpg" alt="project" />
-            </div>
-
-            <div class="project" data-md="linebreakRemover">
-              <div class="info">
-                <div class="title">LinebreakRemover</div>
-                <div class="date">Feb 2025</div>
-              </div>
-              <img src="/assets/me.jpg" alt="project" />
-            </div>
-
-            <div class="project" data-md="md-to-pdf">
-              <div class="info">
-                <div class="title">Markdown to PDF converter</div>
-                <div class="date">Jan 2025</div>
-              </div>
-              <img src="/assets/me.jpg" alt="project" />
-            </div>
-
-            <div class="project" data-md="ics-cyber-training">
-              <div class="info">
-                <div class="title">ICS cyber training env.</div>
-                <div class="date">Mar 2022 – Dec 2024</div>
-              </div>
-              <img src="/assets/me.jpg" alt="project" />
-            </div>
-
-            <div class="project" data-md="ctal-web-design">
-              <div class="info">
-                <div class="title">CTAL webpage design</div>
-                <div class="date">Feb 2023</div>
-              </div>
-              <img src="/projects/mds/images/ctal-dgist-github-io-00.png" alt="project" />
-            </div>
-
-            <div class="project" data-md="ics-network-visualization">
-              <div class="info">
-                <div class="title">ICS network visualization</div>
-                <div class="date">Mar 2022 – Dec 2022</div>
-              </div>
-              <img src="/assets/me.jpg" alt="project" />
-            </div>
-
-            <div class="project" data-md="tistory-skin">
-              <div class="info">
-                <div class="title">Tistory skin - uTube</div>
-                <div class="date">Jun 2022</div>
-              </div>
-              <img src="/projects/mds/images/tistory-skin-00.png" alt="project" />
-            </div>
-          </div>
+            <div class="project-grid" id="personal-projects"></div>
+          </section>
         </div>
       </div>
     </main>
-
-    <script>
-      // 모든 프로젝트 div에 이벤트 리스너를 추가
-      document.querySelectorAll(".project").forEach(function (project) {
-        project.addEventListener("click", function () {
-          const mdFile = this.getAttribute("data-md"); // data-md 속성에서 파일명 가져옴
-          window.location.href = `/projects/project_bone.html?md=${mdFile}.md`;
-        });
-      });
-    </script>
   </body>
 </html>

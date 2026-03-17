@@ -1,31 +1,105 @@
-.frame .sns {
-  padding-bottom: 2em;
-  text-align: right;
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(280px, 0.8fr);
+  gap: 1.5rem;
+  align-items: stretch;
 }
 
-.cat,
-.cat1 {
-  position: fixed;
-  bottom: 20px;
-  right: -100px;
-  width: 100px;
-  height: 100px;
-  background-image: url("/assets/modified_cat.gif");
-  background-size: cover;
-  animation: run 4s linear infinite;
+.hero-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+  padding-right: 1rem;
 }
-.cat1 {
-  bottom: 90px;
-  animation: run 3.5s linear infinite;
+
+.hero-panel {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+  justify-content: flex-end;
+  background:
+    linear-gradient(180deg, rgba(15, 95, 107, 0.08), transparent 60%),
+    var(--surface);
 }
-@keyframes run {
-  0% {
-    right: -100px;
+
+.panel-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.panel-stat:first-of-type {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.panel-stat strong {
+  color: var(--text);
+  font-size: 1.06rem;
+  line-height: 1.5;
+}
+
+.direction-grid,
+.evidence-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.direction-card,
+.evidence-card {
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.signal-list {
+  display: grid;
+  gap: 0.95rem;
+}
+
+.signal-item {
+  padding: 1.3rem 1.4rem;
+  display: grid;
+  grid-template-columns: 112px 1fr;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.signal-item h3 {
+  margin-bottom: 0.45rem;
+}
+
+.signal-date {
+  color: var(--accent);
+}
+
+@media (max-width: 980px) {
+  .hero {
+    grid-template-columns: 1fr;
   }
-  50% {
-    right: 50%;
+
+  .hero-copy {
+    padding-right: 0;
   }
-  100% {
-    right: 100%;
+
+  .direction-grid,
+  .evidence-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+  .direction-grid,
+  .evidence-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .signal-item {
+    grid-template-columns: 1fr;
   }
 }

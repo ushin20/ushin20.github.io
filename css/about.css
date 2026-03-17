@@ -1,177 +1,126 @@
-.frame .content {
+.profile-grid {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.7fr);
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.profile-copy,
+.profile-photo,
+.focus-card,
+.education-card {
+  padding: 1.5rem;
+}
+
+.profile-copy {
   display: flex;
   flex-direction: column;
-}
-.frame .content .section {
-  max-width: 1024px;
-  font-size: 1em;
-  margin: 1em 0 2em 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-.frame .content .section b {
-  font-weight: bold;
+  gap: 1rem;
 }
 
-.frame .content .section .content-container {
-  width: 70%;
-  display: flex; /* 핵심 */
-  flex-direction: column; /* 핵심: 세로 레이아웃 */
+.profile-photo {
+  overflow: hidden;
+  min-height: 100%;
 }
 
-.frame .content .section .img-container {
-  width: 25%;
-}
-
-.frame .content .section .img-container img {
+.profile-photo img {
   width: 100%;
-  object-fit: cover; /* 이미지가 꽉 차게 (비율 유지하면서 잘림) */
-  /* object-fit: contain;   // 잘림 없이 맞추고 싶으면 이걸로 */
-  border-radius: 20px;
+  height: 100%;
+  object-fit: cover;
+  border-radius: calc(var(--radius-lg) - 4px);
 }
 
-.frame .content .section h2 {
-  font-size: 1.75em;
-  text-transform: none;
-  margin: 0.5em 0;
+.focus-grid,
+.education-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.focus-card,
+.education-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.summary-grid > article,
+.section-block > .surface-card {
+  padding: 1.5rem;
+}
+
+.timeline-list,
+.award-list {
+  list-style: none;
+  display: grid;
+  gap: 1rem;
+}
+
+.timeline-list li {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  gap: 0.85rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--line);
+}
+
+.timeline-list li:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.timeline-list span {
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.publication-snapshot {
+  display: grid;
+  gap: 1rem;
+}
+
+.publication-snapshot > div {
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--line);
+}
+
+.publication-snapshot > div:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.education-card span {
+  color: var(--accent);
   font-weight: 600;
 }
 
-.frame .content .section a {
-  position: relative;
-  color: #1e5dab;
-  text-decoration: none;
-  font-weight: 400;
-  transition: color 0.2s ease;
-  cursor: pointer;
-}
-
-.frame .content .section a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -3px;
-  width: 100%;
-  height: 1.5px;
-  background-color: #1e5dab;
-  transform: scaleX(0);
-  transform-origin: left; /* 기본은 왼쪽 기준 */
-  transition: transform 0.3s ease;
-}
-
-/* hover 들어올 때: 왼쪽→오른쪽 */
-.frame .content .section a:hover::after {
-  transform: scaleX(1);
-  transform-origin: left;
-}
-
-/* hover 나갈 때: 오른쪽→왼쪽 */
-.frame .content .section a:not(:hover)::after {
-  transform: scaleX(0);
-  transform-origin: right;
-}
-
-.frame .content .section .link-box {
-  text-align: center;
-  margin: auto 0;
-}
-
-.section .content-container .italic {
-  font-style: italic;
-  font-size: 1.25em;
-}
-
-.section ul {
-  list-style-position: inside; /* 불릿을 안쪽으로 들여쓰기 */
-  padding-left: 0; /* 기본 padding 제거 */
-  margin: 0.5em 0; /* 위아래 여백만 */
-}
-
-.section li {
-  line-height: 1.4em; /* 줄 간격 줄이기 */
-  font-size: 0.95em; /* 글씨 약간 작게 (옵션) */
-}
-
-.section ul li b {
-  font-weight: 100;
-}
-
-.section .content-container prize {
-  color: #daa520;
-  font-weight: 700;
-}
-.section .content-container a.venue {
-  font-weight: 700;
-}
-
-.paper-table {
-  width: 100%;
-  border-spacing: 1em 1.5em; /* 간격 */
-}
-
-.paper-img {
-  width: 150px;
-  text-align: center;
-  vertical-align: middle;
-}
-
-.paper-img img {
-  width: 75%;
-  object-fit: contain;
-}
-
-.paper-desc {
-  vertical-align: top;
-  font-size: 0.9em;
-}
-
-.paper-desc papertitle,
-.paper-desc authors,
-.paper-desc venue {
-  display: block;
-  line-height: 1.25;
-}
-
-.paper-desc papertitle {
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.paper-desc venue {
-  font-style: italic;
-}
-
-.frame .content .footnote {
-  padding-bottom: 200px;
-}
-
-@media only screen and (max-width: 600px) {
-  .frame .content .section {
-    flex-direction: column;
-  }
-  .frame .content .section .link-box {
-    margin: 2em 0;
-  }
-  .frame .content .section .img-container {
-    width: 70%;
-    margin: 2em auto;
-  }
-  .frame .content .section .content-container {
-    width: 100%;
-  }
-  .paper-table tr {
-    display: block; /* 행을 블록처럼 */
-    margin-bottom: 2em; /* 행 사이 간격 */
+@media (max-width: 980px) {
+  .profile-grid,
+  .summary-grid {
+    grid-template-columns: 1fr;
   }
 
-  .paper-table td {
-    display: block; /* 셀을 세로 쌓기 */
-    width: 100%; /* 화면 전체 */
-    text-align: center; /* 이미지 가운데 */
+  .focus-grid,
+  .education-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+  .focus-grid,
+  .education-grid {
+    grid-template-columns: 1fr;
   }
 
-  .paper-table .paper-img img {
-    width: 50%; /* 모바일에서 이미지 조금 줄이기 */
+  .timeline-list li {
+    grid-template-columns: 1fr;
   }
 }

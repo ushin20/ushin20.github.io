@@ -1,291 +1,127 @@
+.post-shell {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.post-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
 #post-info {
-  border: 2px solid #333;
-  padding: 20px;
-  transform: scale(1);
-  border-radius: 12px; /* 둥근 모서리 적용 */
-  margin-top: 5%;
-  margin-bottom: 1em;
-  background-color: rgb(50, 51, 53);
-  color: white;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  background:
+    linear-gradient(180deg, rgba(15, 95, 107, 0.08), transparent 60%),
+    var(--surface);
 }
+
 #post-info h1 {
-  font-family: "Times New Roman", serif;
-  font-weight: bold;
-  font-size: 3em;
-  line-height: 1em;
-  margin-bottom: 10px;
+  font-size: clamp(2.3rem, 5vw, 3.6rem);
 }
-#post-info p {
-  color: #ffffffa4;
-  line-height: 1.5;
-  font-family: "Times New Roman", serif;
-}
-#post-info p.tag {
-  text-transform: capitalize;
+
+.post-author,
+.post-date,
+.post-published {
+  color: var(--muted);
 }
 
 #content {
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 10vh;
-  width: 100%;
-  max-width: 1024px;
-  margin: 0 auto;
+  width: min(860px, 100%);
+  padding-bottom: 5rem;
 }
 
-/* 제목 스타일 */
 #content h1,
 #content h2,
 #content h3 {
-  color: #333;
-  font-weight: bold;
-  font-family: "SuisseIntlBold", sans-serif;
-  line-height: 1.5em;
-  letter-spacing: -0.5px;
-  margin-top: 1em;
+  margin-bottom: 0.85rem;
 }
 
 #content h1 {
-  font-size: 2em;
-  text-transform: capitalize;
-  display: flex;
-  align-items: center;
-}
-#content h1::before {
-  content: "\f02e"; /* FontAwesome 아이콘 코드 */
-  font-family: "Font Awesome 6 Free"; /* FontAwesome 폰트 적용 */
-  font-weight: 900; /* FontAwesome 아이콘은 보통 900 사용 */
-  margin-right: 8px; /* 아이콘과 텍스트 간격 조정 */
-  font-size: 0.77em;
-  color: #444;
+  margin-top: 0.2rem;
+  font-size: clamp(2rem, 4vw, 3.1rem);
 }
 
 #content h2 {
-  color: #444;
-  font-size: 1.5em;
-  display: flex;
-  align-items: center;
-}
-#content h2::before {
-  content: "\f0c8";
-  font-family: "Font Awesome 6 Free"; /* FontAwesome 폰트 적용 */
-  margin-right: 5px; /* 아이콘과 텍스트 간격 조정 */
-  font-size: 0.7em;
-  color: #444;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  font-size: clamp(1.45rem, 3vw, 2rem);
 }
 
 #content h3 {
-  color: #555;
-  font-size: 1.25em;
+  margin-top: 1.4rem;
+  font-size: 1.2rem;
 }
 
-/* 본문 텍스트 */
-#content p {
-  color: #444;
-  line-height: 1.5em;
-  margin-bottom: 10px;
-  word-wrap: break-word; /* 긴 단어(수식 포함) 줄바꿈 */
-  overflow-x: auto; /* 넘칠 경우 가로 스크롤 */
-  white-space: normal; /* 기본적으로 줄바꿈 허용 */
-  overflow-y: hidden;
+#content p,
+#content li {
+  margin-bottom: 0.95rem;
 }
 
-mjx-container,
-mjx-container * {
-  font-size: 0.95em;
-  letter-spacing: 0 !important;
-  line-height: normal !important;
-  text-transform: none !important;
-  /* font-family 강제는 필요 없음 (SVG는 경로로 그림) */
-}
-/* 링크 스타일 */
-#content a {
-  display: inline-block;
-  margin-top: 5px;
-  padding: 5px 10px;
-  border: 2px solid rgb(30, 31, 33);
-  color: black;
-  font-size: 0.9em;
-  text-align: center;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
-
-#content a:hover {
-  color: #eee;
-  background-color: rgb(30, 31, 33);
-}
-
-/* 목록 스타일 */
 #content ul,
 #content ol {
-  padding-left: 20px;
+  padding-left: 1.35rem;
 }
 
-#content ul li,
-#content ol li {
-  margin-bottom: 10px;
-  color: #333;
+#content a {
+  color: var(--accent);
 }
 
-/* 코드 블록 */
 #content pre {
-  background-color: #f4f4f4;
-  padding: 10px;
-  border-left: 3px solid #007bff;
   overflow-x: auto;
+  margin: 1rem 0;
+  border-radius: var(--radius-md);
 }
 
-/* 테이블 스타일 */
-#content .table-container {
+#content code {
+  font-size: 0.9rem;
+}
+
+#content blockquote {
+  margin: 1rem 0;
+  padding: 1rem 1.1rem;
+  border-left: 4px solid var(--accent);
+  background: rgba(15, 95, 107, 0.07);
+  border-radius: 0 1rem 1rem 0;
+}
+
+#content img {
+  margin: 1.25rem auto;
+  border-radius: 1rem;
+}
+
+.table-container {
   width: 100%;
-  overflow-x: auto; /* 가로 스크롤 활성화 */
-  -webkit-overflow-scrolling: touch; /* 부드러운 스크롤 */
+  overflow-x: auto;
+  margin: 1rem 0;
 }
 
 #content table {
-  min-width: 600px;
+  min-width: 640px;
   border-collapse: collapse;
-  margin: 20px auto;
-  font-size: 16px;
-  text-align: left;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 #content th,
 #content td {
-  padding: 12px 15px;
-  border-bottom: 1px solid #ddd;
+  padding: 0.85rem 0.95rem;
+  border: 1px solid var(--line);
+  text-align: left;
 }
 
 #content th {
-  background-color: rgb(50, 51, 53);
-  color: white;
-  font-weight: bold;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.82);
 }
 
-#content tr:nth-child(even) {
-  background-color: #f8f8f8;
-}
-
-#content tr:hover {
-  background-color: #f1f1f1;
-  transition: background-color 0.3s;
-}
-
-#content td {
-  color: #444;
-}
-
-/* 최고 성능 강조 (굵게) */
-#content td strong {
-  font-weight: bold;
-}
-
-/* 인용구 스타일 */
-#content blockquote {
-  margin: 20px 0;
-  padding: 10px 20px;
-  background-color: #f9f9f9;
-  border-left: 5px solid #007bff;
-  color: #555;
-}
-
-/* 이미지 스타일 */
-#content img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 20px auto;
-}
-#content .img-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 자동으로 여러 열 생성 */
-  gap: 10px; /* 이미지 간의 여백 */
-  overflow-x: auto; /* X축 스크롤 활성화 */
-  white-space: nowrap; /* 자식 요소들이 줄바꿈 없이 한 줄로 배치되게 함 */
-  padding: 10px;
-}
-#content .img-container img {
-  max-width: 100%;
-  height: auto;
-  margin: 0;
-  object-fit: cover;
-}
-
-#content code {
-  font-size: 0.8em;
-  color: white;
-  background-color: rgb(90, 91, 93);
-  padding: 5px;
-  border-radius: 5px;
-}
-
-#content #Error404 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 90vw;
-  position: absolute;
-  left: 50vw;
-  top: 50vh;
-  transform: translate(-50%, -50%);
-}
-
-.post-footer {
-  min-height: 5vh;
-  margin-top: 5vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-top: 1px solid #999;
-}
-.back-button {
-  display: inline-block;
-  padding: 6px 16px;
-  background-color: #1a1a1a; /* 딥 그레이/블랙 배경 */
-  color: #f0f0f0 !important; /* 밝은 회색 글씨 */
-  border: 1px solid #333; /* 미묘한 테두리 */
-  border-radius: 4px;
-  text-decoration: none;
-  font-weight: 500;
-  font-family: "Segoe UI", sans-serif;
-  transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-strong {
-  font-weight: bold;
-}
-/* 작은 화면 대응 (반응형 디자인) */
-@media (max-width: 768px) {
-  #content {
-    padding: 5px;
-    padding-bottom: 10vh;
-    margin: 20px auto;
-  }
-
-  #content h1 {
-    font-size: 2em;
-  }
-
-  #content h2 {
-    font-size: 1.75em;
-  }
-
-  #content h3 {
-    font-size: 1.5em;
-  }
-
-  #content .table-container {
-    width: 100%;
-    overflow-x: auto;
-    white-space: nowrap; /* 테이블 내 줄바꿈 방지 */
-  }
-  #content table {
-    min-width: 700px; /* 모바일에서 넘치도록 설정 (스크롤 유도) */
+@media (max-width: 720px) {
+  .post-topbar {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }

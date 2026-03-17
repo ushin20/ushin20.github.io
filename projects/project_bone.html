@@ -1,64 +1,57 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>ushin20 - project</title>
+    <title>Project | Yooshin Kim</title>
     <link rel="stylesheet" href="/css/common.css" />
     <link rel="stylesheet" href="/projects/project_bone.css" />
     <script src="/js/meta.js" defer></script>
-
-    <!-- head 태그 안에 추가 -->
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-dark.min.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css"
+    />
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   </head>
 
   <body>
     <main>
       <div class="frame">
-        <div id="content"></div>
+        <div class="content project-shell">
+          <div class="project-topbar">
+            <p class="eyebrow">Project detail</p>
+            <a class="button tertiary" href="/pages/project.html">Back to projects</a>
+          </div>
+          <article id="content"></article>
+        </div>
       </div>
     </main>
+
     <script>
-      // URL 파라미터에서 md 파일 이름을 가져옴
-      const urlParams = new URLSearchParams(window.location.search);
-      const mdFile = urlParams.get("md");
+      document.addEventListener("DOMContentLoaded", async () => {
+        const params = new URLSearchParams(window.location.search);
+        const mdFile = params.get("md");
+        const content = document.getElementById("content");
 
-      if (mdFile) {
-        fetch(`/projects/mds/${mdFile}`)
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error(
-                `Cannot fetch file: ${mdFile}. Status: ${response.status}`
-              );
-            }
-            return response.text();
-          })
-          .then((text) => {
-            document.getElementById("content").innerHTML = marked.parse(text); // Markdown을 HTML로 변환
+        if (!mdFile) {
+          content.innerHTML = `<div class="surface-card detail-empty"><h1>No project selected</h1><p>Please return to the project page and choose an item.</p></div>`;
+          return;
+        }
 
-            document.querySelectorAll("pre code").forEach((block) => {
-              hljs.highlightElement(block);
-            });
-          })
-          .catch((error) => {
-            console.error("Error loading markdown:", error);
-            // 에러 발생 시 404 메시지와 뒤로가기 링크를 추가
-            document.getElementById("content").innerHTML = `
-              <div id='Error404'>
-                <p>404: The requested page was not found.</p>
-                <a href="javascript:history.back()">뒤로가기</a>
-              </div>
-            `;
-          });
-      } else {
-        console.error("No md file specified in the URL.");
-        document.getElementById("content").innerText =
-          "No project selected. Please provide an md file in the URL parameters.";
-      }
+        try {
+          const response = await fetch(`/projects/mds/${mdFile}`);
+          if (!response.ok) {
+            throw new Error(`Cannot fetch ${mdFile}`);
+          }
+
+          const text = await response.text();
+          content.innerHTML = `<div class="surface-card markdown-shell">${marked.parse(text)}</div>`;
+          document.querySelectorAll("#content pre code").forEach((block) => hljs.highlightElement(block));
+        } catch (error) {
+          console.error("Error loading markdown:", error);
+          content.innerHTML = `<div class="surface-card detail-empty"><h1>Project unavailable</h1><p>The requested project page could not be loaded.</p></div>`;
+        }
+      });
     </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   </body>
 </html>

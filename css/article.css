@@ -1,92 +1,78 @@
-/* 전체 아카이브 컨테이너: 수직 배치 */
-.archive-container {
-    display: flex;
-    flex-direction: column;
-    padding-top: 10px;
-}
-/* UL 초기화 */
-.recent-post ul,
-.posts ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+.article-overview {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
 }
 
-/* 일반 포스트 기본 스타일 (수직 100% 폭, 작은 카드) */
-.recent-post-item,
-.post-item {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    background: #fff;
-    padding: 15px;
-    margin: 10px 0;
-    width: 100%;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, background-color 0.3s, color 0.3s;
-    transform: scale(1);
-    border-radius: 5px;
-}
-.recent-post-item:hover,
-.post-item:hover {
-    background-color: rgb(50, 51, 53) !important;
-    color: white !important;
+.overview-card {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
 }
 
-.recent-post-item:hover p,
-.post-item:hover p {
-    color: #ffffffa4 !important;
+.article-layout {
+  margin-top: 4rem;
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.2fr);
+  gap: 1.25rem;
 }
 
-.post-item h2,
-.recent-post-item h2 {
-    font-size: 1.2em;
-    margin: 0 0 5px;
+.featured-pane,
+.archive-pane {
+  min-width: 0;
 }
 
-.recent-post-item p,
-.post-item p {
-    font-size: 0.9em;
-    color: #666;
-    margin: 0;
-}
-.recent-post-item .tag-container,
-.post-item .tag-container {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    font-size: 0.9em;
-    color: #666;
-    margin-top: 5px;
+.article-list {
+  display: grid;
+  gap: 1rem;
 }
 
-.recent-post-item .tag-container .date,
-.post-item .tag-container .date,
-.recent-post-item .tag-container .tag,
-.post-item .tag-container .tag {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    padding: 2.5px 0px;
+.article-card {
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
-.recent-post-item .tag-container .date i,
-.post-item .tag-container .date i {
-    font-size: 0.8em;
+.article-card.featured {
+  min-height: 100%;
+  background:
+    linear-gradient(180deg, rgba(15, 95, 107, 0.08), transparent 60%),
+    var(--surface);
 }
-.recent-post-item .tag-container .tag,
-.post-item .tag-container .tag {
-    display: inline-block;
-    background-color: #f4f4f4;  /* 밝은 회색 */
-    color: #333;
-    font-size: 0.75em;
-    padding: 4px 10px;
-    margin: 2px;
-    border-radius: 15px;
-    font-weight: 600;
-    text-transform: capitalize;
+
+.article-card h3 a {
+  text-decoration: none;
 }
-/* 링크 기본 스타일 초기화 */
-a {
-    text-decoration: none;
-    color: inherit;
+
+.article-card h3 a:hover {
+  color: var(--accent);
+}
+
+.article-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.article-tag {
+  padding: 0.42rem 0.78rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid var(--line);
+  color: var(--text);
+  font-size: 0.84rem;
+}
+
+.article-empty {
+  padding: 1.5rem;
+}
+
+@media (max-width: 980px) {
+  .article-layout,
+  .article-overview {
+    grid-template-columns: 1fr;
+  }
 }

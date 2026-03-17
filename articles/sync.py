@@ -1,56 +1,64 @@
 import json
-import re
-import os
 from datetime import datetime
+from pathlib import Path
 
-POSTS_DIR = "./mds"
-OUTPUT_JSON = "./posts.json"
 
-def extract_metadata(md_file):
-    with open(md_file, "r", encoding="utf-8") as f:
-        content = f.read()
-    
-    # --- 구분자로 나누기
-    parts = re.split(r"---[\r\n]+", content)
+BASE_DIR = Path(__file__).resolve().parent
+POSTS_DIR = BASE_DIR / "mds"
+OUTPUT_JSON = BASE_DIR / "posts.json"
+
+
+def extract_metadata(md_path: Path):
+    raw_text = md_path.read_text(encoding="utf-8")
+    if not raw_text.startswith("---"):
+        return None
+
+    parts = raw_text.split("---", 2)
     if len(parts) < 3:
-        return None  # 메타데이터가 없으면 무시
-    
+        return None
+
     meta_block = parts[1].strip()
-    meta_lines = meta_block.split("\n")
     metadata = {}
 
-    for line in meta_lines:
-        match = re.match(r"(.*?):\s*\"?(.*?)\"?$", line)
-        if match:
-            key, value = match.groups()
-            metadata[key.lower()] = value.strip()
+    for line in meta_block.splitlines():
+        separator = line.find(":")
+        if separator == -1:
+            continue
+
+        key = line[:separator].strip().lower()
+        value = line[separator + 1 :].strip().strip('"')
+        metadata[key] = value
+
+    if not metadata.get("title"):
+        return None
+
+    metadata["filename"] = md_path.name
     return metadata
 
-# 날짜 기준 내림차순 정렬
-def parse_date(date_str):
+
+def parse_date(date_value: str):
     try:
-        return datetime.strptime(date_str, "%Y-%m-%d")
+        return datetime.strptime(date_value, "%Y-%m-%d")
     except ValueError:
-        return datetime.min  # 날짜가 잘못되었으면 가장 오래된 것으로 처리
+        return datetime.min
+
 
 def update_posts_json():
     posts = []
 
-    for filename in os.listdir(POSTS_DIR):
-        if filename.endswith(".md"):
-            md_file_path = os.path.join(POSTS_DIR, filename)
-            metadata = extract_metadata(md_file_path)
-            if metadata:
-                # 모든 메타데이터를 포함
-                metadata["filename"] = filename  # 파일명도 추가
-                posts.append(metadata)
+    for md_path in POSTS_DIR.glob("*.md"):
+        metadata = extract_metadata(md_path)
+        if metadata:
+            posts.append(metadata)
 
-    posts.sort(key=lambda x: parse_date(x.get("date", "0000-00-00")), reverse=True)
+    posts.sort(key=lambda item: parse_date(item.get("date", "")), reverse=True)
+    OUTPUT_JSON.write_text(json.dumps(posts, indent=2, ensure_ascii=False), encoding="utf-8")
+    return len(posts)
 
-    # JSON 파일로 저장
-    with open(OUTPUT_JSON, "w", encoding="utf-8") as json_file:
-        json.dump(posts, json_file, indent=2, ensure_ascii=False)
 
 if __name__ == "__main__":
-    update_posts_json()
-    print(f"✅ Updated {OUTPUT_JSON} with extracted metadata.")
+    count = update_posts_json()
+    print(
+        f"Updated {OUTPUT_JSON.name} with {count} post entries. "
+        "The article page now auto-discovers markdown files, so this file is only a fallback index."
+    )

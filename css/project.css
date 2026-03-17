@@ -1,71 +1,61 @@
-.frame {
-  min-height: 100vh;
-}
-.frame .content h1 {
-  position: relative;
-  margin-bottom: 20px;
-}
-.frame .content h1::after {
-  content: "";
-  position: absolute; /* 부모 요소를 기준으로 위치를 설정 */
-  left: 0;
-  bottom: -20px; /* h1 아래에 밑줄이 위치하도록 설정 */
-  width: 25%; /* h1의 너비에 맞게 밑줄 길이를 설정 */
-  height: 2px; /* 밑줄의 두께를 설정 */
-  background-color: currentColor; /* 밑줄의 색상 설정 */
-  display: block; /* 블록 요소처럼 동작하게 설정 */
-}
-
-.frame .project-container {
+.project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px; /* 각 프로젝트 사이의 간격 */
-  padding: 20px; /* 컨테이너 여백 */
-  margin-top: 3em;
-}
-.frame .project-container .project {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 15px;
-  min-height: 50vh;
-  border-radius: 8px; /* 둥근 모서리 */
-  background: rgb(30, 30, 33); /* 배경 색상 */
-  transition: transform 0.3s; /* 마우스 오버 시 애니메이션 */
-  cursor: pointer;
-}
-.project:hover {
-  transform: translateY(-5px); /* 마우스 오버 시 위로 이동 */
-}
-.frame .project-container .project img {
-  width: 100%;
-  min-height: 50vh;
-  border-radius: 8px;
-  object-fit: cover;
-}
-.frame .project-container .project .info {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5em;
-  margin-bottom: 1em;
-}
-.frame .project-container .project .info .title {
-  font-family: "SuisseIntlBold";
-  font-weight: bold;
-  font-size: 1.1em;
-  color: #f9f9f9;
-}
-.frame .project-container .project .info .date {
-  font-size: 0.9em;
-  color: #ddd;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
 }
 
-@media only screen and (max-width: 600px) {
-  .frame .project-container {
-    padding: 0px;
-    padding-bottom: 20px;
-  }
-  .frame .project-container .project img {
-    max-height: 50vh;
+.project-card {
+  position: relative;
+  padding: 1.45rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+  overflow: hidden;
+}
+
+.project-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 6px;
+  background: var(--project-accent, var(--accent));
+}
+
+.project-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.8rem;
+  padding-left: 0.35rem;
+}
+
+.project-summary {
+  padding-left: 0.35rem;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  padding-left: 0.35rem;
+}
+
+.project-tag {
+  padding: 0.42rem 0.78rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--line);
+  color: var(--text);
+  font-size: 0.84rem;
+}
+
+.project-card .text-link {
+  margin-top: auto;
+  padding-left: 0.35rem;
+}
+
+@media (max-width: 900px) {
+  .project-grid {
+    grid-template-columns: 1fr;
   }
 }

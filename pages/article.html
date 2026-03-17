@@ -1,95 +1,63 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>ushin20 - blog</title>
+    <title>Writing | Yooshin Kim</title>
     <link rel="stylesheet" href="/css/common.css" />
     <link rel="stylesheet" href="/css/article.css" />
     <script src="/js/meta.js" defer></script>
+    <script src="/js/content-utils.js" defer></script>
+    <script src="/js/article.js" defer></script>
   </head>
 
   <body>
     <main>
       <div class="frame">
         <div class="content">
-          <h1>Articles</h1>
-          <div class="archive-container">
-            <!-- 최신 포스트 영역 -->
-            <div class="recent-post">
-              <ul id="recent-post"></ul>
+          <section class="page-header">
+            <p class="eyebrow">Writing</p>
+            <h1>Notes, paper reviews, and technical memos</h1>
+            <p class="lead">
+              Short writing that tracks papers, ideas, experiments, and things worth remembering while working in
+              industrial AI security.
+            </p>
+          </section>
+
+          <section class="article-overview">
+            <article class="surface-card overview-card" id="article-summary">
+              <p class="overview-label">Loading</p>
+              <h2>Building the archive</h2>
+              <p>Article metadata is being collected automatically from the markdown folder.</p>
+            </article>
+
+            <article class="surface-card overview-card">
+              <p class="overview-label">Scope</p>
+              <h2>Research-adjacent writing</h2>
+              <p>
+                Expect paper notes, implementation ideas, and lightweight documentation rather than long-form essays.
+              </p>
+            </article>
+          </section>
+
+          <section class="article-layout">
+            <div class="featured-pane">
+              <div class="section-heading compact">
+                <p>Latest</p>
+                <h2>Featured note</h2>
+              </div>
+              <div id="featured-post"></div>
             </div>
-            <!-- 일반 포스트 영역 -->
-            <div class="posts">
-              <ul id="all-posts"></ul>
+
+            <div class="archive-pane">
+              <div class="section-heading compact">
+                <p>Archive</p>
+                <h2>All notes</h2>
+              </div>
+              <div id="article-list" class="article-list"></div>
             </div>
-          </div>
+          </section>
         </div>
       </div>
     </main>
-
-    <!-- jQuery 라이브러리 -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <script>
-      $(document).ready(function () {
-        $.getJSON("/articles/posts.json", function (posts) {
-          // 날짜 기준 내림차순 정렬 (최신 포스트가 첫 번째)
-          posts.sort(function (a, b) {
-            return new Date(b.date) - new Date(a.date);
-          });
-
-          var $recentPostContainer = $("#recent-post");
-          var $allPostsContainer = $("#all-posts");
-
-          function createTagHTML(categories) {
-            return categories
-              .split(", ")
-              .map((cat) => `<div class="tag">${cat}</div>`)
-              .join("");
-          }
-
-          // 최신 포스트 렌더링
-          if (posts.length > 0) {
-            var recent = posts[0];
-            $recentPostContainer.append(
-              `<li class="recent-post-item">
-                    <a href="/articles/bone.html?md=${recent.filename}">
-                        <h2>${recent.title}</h2>
-                        <p>${recent.author}</p>
-                        <p>${recent.published}</p>
-                        <div class="tag-container">
-                            <div class="date"><i class="fa-solid fa-calendar-days"></i> ${
-                              recent.date
-                            }</div>
-                            ${createTagHTML(recent.category)}
-                        </div>
-                    </a>
-                </li>`
-            );
-          }
-
-          // 일반 포스트 렌더링
-          $.each(posts.slice(1), function (index, post) {
-            $allPostsContainer.append(
-              `<li class="post-item">
-                    <a href="/articles/bone.html?md=${post.filename}">
-                        <h2>${post.title}</h2>
-                        <p>${post.author}</p>
-                        <p>${post.published}</p>
-                        <div class="tag-container">
-                            <div class="date"><i class="fa-solid fa-calendar-days"></i> ${
-                              post.date
-                            }</div>
-                            ${createTagHTML(post.category)}
-                        </div>
-                    </a>
-                </li>`
-            );
-          });
-        }).fail(function (jqxhr, textStatus, error) {
-          console.error("Error loading posts: " + textStatus + ", " + error);
-        });
-      });
-    </script>
   </body>
 </html>

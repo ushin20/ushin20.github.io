@@ -1,11 +1,16 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>ushin20 - post</title>
+    <title>Writing | Yooshin Kim</title>
     <link rel="stylesheet" href="/css/common.css" />
     <link rel="stylesheet" href="/articles/bone.css" />
     <script src="/js/meta.js" defer></script>
+    <script src="/js/content-utils.js" defer></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css"
+    />
 
     <script>
       window.MathJax = {
@@ -22,110 +27,100 @@
           packages: ["base", "ams"],
         },
         svg: {
-          fontCache: "global", // 성능/일관성 좋음 ("local"/"none"도 가능)
-          mtextInheritFont: false, // 수식 텍스트를 시스템 폰트가 아닌 TeX 폰트로
-          scale: 1, // 필요시 0.95~1.1로 조절
+          fontCache: "global",
+          scale: 1,
         },
       };
     </script>
-
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   </head>
 
   <body>
     <main>
       <div class="frame">
-        <div id="post-info"></div>
-        <div id="content"></div>
+        <div class="content post-shell">
+          <div class="post-topbar">
+            <p class="eyebrow">Writing</p>
+            <a class="button tertiary" href="/pages/article.html">Back to archive</a>
+          </div>
+          <div id="post-info" class="surface-card"></div>
+          <article id="content"></article>
+        </div>
       </div>
     </main>
-    <!-- jQuery 라이브러리 -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- Marked 라이브러리 (Markdown -> HTML 변환) -->
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
     <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const urlParams = new URLSearchParams(window.location.search);
-        const mdFile = urlParams.get("md");
+      document.addEventListener("DOMContentLoaded", async () => {
+        const params = new URLSearchParams(window.location.search);
+        const mdFile = params.get("md");
+        const postInfo = document.getElementById("post-info");
+        const content = document.getElementById("content");
 
-        const renderTables = () => {
+        function renderMeta(metadata) {
+          const categories = window.ContentUtils
+            .splitCategories(metadata.category)
+            .map((tag) => `<span class="chip">${window.ContentUtils.escapeHtml(tag)}</span>`)
+            .join("");
+          const published = metadata.published
+            ? `<p class="post-published">${window.ContentUtils.escapeHtml(metadata.published)}</p>`
+            : "";
+
+          postInfo.innerHTML = `
+            <p class="eyebrow">Article</p>
+            <h1>${window.ContentUtils.escapeHtml(metadata.title || "Untitled post")}</h1>
+            <p class="post-author">${window.ContentUtils.escapeHtml(metadata.author || "Yooshin Kim")}</p>
+            <p class="post-date">${window.ContentUtils.escapeHtml(metadata.date || "Undated")}</p>
+            ${published}
+            <div class="chip-row">${categories}</div>
+          `;
+        }
+
+        function wrapTables() {
           document.querySelectorAll("#content table").forEach((table) => {
             const wrapper = document.createElement("div");
-            wrapper.classList.add("table-container");
+            wrapper.className = "table-container";
             table.parentNode.insertBefore(wrapper, table);
             wrapper.appendChild(table);
           });
-        };
+        }
 
-        const typesetContent = async () => {
-          // MathJax가 로드/초기화될 때까지 대기
+        async function typesetMath() {
           if (window.MathJax?.startup?.promise) {
             await window.MathJax.startup.promise;
           }
           if (window.MathJax?.typesetPromise) {
-            // #content 영역만 타입셋
-            await window.MathJax.typesetPromise([document.getElementById("content")]);
-          } else {
-            console.warn("MathJax is not ready yet.");
+            await window.MathJax.typesetPromise([content]);
           }
-        };
+        }
 
-        if (mdFile) {
-          fetch(`/articles/mds/${mdFile}`)
-            .then((res) => {
-              if (!res.ok) throw new Error(`Cannot fetch file: ${mdFile}. Status: ${res.status}`);
-              return res.text();
-            })
-            .then(async (data) => {
-              let markdownContent = data;
-              const parts = data.split(/---[\r\n]+/);
-              if (parts.length >= 3) {
-                const metaContent = parts[1].trim();
-                markdownContent = parts.slice(2).join("---").trim();
+        if (!mdFile) {
+          postInfo.innerHTML = `<h1>Missing article</h1><p>No markdown file was specified.</p>`;
+          content.innerHTML = `<p>Select an article from the writing archive.</p>`;
+          return;
+        }
 
-                // 메타 렌더링
-                const metaLines = metaContent.split("\n");
-                let metaHtml = "";
-                metaLines.forEach((line) => {
-                  const key = line.split(":")[0].trim().toLowerCase();
-                  const value = line
-                    .substring(line.indexOf(":") + 1)
-                    .trim()
-                    .replace(/^"|"$/g, "");
-                  if (key === "title") metaHtml += `<h1>${value}</h1>`;
-                  else if (key === "author") metaHtml += `<p>${value}</p>`;
-                  else if (key === "published") metaHtml += `<p>${key} in ${value}</p>`;
-                  else if (key === "date") metaHtml += `<p><i class="fa-solid fa-calendar-days"></i> ${value}</p>`;
-                });
-                document.getElementById("post-info").innerHTML = metaHtml;
-              }
+        try {
+          const response = await fetch(`/articles/mds/${mdFile}`);
+          if (!response.ok) {
+            throw new Error(`Cannot fetch ${mdFile}`);
+          }
 
-              // 본문 마크다운 → HTML
-              document.getElementById("content").innerHTML =
-                marked.parse(markdownContent) +
-                `
-              <div class="post-footer">
-                <div style="text-align: center; margin-top: 10px;">
-                  <a href="javascript:history.back()" class="back-button">뒤로가기</a>
-                </div>
-              </div>
-            `;
+          const raw = await response.text();
+          const parsed = window.ContentUtils.parseFrontMatter(raw);
+          const metadata = window.ContentUtils.normalizeMetadata(parsed.metadata);
 
-              renderTables();
-              await typesetContent();
-            })
-            .catch((err) => {
-              console.error("Error loading markdown:", err);
-              document.getElementById("content").innerHTML = `
-            <div id='Error404'>
-              <p>404: The requested page was not found.</p>
-              <a href='javascript:history.back()'>뒤로가기</a>
-            </div>`;
-            });
-        } else {
-          console.error("No md file specified in the URL.");
-          document.getElementById("content").innerText = "No project selected. Please provide an md file in the URL parameters.";
+          renderMeta(metadata);
+          content.innerHTML = marked.parse(parsed.content || raw);
+
+          wrapTables();
+          document.querySelectorAll("#content pre code").forEach((block) => hljs.highlightElement(block));
+          await typesetMath();
+        } catch (error) {
+          console.error("Error loading markdown:", error);
+          postInfo.innerHTML = `<h1>Article unavailable</h1><p>The requested post could not be loaded.</p>`;
+          content.innerHTML = `<p>Please return to the archive and try another item.</p>`;
         }
       });
     </script>
