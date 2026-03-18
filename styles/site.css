@@ -1,0 +1,123 @@
+@font-face {
+  font-family: "Zen Serif";
+  src: url("../fonts/ZEN-SERIF-TTF-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Suisse Intl";
+  src: url("../fonts/fonnts.com-Suisse_Intl_Bold.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 700;
+}
+
+:root {
+  --paper: #f4f0e8;
+  --surface: rgba(255, 255, 255, 0.78);
+  --surface-strong: #fffdf9;
+  --ink: #191714;
+  --muted: #655d56;
+  --line: rgba(25, 23, 20, 0.12);
+  --accent: #143a52;
+  --accent-soft: rgba(20, 58, 82, 0.1);
+  --shadow: 0 18px 45px rgba(24, 20, 16, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.8), transparent 28%),
+    linear-gradient(180deg, #f8f5ef 0%, var(--paper) 100%);
+  font-family: "Georgia", "Times New Roman", serif;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+p,
+h1,
+h2,
+h3,
+ul,
+dl {
+  margin: 0;
+}
+
+.page-shell,
+.blog-shell {
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 24px 0 56px;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 10px 0 28px;
+}
+
+.site-mark {
+  font-family: "Suisse Intl", "Arial", sans-serif;
+  font-size: 0.92rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.site-nav {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.site-nav a {
+  color: var(--muted);
+  padding-bottom: 0.18rem;
+  border-bottom: 1px solid transparent;
+}
+
+.site-nav a[aria-current="page"] {
+  color: var(--ink);
+  border-color: var(--ink);
+}
+
+.section-label,
+.blog-kicker,
+.card-tag {
+  font-family: "Suisse Intl", "Arial", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.74rem;
+}
+
+@media (max-width: 720px) {
+  .page-shell,
+  .blog-shell {
+    width: min(100% - 28px, 1120px);
+    padding-top: 18px;
+    padding-bottom: 40px;
+  }
+
+  .site-header {
+    align-items: flex-start;
+    flex-direction: column;
+    padding-bottom: 22px;
+  }
+}
