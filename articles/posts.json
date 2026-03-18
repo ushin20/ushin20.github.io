@@ -1,50 +1,50 @@
 [
-    {
-        "title": "Computer Specialist in Spreadsheet and Database Level-1",
-        "author": "ushin20",
-        "published": "",
-        "date": "2026-03-11",
-        "category": "CSSD, Certificate",
-        "filename": "2026-03-11.md"
-    },
-    {
-        "title": "SensitiveHUE: Multivariate Time Series Anomaly Detection by Enhancing the Sensitivity to Normal Patterns",
-        "author": "Feng, Yuye and Zhang, Wei and Fu, Yao and Jiang, Weihao and Zhu, Jiang and Ren, Wenqi.",
-        "published": "KDD '24: Proceedings of the 30th ACM SIGKDD Conference on Knowledge Discovery and Data Mining",
-        "date": "2025-09-04",
-        "category": "anomaly detection",
-        "filename": "2025-09-04.md"
-    },
-    {
-        "title": "Fully-Connected Spatial-Temporal Graph for Multivariate Time-Series Data",
-        "author": "Yucheng Wang, Yuecong Xu, Jianfei Yang, Min Wu, Xiaoli Li, Lihua Xie, Zhenghua Chen",
-        "published": "The Thirty-Eighth AAAI Conference on Artificial Intelligence",
-        "date": "2025-03-26",
-        "category": "time-series forecasting",
-        "filename": "2025-03-26.md"
-    },
-    {
-        "title": "Process-Oriented heterogeneous graph learning in GNN-Based ICS anomalous pattern recognition",
-        "author": "Shuaiyi L(y)u, Kai Wang, Liren Zhang, and Bailing Wanga",
-        "published": "Pattern Recognition",
-        "date": "2025-03-18",
-        "category": "anomaly detection",
-        "filename": "2025-03-18.md"
-    },
-    {
-        "title": "Anomaly Detection based on Robust Spatial-temporal Modeling for Industrial Control Systems",
-        "author": "Li, Shijie and Liu, Junjiao and Pan, Zhiwen and Lv, Shichao and Si, Shuaizong and Sun, Limin",
-        "published": "2022 IEEE 19th International Conference on Mobile Ad Hoc and Smart Systems (MASS)",
-        "date": "2025-03-14",
-        "category": "anomaly detection",
-        "filename": "2025-03-14.md"
-    },
-    {
-        "title": "TSMixer: An All-MLP Architecture for Times Series Forecasting",
-        "author": "Si-An Chen, Chunn-Liang Li, Nathanael C. Yoder, Sercan O. Ank and Tomas Pfister.",
-        "published": "Transactions on Machine Learning Research",
-        "date": "2024-02-05",
-        "category": "anomaly detection",
-        "filename": "2024-02-05.md"
-    }
+  {
+    "title": "Computer Specialist in Spreadsheet and Database Level-1",
+    "author": "Yooshin Kim",
+    "published": "Blog",
+    "date": "2026-03-11",
+    "category": "CSSD, Certificate",
+    "filename": "2026-03-11.md"
+  },
+  {
+    "title": "SensitiveHUE: Multivariate Time Series Anomaly Detection by Enhancing the Sensitivity to Normal Patterns",
+    "author": "Feng, Yuye and Zhang, Wei and Fu, Yao and Jiang, Weihao and Zhu, Jiang and Ren, Wenqi.",
+    "published": "KDD '24: Proceedings of the 30th ACM SIGKDD Conference on Knowledge Discovery and Data Mining",
+    "date": "2025-09-04",
+    "category": "anomaly detection",
+    "filename": "2025-09-04.md"
+  },
+  {
+    "title": "Fully-Connected Spatial-Temporal Graph for Multivariate Time-Series Data",
+    "author": "Yucheng Wang, Yuecong Xu, Jianfei Yang, Min Wu, Xiaoli Li, Lihua Xie, Zhenghua Chen",
+    "published": "The Thirty-Eighth AAAI Conference on Artificial Intelligence",
+    "date": "2025-03-26",
+    "category": "time-series forecasting",
+    "filename": "2025-03-26.md"
+  },
+  {
+    "title": "Process-Oriented heterogeneous graph learning in GNN-Based ICS anomalous pattern recognition",
+    "author": "Shuaiyi L(y)u, Kai Wang, Liren Zhang, and Bailing Wanga",
+    "published": "Pattern Recognition",
+    "date": "2025-03-18",
+    "category": "anomaly detection",
+    "filename": "2025-03-18.md"
+  },
+  {
+    "title": "Anomaly Detection based on Robust Spatial-temporal Modeling for Industrial Control Systems",
+    "author": "Li, Shijie and Liu, Junjiao and Pan, Zhiwen and Lv, Shichao and Si, Shuaizong and Sun, Limin",
+    "published": "2022 IEEE 19th International Conference on Mobile Ad Hoc and Smart Systems (MASS)",
+    "date": "2025-03-14",
+    "category": "anomaly detection",
+    "filename": "2025-03-14.md"
+  },
+  {
+    "title": "TSMixer: An All-MLP Architecture for Times Series Forecasting",
+    "author": "Si-An Chen, Chunn-Liang Li, Nathanael C. Yoder, Sercan O. Ank and Tomas Pfister.",
+    "published": "Transactions on Machine Learning Research",
+    "date": "2024-02-05",
+    "category": "anomaly detection",
+    "filename": "2024-02-05.md"
+  }
 ]
