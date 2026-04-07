@@ -60,7 +60,8 @@ dl {
 }
 
 .page-shell,
-.blog-shell {
+.blog-shell,
+.lab-shell {
   width: min(1120px, calc(100% - 40px));
   margin: 0 auto;
   padding: 24px 0 56px;
@@ -109,7 +110,8 @@ dl {
 
 @media (max-width: 720px) {
   .page-shell,
-  .blog-shell {
+  .blog-shell,
+  .lab-shell {
     width: min(100% - 28px, 1120px);
     padding-top: 18px;
     padding-bottom: 40px;

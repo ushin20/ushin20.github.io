@@ -1,0 +1,242 @@
+.lab-body {
+  background:
+    radial-gradient(circle at top left, rgba(129, 171, 117, 0.2), transparent 24%),
+    radial-gradient(circle at right 10%, rgba(232, 170, 82, 0.16), transparent 22%),
+    linear-gradient(180deg, #f4f0e5 0%, #ebe3d5 100%);
+}
+
+.lab-layout {
+  display: grid;
+  gap: 28px;
+}
+
+.lab-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(280px, 0.85fr);
+  gap: 24px;
+}
+
+.lab-hero-copy,
+.lab-hero-panel,
+.lab-item {
+  border-radius: 28px;
+  border: 1px solid rgba(25, 23, 20, 0.1);
+  box-shadow: 0 24px 55px rgba(31, 24, 16, 0.08);
+}
+
+.lab-hero-copy {
+  padding: 38px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(251, 247, 239, 0.74)),
+    rgba(255, 255, 255, 0.7);
+}
+
+.lab-kicker {
+  font-family: "Suisse Intl", "Arial", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.74rem;
+}
+
+.lab-hero-copy h1,
+.lab-section-heading h2,
+.lab-item h3 {
+  font-family: "Zen Serif", "Georgia", serif;
+}
+
+.lab-hero-copy h1 {
+  margin: 14px 0 16px;
+  font-size: clamp(2.7rem, 5vw, 4.7rem);
+  line-height: 0.95;
+  max-width: 11ch;
+}
+
+.lab-lead {
+  max-width: 60ch;
+  color: #544d47;
+  line-height: 1.85;
+  font-size: 1.04rem;
+}
+
+.lab-hero-panel {
+  padding: 28px;
+  background: linear-gradient(180deg, rgba(49, 88, 58, 0.94), rgba(35, 63, 42, 0.92));
+  color: #f7f3ea;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 18px;
+}
+
+.lab-hero-panel p {
+  font-family: "Suisse Intl", "Arial", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.76rem;
+  opacity: 0.82;
+}
+
+.lab-hero-panel ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.lab-section {
+  display: grid;
+  gap: 18px;
+}
+
+.lab-section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.lab-section-heading h2 {
+  font-size: 2rem;
+}
+
+.lab-section-note {
+  color: #665e57;
+  line-height: 1.7;
+}
+
+.lab-list {
+  display: grid;
+  gap: 16px;
+}
+
+.lab-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr) auto;
+  gap: 18px;
+  padding: 24px;
+  background: rgba(255, 252, 246, 0.74);
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.lab-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 28px 60px rgba(31, 24, 16, 0.1);
+}
+
+.lab-item-meta {
+  display: grid;
+  gap: 8px;
+  align-content: start;
+  color: #6a625b;
+  font-family: "Suisse Intl", "Arial", sans-serif;
+  font-size: 0.76rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.lab-status {
+  width: fit-content;
+  padding: 0.3rem 0.55rem;
+  border-radius: 999px;
+  background: rgba(49, 88, 58, 0.12);
+  color: #31583a;
+}
+
+.lab-item-copy {
+  display: grid;
+  gap: 10px;
+}
+
+.lab-item-copy h3 {
+  font-size: 1.4rem;
+  line-height: 1.2;
+}
+
+.lab-item-copy p {
+  color: #5b544d;
+  line-height: 1.75;
+}
+
+.lab-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.lab-tags span {
+  padding: 0.38rem 0.72rem;
+  border-radius: 999px;
+  background: rgba(20, 58, 82, 0.08);
+  color: #25465f;
+  font-family: "Suisse Intl", "Arial", sans-serif;
+  font-size: 0.74rem;
+  letter-spacing: 0.04em;
+}
+
+.lab-item-cta {
+  align-self: center;
+  justify-self: end;
+  padding: 0.8rem 1rem;
+  border-radius: 999px;
+  background: #1d1a16;
+  color: #f8f3ec;
+  font-family: "Suisse Intl", "Arial", sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.lab-item-link {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+.lab-empty {
+  padding: 26px;
+  border-radius: 24px;
+  border: 1px solid rgba(25, 23, 20, 0.12);
+  background: rgba(255, 252, 246, 0.72);
+  color: #544d47;
+}
+
+@media (max-width: 980px) {
+  .lab-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .lab-hero-copy h1 {
+    max-width: none;
+  }
+
+  .lab-item {
+    grid-template-columns: 1fr;
+  }
+
+  .lab-item-cta {
+    justify-self: start;
+  }
+}
+
+@media (max-width: 680px) {
+  .lab-hero-copy,
+  .lab-hero-panel,
+  .lab-item,
+  .lab-empty {
+    border-radius: 22px;
+  }
+
+  .lab-hero-copy,
+  .lab-hero-panel,
+  .lab-item {
+    padding: 22px;
+  }
+
+  .lab-section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

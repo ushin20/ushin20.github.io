@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Lotto Number Picker",
+    "slug": "lotto",
+    "summary": "Generate six unique numbers from 1 to 45 for a quick lottery pick, with a bonus number and multiple automatic lines.",
+    "category": "utility tool",
+    "status": "Ready",
+    "path": "./labs/lotto/",
+    "tags": ["Random", "Lottery", "Mini App"]
+  },
+  {
+    "title": "Text Counter",
+    "slug": "text-counter",
+    "summary": "Paste or type text and instantly check counts for characters, characters without whitespace, words, lines, and paragraphs.",
+    "category": "utility tool",
+    "status": "Ready",
+    "path": "./labs/text-counter/",
+    "tags": ["Text", "Counter", "Utility"]
+  }
+]

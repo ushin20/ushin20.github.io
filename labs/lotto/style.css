@@ -1,0 +1,251 @@
+.lotto-body {
+  background:
+    radial-gradient(circle at top left, rgba(255, 204, 102, 0.18), transparent 24%),
+    radial-gradient(circle at right 14%, rgba(45, 94, 161, 0.16), transparent 22%),
+    linear-gradient(180deg, #f6f0e3 0%, #ece4d5 100%);
+}
+
+.lotto-shell {
+  width: min(980px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 24px 0 56px;
+}
+
+.lotto-layout {
+  display: grid;
+  gap: 22px;
+}
+
+.lotto-back a {
+  color: var(--muted);
+  border-bottom: 1px solid var(--line);
+}
+
+.lotto-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.8fr);
+  gap: 24px;
+}
+
+.lotto-hero-copy,
+.lotto-hero-panel,
+.lotto-panel,
+.lotto-line {
+  border-radius: 28px;
+  border: 1px solid rgba(25, 23, 20, 0.1);
+  box-shadow: 0 24px 55px rgba(31, 24, 16, 0.08);
+}
+
+.lotto-hero-copy,
+.lotto-panel {
+  background: rgba(255, 252, 246, 0.78);
+}
+
+.lotto-hero-copy {
+  padding: 34px;
+}
+
+.lotto-kicker,
+.lotto-label,
+.lotto-line-label,
+.lotto-bonus-label {
+  font-family: "Suisse Intl", "Arial", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.lotto-kicker {
+  font-size: 0.76rem;
+}
+
+.lotto-hero-copy h1 {
+  margin: 14px 0 16px;
+  font-family: "Zen Serif", "Georgia", serif;
+  font-size: clamp(2.5rem, 5vw, 4.3rem);
+  line-height: 0.98;
+}
+
+.lotto-lead {
+  max-width: 58ch;
+  color: #544d47;
+  line-height: 1.85;
+  font-size: 1.03rem;
+}
+
+.lotto-hero-panel {
+  padding: 28px;
+  background: linear-gradient(180deg, rgba(24, 66, 124, 0.94), rgba(17, 47, 89, 0.92));
+  color: #f8f4ee;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 18px;
+}
+
+.lotto-hero-panel p {
+  font-family: "Suisse Intl", "Arial", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.76rem;
+  opacity: 0.82;
+}
+
+.lotto-hero-panel ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+  margin: 0;
+}
+
+.lotto-panel {
+  padding: 28px;
+  display: grid;
+  gap: 24px;
+}
+
+.lotto-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 14px;
+}
+
+.lotto-label {
+  display: grid;
+  gap: 8px;
+  font-size: 0.74rem;
+  color: #605852;
+}
+
+.lotto-select,
+.lotto-button {
+  border-radius: 14px;
+  border: 1px solid rgba(25, 23, 20, 0.12);
+  font: inherit;
+}
+
+.lotto-select {
+  min-width: 140px;
+  padding: 0.85rem 1rem;
+  background: #fffdf9;
+  color: #1d1a16;
+}
+
+.lotto-button {
+  padding: 0.9rem 1.2rem;
+  background: #1d1a16;
+  color: #f8f3ec;
+  font-family: "Suisse Intl", "Arial", sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.lotto-results {
+  display: grid;
+  gap: 14px;
+}
+
+.lotto-line {
+  padding: 22px;
+  background: rgba(255, 255, 255, 0.7);
+  display: grid;
+  gap: 16px;
+}
+
+.lotto-line-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.lotto-line-label,
+.lotto-bonus-label {
+  font-size: 0.74rem;
+  color: #6a625b;
+}
+
+.lotto-bonus-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.lotto-ball-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.lotto-ball {
+  width: 54px;
+  aspect-ratio: 1;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-family: "Suisse Intl", "Arial", sans-serif;
+  font-size: 1rem;
+  color: #fffdf9;
+  box-shadow: inset 0 -6px 14px rgba(0, 0, 0, 0.14);
+}
+
+.lotto-ball.range-1 {
+  background: linear-gradient(180deg, #f0b332, #dd9721);
+}
+
+.lotto-ball.range-2 {
+  background: linear-gradient(180deg, #4d9be6, #2d76ba);
+}
+
+.lotto-ball.range-3 {
+  background: linear-gradient(180deg, #df6e5b, #ba4635);
+}
+
+.lotto-ball.range-4 {
+  background: linear-gradient(180deg, #8b8b94, #64646c);
+}
+
+.lotto-ball.range-5 {
+  background: linear-gradient(180deg, #58aa71, #367a4b);
+}
+
+.lotto-empty {
+  padding: 12px 2px 2px;
+  color: #5a534d;
+  line-height: 1.7;
+}
+
+@media (max-width: 860px) {
+  .lotto-hero {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .lotto-shell {
+    width: min(100% - 28px, 980px);
+    padding: 18px 0 40px;
+  }
+
+  .lotto-hero-copy,
+  .lotto-hero-panel,
+  .lotto-panel,
+  .lotto-line {
+    border-radius: 22px;
+  }
+
+  .lotto-hero-copy,
+  .lotto-hero-panel,
+  .lotto-panel,
+  .lotto-line {
+    padding: 22px;
+  }
+
+  .lotto-ball {
+    width: 48px;
+  }
+}

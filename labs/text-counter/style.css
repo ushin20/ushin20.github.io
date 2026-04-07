@@ -1,0 +1,211 @@
+.counter-body {
+  background:
+    radial-gradient(circle at top left, rgba(232, 170, 82, 0.2), transparent 24%),
+    radial-gradient(circle at right 14%, rgba(66, 126, 110, 0.16), transparent 22%),
+    linear-gradient(180deg, #f6efe2 0%, #ebe2d3 100%);
+}
+
+.counter-shell {
+  width: min(1020px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 24px 0 56px;
+}
+
+.counter-layout {
+  display: grid;
+  gap: 22px;
+}
+
+.counter-back a {
+  color: var(--muted);
+  border-bottom: 1px solid var(--line);
+}
+
+.counter-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.8fr);
+  gap: 24px;
+}
+
+.counter-hero-copy,
+.counter-hero-panel,
+.counter-panel,
+.counter-stat {
+  border-radius: 28px;
+  border: 1px solid rgba(25, 23, 20, 0.1);
+  box-shadow: 0 24px 55px rgba(31, 24, 16, 0.08);
+}
+
+.counter-hero-copy,
+.counter-panel {
+  background: rgba(255, 252, 246, 0.78);
+}
+
+.counter-hero-copy {
+  padding: 34px;
+}
+
+.counter-kicker,
+.counter-label,
+.counter-stat-label {
+  font-family: "Suisse Intl", "Arial", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.counter-kicker {
+  font-size: 0.76rem;
+}
+
+.counter-hero-copy h1 {
+  margin: 14px 0 16px;
+  font-family: "Zen Serif", "Georgia", serif;
+  font-size: clamp(2.5rem, 5vw, 4.2rem);
+  line-height: 0.98;
+}
+
+.counter-lead {
+  max-width: 58ch;
+  color: #544d47;
+  line-height: 1.85;
+  font-size: 1.03rem;
+}
+
+.counter-hero-panel {
+  padding: 28px;
+  background: linear-gradient(180deg, rgba(74, 104, 75, 0.94), rgba(54, 75, 54, 0.92));
+  color: #f8f4ee;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 18px;
+}
+
+.counter-hero-panel p {
+  font-family: "Suisse Intl", "Arial", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.76rem;
+  opacity: 0.82;
+}
+
+.counter-hero-panel ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+  margin: 0;
+}
+
+.counter-panel {
+  padding: 28px;
+  display: grid;
+  gap: 20px;
+}
+
+.counter-input-wrap {
+  display: grid;
+  gap: 10px;
+}
+
+.counter-label {
+  font-size: 0.74rem;
+  color: #605852;
+}
+
+.counter-textarea {
+  min-height: 240px;
+  resize: vertical;
+  padding: 18px 20px;
+  border-radius: 20px;
+  border: 1px solid rgba(25, 23, 20, 0.12);
+  background: #fffdf9;
+  color: #1d1a16;
+  font: inherit;
+  line-height: 1.8;
+}
+
+.counter-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.counter-button {
+  padding: 0.9rem 1.2rem;
+  border-radius: 999px;
+  border: 1px solid rgba(25, 23, 20, 0.12);
+  background: #1d1a16;
+  color: #f8f3ec;
+  font-family: "Suisse Intl", "Arial", sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.counter-button.secondary {
+  background: rgba(20, 58, 82, 0.08);
+  color: #20425a;
+}
+
+.counter-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.counter-stat {
+  padding: 22px;
+  background: rgba(255, 255, 255, 0.72);
+  display: grid;
+  gap: 8px;
+}
+
+.counter-stat-label {
+  font-size: 0.72rem;
+  color: #6a625b;
+}
+
+.counter-stat strong {
+  font-family: "Zen Serif", "Georgia", serif;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  line-height: 1;
+}
+
+.counter-stat span {
+  color: #5b544d;
+  line-height: 1.65;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 860px) {
+  .counter-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .counter-stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .counter-shell {
+    width: min(100% - 28px, 1020px);
+    padding: 18px 0 40px;
+  }
+
+  .counter-hero-copy,
+  .counter-hero-panel,
+  .counter-panel,
+  .counter-stat {
+    border-radius: 22px;
+  }
+
+  .counter-hero-copy,
+  .counter-hero-panel,
+  .counter-panel,
+  .counter-stat {
+    padding: 22px;
+  }
+}

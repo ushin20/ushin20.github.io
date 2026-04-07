@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Lotto Number Picker | Yooshin Kim</title>
+        <meta name="description" content="A small lotto number picker that generates random number sets from 1 to 45." />
+        <link rel="stylesheet" href="../../styles/site.css" />
+        <link rel="stylesheet" href="./style.css" />
+        <script src="./script.js" defer></script>
+    </head>
+    <body class="lotto-body">
+        <div class="lotto-shell">
+            <header class="site-header">
+                <a class="site-mark" href="../../index.html">Yooshin Kim</a>
+                <nav class="site-nav" aria-label="Primary">
+                    <a href="../../index.html">CV</a>
+                    <a href="../../blog.html">Blog</a>
+                    <a aria-current="page" href="../../lab.html">Lab</a>
+                    <a href="mailto:yooshin0303@dgist.ac.kr">Email</a>
+                </nav>
+            </header>
+
+            <main class="lotto-layout">
+                <p class="lotto-back"><a href="../../lab.html">Back to lab</a></p>
+
+                <section class="lotto-hero">
+                    <div class="lotto-hero-copy">
+                        <p class="lotto-kicker">Mini App</p>
+                        <h1>Lotto Number Picker</h1>
+                        <p class="lotto-lead">
+                            Pick quick lottery combinations with six unique numbers from 1 to 45. You can generate a single set or create several lines at once.
+                        </p>
+                    </div>
+
+                    <div class="lotto-hero-panel">
+                        <p>Rules</p>
+                        <ul>
+                            <li>6 unique numbers</li>
+                            <li>Range from 1 to 45</li>
+                            <li>1 bonus number</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="lotto-panel">
+                    <div class="lotto-controls">
+                        <label class="lotto-label" for="line-count">Number of lines</label>
+                        <select id="line-count" class="lotto-select">
+                            <option value="1">1 line</option>
+                            <option value="3" selected>3 lines</option>
+                            <option value="5">5 lines</option>
+                        </select>
+                        <button id="generate-button" class="lotto-button" type="button">Generate Numbers</button>
+                    </div>
+
+                    <div id="lotto-results" class="lotto-results" aria-live="polite"></div>
+                </section>
+            </main>
+        </div>
+    </body>
+</html>

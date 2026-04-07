@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Text Counter | Yooshin Kim</title>
+        <meta name="description" content="A small text counting tool that shows multiple character and text metrics in real time." />
+        <link rel="stylesheet" href="../../styles/site.css" />
+        <link rel="stylesheet" href="./style.css" />
+        <script src="./script.js" defer></script>
+    </head>
+    <body class="counter-body">
+        <div class="counter-shell">
+            <header class="site-header">
+                <a class="site-mark" href="../../index.html">Yooshin Kim</a>
+                <nav class="site-nav" aria-label="Primary">
+                    <a href="../../index.html">CV</a>
+                    <a href="../../blog.html">Blog</a>
+                    <a aria-current="page" href="../../lab.html">Lab</a>
+                    <a href="mailto:yooshin0303@dgist.ac.kr">Email</a>
+                </nav>
+            </header>
+
+            <main class="counter-layout">
+                <p class="counter-back"><a href="../../lab.html">Back to lab</a></p>
+
+                <section class="counter-hero">
+                    <div class="counter-hero-copy">
+                        <p class="counter-kicker">Mini App</p>
+                        <h1>Text Counter</h1>
+                        <p class="counter-lead">
+                            Type or paste text and see the counts update right away. Useful for quick checks when you want character count with spaces, without spaces, and a few extra text stats.
+                        </p>
+                    </div>
+
+                    <div class="counter-hero-panel">
+                        <p>Metrics</p>
+                        <ul>
+                            <li>Characters with spaces</li>
+                            <li>Characters without whitespace</li>
+                            <li>Words, lines, paragraphs</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="counter-panel">
+                    <div class="counter-input-wrap">
+                        <label class="counter-label" for="text-input">Input text</label>
+                        <textarea
+                            id="text-input"
+                            class="counter-textarea"
+                            placeholder="Type or paste your text here."
+                        ></textarea>
+                    </div>
+
+                    <div class="counter-actions">
+                        <button id="sample-button" class="counter-button secondary" type="button">Use Sample</button>
+                        <button id="clear-button" class="counter-button" type="button">Clear</button>
+                    </div>
+
+                    <div class="counter-stats" aria-live="polite">
+                        <article class="counter-stat">
+                            <p class="counter-stat-label">Characters</p>
+                            <strong id="count-characters">0</strong>
+                            <span>Including spaces and line breaks</span>
+                        </article>
+                        <article class="counter-stat">
+                            <p class="counter-stat-label">Without Whitespace</p>
+                            <strong id="count-no-whitespace">0</strong>
+                            <span>Spaces, tabs, and line breaks removed</span>
+                        </article>
+                        <article class="counter-stat">
+                            <p class="counter-stat-label">Words</p>
+                            <strong id="count-words">0</strong>
+                            <span>Split on whitespace</span>
+                        </article>
+                        <article class="counter-stat">
+                            <p class="counter-stat-label">Lines</p>
+                            <strong id="count-lines">0</strong>
+                            <span>Visible line count from line breaks</span>
+                        </article>
+                        <article class="counter-stat">
+                            <p class="counter-stat-label">Paragraphs</p>
+                            <strong id="count-paragraphs">0</strong>
+                            <span>Blocks separated by blank lines</span>
+                        </article>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </body>
+</html>
