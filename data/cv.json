@@ -4,6 +4,13 @@
       "title": "International Conference",
       "items": [
         {
+          "year": "2026",
+          "title": "Drift-Aware Memory-Augmented Spatio-Temporal Graph Attention for Industrial Anomaly Detection",
+          "authors": "<strong>Kim, Y.</strong> &amp; Shin, D.&dagger;",
+          "venue": "Knowledge Discovery and Data Mining",
+          "link": "#"
+        },
+        {
           "year": "2025",
           "title": "LCDTwin: Contextual Digital Twin for Actuator-Sensor Correlation in ICS",
           "authors": "<strong>Kim, Y.*</strong>, Heo, W.*, Woo, E., &amp; Shin, D.&dagger;",
@@ -59,12 +66,6 @@
     }
   ],
   "preprints": [
-    {
-      "year": "2026",
-      "title": "Drift-Aware Memory-Augmented Spatio-Temporal Graph Attention for Industrial Anomaly Detection",
-      "authors": "<strong>Kim, Y.</strong> &amp; Shin, D.&dagger;",
-      "venue": "Under review"
-    },
     {
       "year": "2026",
       "title": "System-Aware Contextual Digital Twin for ICS Anomaly Diagnosis",
