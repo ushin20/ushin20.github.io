@@ -5,8 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Lotto Number Picker | Yooshin Kim</title>
         <meta name="description" content="A small lotto number picker that generates random number sets from 1 to 45." />
+        <script>
+            (function () {
+                try {
+                    var theme = localStorage.getItem("ushin20-theme");
+                    if (theme === "dark" || theme === "light") {
+                        document.documentElement.dataset.theme = theme;
+                    }
+                } catch (error) {}
+            })();
+        </script>
         <link rel="stylesheet" href="../../styles/site.css" />
         <link rel="stylesheet" href="./style.css" />
+        <script src="../../scripts/theme.js" defer></script>
         <script src="./script.js" defer></script>
     </head>
     <body class="lotto-body">

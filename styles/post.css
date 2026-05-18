@@ -91,7 +91,7 @@
 
 .post-content p,
 .post-content li {
-  color: #252522;
+  color: var(--prose-ink);
   line-height: 1.9;
   font-size: 1.03rem;
 }
@@ -146,8 +146,8 @@
   border-collapse: collapse;
   min-width: 100%;
   background: transparent;
-  border-top: 1px solid rgb(5 5 5 / 0.55);
-  border-bottom: 1px solid rgb(5 5 5 / 0.55);
+  border-top: 1px solid var(--table-strong-line);
+  border-bottom: 1px solid var(--table-strong-line);
 }
 
 .post-content th,
@@ -172,11 +172,11 @@
 }
 
 .post-content thead th {
-  border-bottom: 1px solid rgb(5 5 5 / 0.35);
+  border-bottom: 1px solid var(--table-mid-line);
 }
 
 .post-content tbody tr + tr td {
-  border-top: 1px solid rgb(5 5 5 / 0.08);
+  border-top: 1px solid var(--table-soft-line);
 }
 
 .post-content table caption {

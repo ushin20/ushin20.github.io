@@ -5,8 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Yooshin Kim | Tool</title>
         <meta name="description" content="Small web-based tools and interactive projects by Yooshin Kim." />
+        <script>
+            (function () {
+                try {
+                    var theme = localStorage.getItem("ushin20-theme");
+                    if (theme === "dark" || theme === "light") {
+                        document.documentElement.dataset.theme = theme;
+                    }
+                } catch (error) {}
+            })();
+        </script>
         <link rel="stylesheet" href="./styles/site.css" />
         <link rel="stylesheet" href="./styles/lab.css" />
+        <script src="./scripts/theme.js" defer></script>
         <script src="./scripts/lab.js" defer></script>
     </head>
     <body class="lab-body">

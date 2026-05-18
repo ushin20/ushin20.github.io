@@ -5,9 +5,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Yooshin Kim</title>
         <meta name="description" content="Personal homepage of Yooshin Kim, an industrial AI security researcher." />
+        <script>
+            (function () {
+                try {
+                    var theme = localStorage.getItem("ushin20-theme");
+                    if (theme === "dark" || theme === "light") {
+                        document.documentElement.dataset.theme = theme;
+                    }
+                } catch (error) {}
+            })();
+        </script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
         <link rel="stylesheet" href="./styles/site.css" />
         <link rel="stylesheet" href="./styles/cv.css" />
+        <script src="./scripts/theme.js" defer></script>
     </head>
     <body class="home-body">
         <section class="home-screen">
@@ -40,6 +51,9 @@
                         <div class="home-socials">
                             <a href="https://www.instagram.com/u_shin20/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
                             <a href="https://github.com/ushin20" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+                            <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false" title="Toggle dark mode" data-theme-toggle>
+                                <i class="fa-solid fa-moon" aria-hidden="true"></i>
+                            </button>
                         </div>
                     </aside>
                 </main>

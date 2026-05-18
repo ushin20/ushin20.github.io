@@ -5,8 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Yooshin Kim | About</title>
         <meta name="description" content="Curriculum vitae of Yooshin Kim, a researcher working on industrial AI security, anomaly detection, and resilient cyber-physical systems." />
+        <script>
+            (function () {
+                try {
+                    var theme = localStorage.getItem("ushin20-theme");
+                    if (theme === "dark" || theme === "light") {
+                        document.documentElement.dataset.theme = theme;
+                    }
+                } catch (error) {}
+            })();
+        </script>
         <link rel="stylesheet" href="./styles/site.css" />
         <link rel="stylesheet" href="./styles/cv.css" />
+        <script src="./scripts/theme.js" defer></script>
         <script src="./scripts/cv.js" defer></script>
     </head>
     <body class="about-body">

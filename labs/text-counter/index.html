@@ -5,8 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Text Counter | Yooshin Kim</title>
         <meta name="description" content="A small text counting tool that shows multiple character and text metrics in real time." />
+        <script>
+            (function () {
+                try {
+                    var theme = localStorage.getItem("ushin20-theme");
+                    if (theme === "dark" || theme === "light") {
+                        document.documentElement.dataset.theme = theme;
+                    }
+                } catch (error) {}
+            })();
+        </script>
         <link rel="stylesheet" href="../../styles/site.css" />
         <link rel="stylesheet" href="./style.css" />
+        <script src="../../scripts/theme.js" defer></script>
         <script src="./script.js" defer></script>
     </head>
     <body class="counter-body">

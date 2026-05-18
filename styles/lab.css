@@ -123,7 +123,7 @@
 }
 
 .lab-item:hover {
-  background: rgb(251 251 248 / 0.5);
+  background: var(--hover-surface);
 }
 
 .lab-item-meta {

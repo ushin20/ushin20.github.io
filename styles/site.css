@@ -12,6 +12,7 @@
 }
 
 :root {
+  color-scheme: light;
   --content-width: 1120px;
   --post-width: 920px;
   --nav-gutter: clamp(28px, 4vw, 64px);
@@ -21,11 +22,38 @@
   --surface: rgb(245 245 243 / 0.72);
   --surface-strong: #fbfbf8;
   --ink: #050505;
+  --prose-ink: #252522;
   --muted: #5f5f59;
   --line: rgb(5 5 5 / 0.12);
   --accent: #1f3f36;
   --accent-soft: rgb(5 5 5 / 0.06);
+  --hover-surface: rgb(251 251 248 / 0.5);
+  --home-copy-surface: rgb(245 245 243 / 0.72);
+  --focus-ring: rgb(5 5 5 / 0.45);
+  --table-strong-line: rgb(5 5 5 / 0.55);
+  --table-mid-line: rgb(5 5 5 / 0.35);
+  --table-soft-line: rgb(5 5 5 / 0.08);
   --shadow: 0 0.75rem 2rem rgb(5 5 5 / 0.04);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #10110f;
+  --surface: rgb(25 27 24 / 0.76);
+  --surface-strong: #191b18;
+  --ink: #f3f0e8;
+  --prose-ink: #dedbd2;
+  --muted: #aaa69a;
+  --line: rgb(243 240 232 / 0.16);
+  --accent: #b8d8c7;
+  --accent-soft: rgb(243 240 232 / 0.08);
+  --hover-surface: rgb(243 240 232 / 0.055);
+  --home-copy-surface: rgb(16 17 15 / 0.74);
+  --focus-ring: rgb(243 240 232 / 0.52);
+  --table-strong-line: rgb(243 240 232 / 0.48);
+  --table-mid-line: rgb(243 240 232 / 0.28);
+  --table-soft-line: rgb(243 240 232 / 0.1);
+  --shadow: 0 0.75rem 2rem rgb(0 0 0 / 0.18);
 }
 
 * {
@@ -42,6 +70,9 @@ body {
   background: var(--paper);
   font-family: "Zen Serif", "Georgia", serif;
   overflow-x: clip;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease;
 }
 
 img {

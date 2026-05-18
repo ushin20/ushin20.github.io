@@ -5,6 +5,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Post | Yooshin Kim</title>
         <meta name="description" content="Research note by Yooshin Kim." />
+        <script>
+            (function () {
+                try {
+                    var theme = localStorage.getItem("ushin20-theme");
+                    if (theme === "dark" || theme === "light") {
+                        document.documentElement.dataset.theme = theme;
+                    }
+                } catch (error) {}
+            })();
+        </script>
         <link rel="stylesheet" href="./styles/site.css" />
         <link rel="stylesheet" href="./styles/post.css" />
         <script>
@@ -19,6 +29,7 @@
             };
         </script>
         <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+        <script src="./scripts/theme.js" defer></script>
         <script src="./scripts/post.js" defer></script>
     </head>
     <body class="post-body">
