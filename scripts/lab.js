@@ -19,7 +19,7 @@ function buildLabItem(project) {
   meta.className = "lab-item-meta";
 
   const category = document.createElement("span");
-  category.textContent = toTitleCase(project.category || "Project");
+  category.textContent = toTitleCase(project.category || "Tool");
 
   const status = document.createElement("span");
   status.className = "lab-status";
@@ -44,7 +44,7 @@ function buildLabItem(project) {
 
   const cta = document.createElement("div");
   cta.className = "lab-item-cta";
-  cta.textContent = "Open Project";
+  cta.textContent = "Open Tool";
 
   const link = document.createElement("a");
   link.className = "lab-item-link";
@@ -65,7 +65,7 @@ function renderEmptyState(message) {
 
 function renderLabs(projects) {
   if (!Array.isArray(projects) || projects.length === 0) {
-    renderEmptyState("No projects are available yet.");
+    renderEmptyState("No tools are available yet.");
     return;
   }
 
@@ -84,7 +84,7 @@ async function initLab() {
     renderLabs(projects);
   } catch (error) {
     console.error(error);
-    renderEmptyState("Projects could not be loaded. Please check whether data/labs.json is available.");
+    renderEmptyState("Tools could not be loaded. Please check whether data/labs.json is available.");
   }
 }
 

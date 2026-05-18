@@ -4,6 +4,7 @@ const postDate = document.getElementById("post-date");
 const postAuthor = document.getElementById("post-author");
 const postPublished = document.getElementById("post-published");
 const postContent = document.getElementById("post-content");
+const postToc = document.getElementById("post-toc");
 
 function formatDate(dateString) {
   const date = new Date(`${dateString}T00:00:00`);
@@ -243,6 +244,72 @@ function renderMarkdown(content) {
   return html.join("\n");
 }
 
+function slugifyHeading(text) {
+  const slug = text
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+
+  return slug || "section";
+}
+
+function ensureHeadingId(heading, usedIds) {
+  const baseId = heading.id || slugifyHeading(heading.textContent);
+  let id = baseId;
+  let count = 2;
+
+  while (usedIds.has(id)) {
+    id = `${baseId}-${count}`;
+    count += 1;
+  }
+
+  heading.id = id;
+  usedIds.add(id);
+}
+
+function renderTableOfContents() {
+  if (!postToc) {
+    return;
+  }
+
+  const headings = Array.from(postContent.querySelectorAll("h1, h2, h3")).filter((heading) =>
+    heading.textContent.trim(),
+  );
+
+  postToc.replaceChildren();
+
+  if (!headings.length) {
+    postToc.hidden = true;
+    return;
+  }
+
+  const usedIds = new Set();
+  headings.forEach((heading) => ensureHeadingId(heading, usedIds));
+
+  const title = document.createElement("p");
+  title.className = "post-toc-title";
+  title.textContent = "Contents";
+
+  const list = document.createElement("ol");
+
+  headings.forEach((heading) => {
+    const level = heading.tagName.toLowerCase().replace("h", "");
+    const item = document.createElement("li");
+    const link = document.createElement("a");
+
+    item.className = `post-toc-level-${level}`;
+    link.href = `#${heading.id}`;
+    link.textContent = heading.textContent.trim();
+
+    item.append(link);
+    list.append(item);
+  });
+
+  postToc.append(title, list);
+  postToc.hidden = false;
+}
+
 function renderPost(metadata, markdown) {
   document.title = `${metadata.title} | Yooshin Kim`;
   postTitle.textContent = metadata.title;
@@ -251,6 +318,7 @@ function renderPost(metadata, markdown) {
   postAuthor.textContent = metadata.author || "Unknown author";
   postPublished.textContent = metadata.published || "Unpublished note";
   postContent.innerHTML = renderMarkdown(markdown);
+  renderTableOfContents();
   if (window.MathJax?.typesetPromise) {
     window.MathJax.typesetPromise([postContent]).catch((error) => console.error(error));
   }
@@ -263,6 +331,10 @@ function renderError(message) {
   postAuthor.textContent = "-";
   postPublished.textContent = "-";
   postContent.innerHTML = `<p>${message}</p>`;
+  if (postToc) {
+    postToc.replaceChildren();
+    postToc.hidden = true;
+  }
 }
 
 async function initPost() {

@@ -3,141 +3,47 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Yooshin Kim | Curriculum Vitae</title>
-        <meta name="description" content="Curriculum vitae of Yooshin Kim, a researcher working on industrial AI security, anomaly detection, and resilient cyber-physical systems." />
+        <title>Yooshin Kim</title>
+        <meta name="description" content="Personal homepage of Yooshin Kim, an industrial AI security researcher." />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
         <link rel="stylesheet" href="./styles/site.css" />
         <link rel="stylesheet" href="./styles/cv.css" />
-        <script src="./scripts/cv.js" defer></script>
     </head>
-    <body class="cv-body">
-        <div class="page-shell">
-            <header class="site-header">
-                <a class="site-mark" href="./index.html">Yooshin Kim</a>
-                <nav class="site-nav" aria-label="Primary">
-                    <a aria-current="page" href="./index.html">CV</a>
-                    <a href="./blog.html">Blog</a>
-                    <a href="./lab.html">Lab</a>
-                    <a href="mailto:yooshin0303@dgist.ac.kr">Email</a>
-                </nav>
-            </header>
+    <body class="home-body">
+        <section class="home-screen">
+            <div class="page-shell">
+                <header class="site-header">
+                    <a class="site-mark" href="./index.html">ushin20</a>
+                    <nav class="site-nav" aria-label="Primary">
+                        <a href="./about.html">About</a>
+                        <a href="./blog.html">Blog</a>
+                        <a href="./lab.html">Tool</a>
+                        <a href="mailto:yooshin0303@dgist.ac.kr">Contact</a>
+                    </nav>
+                </header>
 
-            <main class="cv-layout">
-                <section class="cv-intro">
-                    <p class="section-label">Curriculum Vitae</p>
-                    <h1>Yooshin Kim</h1>
-                    <p class="cv-role">Industrial AI Security Researcher</p>
-                    <p class="cv-summary">
-                        I study how machine learning can improve the security, observability, and resilience of industrial control systems. My recent work focuses on anomaly detection, passive
-                        authentication, privacy-preserving analytics, and contextual digital twins for critical infrastructure.
-                    </p>
-
-                    <dl class="identity-list">
-                        <div>
-                            <dt>Affiliation</dt>
-                            <dd>Department of Electrical Engineering and Computer Science, DGIST</dd>
+                <main class="home-main" aria-label="Homepage">
+                    <section class="home-stage" aria-labelledby="home-title">
+                        <figure class="home-photo">
+                            <img src="./assets/me.jpg" alt="Yooshin Kim looking at framed artwork in a green gallery room" />
+                        </figure>
+                        <div class="home-copy">
+                            <h1 id="home-title">Yooshin Kim</h1>
+                            <p>Industrial AI Security Researcher</p>
                         </div>
-                        <div>
-                            <dt>Program</dt>
-                            <dd>M.S. and Ph.D. Integrated Course</dd>
-                        </div>
-                        <div>
-                            <dt>Advisor</dt>
-                            <dd>Prof. Donghoon Shin</dd>
-                        </div>
-                        <div>
-                            <dt>Email</dt>
-                            <dd><a href="mailto:yooshin0303@dgist.ac.kr">yooshin0303@dgist.ac.kr</a></dd>
-                        </div>
-                    </dl>
-
-                    <div class="link-row">
-                        <a href="https://scholar.google.com/citations?user=jgpnm14AAAAJ&hl=ko" target="_blank" rel="noopener">Google Scholar</a>
-                        <a href="https://github.com/ushin20" target="_blank" rel="noopener">GitHub</a>
-                        <a href="./blog.html">Writing Archive</a>
-                        <a href="./lab.html">Project Lab</a>
-                    </div>
-                </section>
-
-                <aside class="cv-aside">
-                    <figure class="portrait-card">
-                        <img src="./assets/me.jpg" alt="Portrait of Yooshin Kim" />
-                    </figure>
-
-                    <section class="aside-block compact-block">
-                        <p class="section-label">Research Interests</p>
-                        <ul class="plain-list">
-                            <li>Industrial control system security</li>
-                            <li>Time-series anomaly detection</li>
-                            <li>Passive authentication</li>
-                            <li>Privacy-preserving machine learning</li>
-                            <li>Contextual digital twins</li>
-                        </ul>
                     </section>
-                </aside>
 
-                <section class="cv-section">
-                    <div class="section-heading">
-                        <p class="section-label">Education</p>
-                    </div>
-                    <div class="entry-list">
-                        <article class="entry">
-                            <div class="entry-meta">2023 - Present</div>
-                            <div>
-                                <h2>M.S. and Ph.D. Integrated Course</h2>
-                                <p>DGIST, Department of Electrical Engineering and Computer Science</p>
-                            </div>
-                        </article>
-                        <article class="entry">
-                            <div class="entry-meta">2018 - 2023</div>
-                            <div>
-                                <h2>B.S. in DGIST</h2>
-                                <p>Daegu Gyeongbuk Institute of Science and Technology, South Korea</p>
-                            </div>
-                        </article>
-                        <article class="entry">
-                            <div class="entry-meta">2022</div>
-                            <div>
-                                <h2>Exchange Student</h2>
-                                <p>University of California, Berkeley</p>
-                            </div>
-                        </article>
-                    </div>
-                </section>
-
-                <section class="cv-section">
-                    <div class="section-heading">
-                        <p class="section-label">Publications</p>
-                    </div>
-                    <div id="publication-sections" class="publication-sections"></div>
-                </section>
-
-                <section class="cv-section split-section">
-                    <div>
-                        <div class="section-heading">
-                            <p class="section-label">Awards</p>
+                    <aside class="home-corner" aria-label="Social links">
+                        <div class="home-sketch" aria-hidden="true">
+                            <div class="home-cat-strip"></div>
                         </div>
-                        <ul id="awards-list" class="detail-list"></ul>
-                    </div>
-
-                    <div>
-                        <div class="section-heading">
-                            <p class="section-label">Current Themes</p>
+                        <div class="home-socials">
+                            <a href="https://www.instagram.com/u_shin20/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+                            <a href="https://github.com/ushin20" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
                         </div>
-                        <ul class="detail-list">
-                            <li>Robust anomaly detection under operational drift</li>
-                            <li>Frictionless security mechanisms for industrial operators</li>
-                            <li>Interpretability for cyber-physical system monitoring</li>
-                        </ul>
-                    </div>
-                </section>
-
-                <section class="cv-section">
-                    <div class="section-heading">
-                        <p class="section-label">Preprints and Work in Progress</p>
-                    </div>
-                    <div id="preprint-list" class="publication-list"></div>
-                </section>
-            </main>
-        </div>
+                    </aside>
+                </main>
+            </div>
+        </section>
     </body>
 </html>

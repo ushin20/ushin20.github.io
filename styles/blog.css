@@ -1,71 +1,69 @@
 .blog-body {
-  background:
-    radial-gradient(circle at top left, rgba(255, 186, 117, 0.22), transparent 24%),
-    radial-gradient(circle at right 12%, rgba(7, 87, 91, 0.16), transparent 22%),
-    linear-gradient(180deg, #f8f1e3 0%, #efe6d6 100%);
+  background: var(--paper);
 }
 
 .blog-hero {
   display: grid;
-  grid-template-columns: minmax(0, 1.5fr) minmax(260px, 0.8fr);
-  gap: 24px;
-  align-items: stretch;
-  margin-bottom: 26px;
+  grid-template-columns: minmax(0, 1.45fr) minmax(260px, 0.8fr);
+  gap: 3rem;
+  align-items: end;
+  margin: 2rem 0 3.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--line);
 }
 
 .blog-hero-copy,
 .blog-hero-panel,
 .archive-item {
-  border-radius: 28px;
-  border: 1px solid rgba(25, 23, 20, 0.1);
-  box-shadow: 0 24px 55px rgba(31, 24, 16, 0.08);
+  border-radius: 0.5rem;
+  border: 1px solid var(--line);
+  box-shadow: none;
 }
 
 .blog-hero-copy {
-  padding: 38px;
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.85), rgba(255, 248, 238, 0.74)),
-    rgba(255, 255, 255, 0.72);
+  padding: 0;
+  background: transparent;
+  border: 0;
 }
 
 .blog-hero-copy h1 {
-  margin: 14px 0 16px;
+  margin: 1rem 0;
   font-family: "Zen Serif", "Georgia", serif;
-  font-size: clamp(2.7rem, 5vw, 4.8rem);
-  line-height: 0.97;
-  max-width: 11ch;
+  font-size: clamp(2.45rem, 5.6vw, 4.25rem);
+  line-height: 0.98;
+  max-width: 14ch;
 }
 
 .blog-lead {
   max-width: 58ch;
-  color: #544d47;
+  color: var(--muted);
   line-height: 1.85;
   font-size: 1.04rem;
 }
 
 .blog-hero-panel {
-  padding: 28px;
-  background: linear-gradient(180deg, rgba(20, 58, 82, 0.94), rgba(16, 44, 61, 0.9));
-  color: #f8f4ee;
+  padding: 1.25rem;
+  background: var(--surface);
+  color: var(--ink);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  gap: 18px;
+  gap: 1rem;
 }
 
 .blog-hero-panel p {
-  font-family: "Suisse Intl", "Arial", sans-serif;
+  font-family: "Zen Serif", "Georgia", serif;
   text-transform: uppercase;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.04em;
   font-size: 0.76rem;
-  opacity: 0.82;
+  color: var(--muted);
 }
 
 .blog-hero-panel ul {
   list-style: none;
   padding: 0;
   display: grid;
-  gap: 12px;
+  gap: 0.65rem;
 }
 
 .archive-section {
@@ -77,44 +75,44 @@
   align-items: end;
   justify-content: space-between;
   gap: 1rem;
-  margin-bottom: 18px;
+  margin-bottom: 1rem;
 }
 
 .archive-heading h2 {
   font-family: "Zen Serif", "Georgia", serif;
-  font-size: 2rem;
+  font-size: 2.25rem;
 }
 
 .archive-list {
   display: grid;
-  gap: 16px;
+  gap: 0;
 }
 
 .archive-item {
-  padding: 22px 24px;
-  background: rgba(255, 253, 248, 0.75);
+  padding: 1.2rem 0;
+  background: transparent;
   display: grid;
-  grid-template-columns: 180px minmax(0, 1fr);
-  gap: 18px;
+  grid-template-columns: 11rem minmax(0, 1fr);
+  gap: 1.25rem;
   position: relative;
-  transition:
-    transform 180ms ease,
-    box-shadow 180ms ease;
+  border: 0;
+  border-top: 1px solid var(--line);
+  border-radius: 0;
+  transition: background 180ms ease;
 }
 
 .archive-item:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 28px 60px rgba(31, 24, 16, 0.1);
+  background: rgb(251 251 248 / 0.5);
 }
 
 .archive-meta {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  color: #6a625b;
-  font-family: "Suisse Intl", "Arial", sans-serif;
+  color: var(--muted);
+  font-family: "Zen Serif", "Georgia", serif;
   font-size: 0.76rem;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
@@ -126,8 +124,8 @@
 
 .archive-copy h3 {
   font-family: "Zen Serif", "Georgia", serif;
-  font-size: 1.35rem;
-  line-height: 1.2;
+  font-size: 1.28rem;
+  line-height: 1.35;
 }
 
 .archive-copy h3 a {
@@ -136,7 +134,7 @@
 }
 
 .archive-copy p {
-  color: #5b544d;
+  color: var(--muted);
   line-height: 1.7;
 }
 
@@ -149,19 +147,19 @@
 .blog-footnote {
   margin-top: 42px;
   padding-top: 18px;
-  border-top: 1px solid rgba(25, 23, 20, 0.14);
+  border-top: 1px solid var(--line);
   display: grid;
   gap: 8px;
 }
 
 .blog-footnote p {
-  color: #6a625b;
+  color: var(--muted);
   font-size: 0.95rem;
   line-height: 1.7;
 }
 
 .blog-footnote span {
-  color: #1d1a16;
+  color: var(--ink);
 }
 
 @media (max-width: 960px) {
@@ -175,21 +173,19 @@
 }
 
 @media (max-width: 680px) {
-  .blog-hero-copy,
-  .blog-hero-panel,
-  .archive-item {
-    border-radius: 22px;
+  .blog-hero {
+    gap: 1.5rem;
+    margin-top: 1rem;
+    padding-bottom: 2rem;
   }
 
-  .blog-hero-copy,
-  .blog-hero-panel,
-  .archive-item {
-    padding: 22px;
+  .blog-hero-panel {
+    padding: 1rem;
   }
 
   .archive-item {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 0.7rem;
   }
 
   .archive-heading {

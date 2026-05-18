@@ -7,14 +7,14 @@
           "year": "2026",
           "title": "Drift-Aware Memory-Augmented Spatio-Temporal Graph Attention for Industrial Anomaly Detection",
           "authors": "<strong>Kim, Y.</strong> &amp; Shin, D.&dagger;",
-          "venue": "Knowledge Discovery and Data Mining",
+          "venue": "ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD 2026)",
           "link": "#"
         },
         {
           "year": "2025",
           "title": "LCDTwin: Contextual Digital Twin for Actuator-Sensor Correlation in ICS",
           "authors": "<strong>Kim, Y.*</strong>, Heo, W.*, Woo, E., &amp; Shin, D.&dagger;",
-          "venue": "Robotics, Automation, and Artificial Intelligence",
+          "venue": "2025 5th International Conference on Robotics, Automation and Artificial Intelligence (RAAI 2025)",
           "link": "https://doi.org/10.1109/RAAI67517.2025.11423321"
         }
       ]
@@ -26,7 +26,7 @@
           "year": "2025",
           "title": "KDPrint: Passive Authentication using Keystroke Dynamics-to-Image Encoding via Standardization",
           "authors": "<strong>Kim, Y.</strong>, Kwon, N., &amp; Shin, D.&dagger;",
-          "venue": "Computers and Security",
+          "venue": "Computers & Security",
           "link": "https://doi.org/10.1016/j.cose.2025.104725"
         },
         {
@@ -81,7 +81,7 @@
     {
       "year": "2026",
       "title": "Tracing the Origins: Legacy Codec Identification in Neural Audio Transcoding",
-      "authors": "Heo, W., Youn, S., <strong>Kim, Y.</strong>, Chae, C., &amp; Shin, D.&dagger;",
+      "authors": "Heo, W.*, Youn, S.*, <strong>Kim, Y.</strong>, Chae, C., &amp; Shin, D.&dagger;",
       "venue": "Under review"
     },
     {
@@ -94,7 +94,7 @@
       "year": "2026",
       "title": "A Phased Zero Trust Migration Framework for Resilient Space Systems",
       "authors": "Cho, Y., <strong>Kim, Y.</strong>, &amp; Shin, D.&dagger;",
-      "venue": "In progress"
+      "venue": "Under review"
     }
   ],
   "awards": [
@@ -107,6 +107,11 @@
       "title": "Best Paper Award",
       "venue": "Korea Computer Congress",
       "year": "2025"
+    },
+    {
+      "title": "Dean's List, 3 times",
+      "venue": "DGIST",
+      "year": "Undergraduate"
     }
   ]
 }

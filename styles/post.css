@@ -1,18 +1,16 @@
 .post-body {
-  background:
-    radial-gradient(circle at top left, rgba(255, 186, 117, 0.15), transparent 24%),
-    linear-gradient(180deg, #f7f1e6 0%, #efe7d8 100%);
+  background: var(--paper);
 }
 
 .post-shell {
-  width: min(920px, calc(100% - 40px));
+  width: min(var(--post-width), calc(100% - var(--page-gutter)));
   margin: 0 auto;
-  padding: 24px 0 56px;
+  padding: 2.25rem 0 4rem;
 }
 
 .post-layout {
   display: grid;
-  gap: 22px;
+  gap: 2rem;
   min-width: 0;
 }
 
@@ -21,12 +19,16 @@
   border-bottom: 1px solid var(--line);
 }
 
+.post-back-bottom {
+  margin-top: -0.25rem;
+}
+
 .post-header-card,
 .post-content {
-  border-radius: 28px;
-  border: 1px solid rgba(25, 23, 20, 0.1);
-  box-shadow: 0 24px 55px rgba(31, 24, 16, 0.08);
-  background: rgba(255, 252, 246, 0.78);
+  border-radius: 0.5rem;
+  border: 1px solid var(--line);
+  box-shadow: none;
+  background: var(--surface);
 }
 
 .post-header-card {
@@ -34,25 +36,25 @@
 }
 
 .post-kicker {
-  font-family: "Suisse Intl", "Arial", sans-serif;
+  font-family: "Zen Serif", "Georgia", serif;
   text-transform: uppercase;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.04em;
   font-size: 0.76rem;
-  color: #6a625b;
+  color: var(--muted);
 }
 
 .post-header-card h1 {
   margin: 12px 0 18px;
   font-family: "Zen Serif", "Georgia", serif;
-  font-size: clamp(2.3rem, 5vw, 4rem);
-  line-height: 1.02;
+  font-size: 3.15rem;
+  line-height: 1.04;
 }
 
 .post-meta {
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
-  color: #6a625b;
+  color: var(--muted);
   font-size: 0.96rem;
 }
 
@@ -70,25 +72,26 @@
 .post-content h2,
 .post-content h3 {
   font-family: "Zen Serif", "Georgia", serif;
-  line-height: 1.15;
-  margin: 1.8em 0 0.6em;
+  line-height: 1.3;
+  margin: 1.7em 0 0.55em;
+  scroll-margin-top: 7rem;
 }
 
 .post-content h1 {
-  font-size: 2rem;
-}
-
-.post-content h2 {
   font-size: 1.55rem;
 }
 
+.post-content h2 {
+  font-size: 1.3rem;
+}
+
 .post-content h3 {
-  font-size: 1.2rem;
+  font-size: 1.12rem;
 }
 
 .post-content p,
 .post-content li {
-  color: #2f2a25;
+  color: #252522;
   line-height: 1.9;
   font-size: 1.03rem;
 }
@@ -108,7 +111,7 @@
 }
 
 .post-content a {
-  border-bottom: 1px solid rgba(25, 23, 20, 0.22);
+  border-bottom: 1px solid var(--line);
 }
 
 .post-content code {
@@ -119,8 +122,8 @@
 .post-content pre {
   overflow: auto;
   padding: 16px 18px;
-  border-radius: 16px;
-  background: rgba(20, 58, 82, 0.06);
+  border-radius: 0.5rem;
+  background: var(--accent-soft);
 }
 
 .math-block {
@@ -132,88 +135,168 @@
   overflow-x: auto;
   overflow-y: hidden;
   max-width: 100%;
-  margin-bottom: 1.2rem;
-  display: flex;
-  justify-content: center;
+  margin: 1.6rem 0 1.8rem;
+  display: block;
+  scrollbar-gutter: stable;
 }
 
 .post-content table {
   width: max-content;
   max-width: none;
   border-collapse: collapse;
-  min-width: min(620px, 100%);
-  background: rgba(255, 255, 255, 0.58);
-  border: 1px solid rgba(25, 23, 20, 0.1);
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  min-width: 100%;
+  background: transparent;
+  border-top: 1px solid rgb(5 5 5 / 0.55);
+  border-bottom: 1px solid rgb(5 5 5 / 0.55);
 }
 
 .post-content th,
 .post-content td {
-  padding: 12px 14px;
-  border-right: 1px solid rgba(25, 23, 20, 0.08);
-  border-bottom: 1px solid rgba(25, 23, 20, 0.08);
+  padding: 0.72rem 0.85rem;
+  border: 0;
   text-align: left;
   vertical-align: top;
-  font-size: 0.98rem;
+  font-size: 0.95rem;
   line-height: 1.6;
   white-space: nowrap;
 }
 
 .post-content th {
-  font-family: "Suisse Intl", "Arial", sans-serif;
-  font-size: 0.78rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #514a44;
-  background: rgba(20, 58, 82, 0.08);
+  font-family: "Zen Serif", "Georgia", serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ink);
+  background: transparent;
 }
 
-.post-content th:last-child,
-.post-content td:last-child {
-  border-right: 0;
+.post-content thead th {
+  border-bottom: 1px solid rgb(5 5 5 / 0.35);
 }
 
-.post-content tbody tr:last-child td {
-  border-bottom: 0;
+.post-content tbody tr + tr td {
+  border-top: 1px solid rgb(5 5 5 / 0.08);
 }
 
-.post-content tbody tr:nth-child(even) td {
-  background: rgba(20, 58, 82, 0.03);
+.post-content table caption {
+  caption-side: top;
+  margin-bottom: 0.65rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  text-align: left;
 }
 
 .post-content td strong,
 .post-content th strong {
-  color: #143a52;
+  color: var(--accent);
   font-weight: 700;
 }
 
 .post-content img {
   margin-left: auto;
   margin-right: auto;
-  border-radius: 18px;
+  border-radius: 0.5rem;
 }
 
 .post-content blockquote {
   padding-left: 16px;
-  border-left: 3px solid rgba(20, 58, 82, 0.28);
-  color: #5c5550;
+  border-left: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.post-toc {
+  display: none;
+}
+
+.post-toc[hidden] {
+  display: none;
+}
+
+.post-toc-title {
+  margin: 0 0 0.85rem;
+  color: var(--muted);
+  font-family: "Zen Serif", "Georgia", serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.post-toc ol {
+  display: grid;
+  gap: 0.58rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.post-toc a {
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.35;
+}
+
+.post-toc a:hover {
+  color: var(--ink);
+}
+
+.post-toc-level-2 {
+  padding-left: 0.75rem;
+}
+
+.post-toc-level-3 {
+  padding-left: 1.5rem;
+}
+
+.post-toc-level-3 a {
+  font-size: 0.78rem;
+}
+
+@media (min-width: 1400px) {
+  .post-toc:not([hidden]) {
+    position: fixed;
+    top: 7.25rem;
+    left: calc(50vw + (var(--post-width) / 2) + 2.75rem);
+    display: block;
+    width: 12rem;
+    max-height: calc(100vh - 9rem);
+    overflow: auto;
+    padding-left: 1rem;
+    border-left: 1px solid var(--line);
+  }
 }
 
 @media (max-width: 720px) {
   .post-shell {
-    width: min(100% - 28px, 920px);
+    width: min(100% - var(--mobile-gutter), var(--post-width));
     padding: 18px 0 40px;
   }
 
   .post-header-card,
   .post-content {
-    border-radius: 22px;
+    border-radius: 0.5rem;
   }
 
   .post-header-card,
   .post-content {
     padding: 24px;
+  }
+
+  .post-header-card h1 {
+    font-size: 2.1rem;
+    line-height: 1.1;
+  }
+
+  .post-content h1 {
+    font-size: 1.38rem;
+  }
+
+  .post-content h2 {
+    font-size: 1.2rem;
+  }
+
+  .post-content h3 {
+    font-size: 1.08rem;
   }
 }
