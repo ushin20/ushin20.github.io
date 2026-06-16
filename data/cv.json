@@ -49,6 +49,13 @@
             "title": "Domestic Conference and Journal",
             "items": [
                 {
+                    "year": "2026",
+                    "title": "산업제어시스템에서의 토폴로지 기반 기능 패치 분해를 활용한 경량 이상 탐지",
+                    "authors": "<strong>김유신</strong>, 허원제, 채척, 신동훈&dagger;",
+                    "venue": "한국정보과학회논문지, 53(6), 455-464",
+                    "link": "https://www.dbpia.co.kr/journal/voisDetail?voisId=VOIS00816136"
+                },
+                {
                     "year": "2025",
                     "title": "다중 스케일 스펙트럼 특징을 활용한 이중 인코딩 음성의 원 코덱 식별",
                     "authors": "허원제, <strong>김유신</strong>, 우은규, 신동훈&dagger;",
@@ -66,7 +73,7 @@
                     "year": "2023",
                     "title": "산업제어시스템 AI IDS 연구동향 및 성능 향상을 위한 산업 데이터 수집 방안",
                     "authors": "권남혁*, <strong>김유신*</strong>, 우은규*, 정다훈*, 채척*, 신동훈&dagger;",
-                    "venue": "정보과학회지, 33(6), 5-14",
+                    "venue": "한국정보보호학회지, 33(6), 5-14",
                     "link": "https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11653410"
                 }
             ]
@@ -77,12 +84,6 @@
             "year": "2026",
             "title": "System-Aware Contextual Digital Twin for ICS Anomaly Diagnosis",
             "authors": "Woo, E., <strong>Kim, Y.</strong>, Heo, W., &amp; Shin, D.&dagger;",
-            "venue": "Under review"
-        },
-        {
-            "year": "2026",
-            "title": "산업제어시스템에서의 토폴로지 기반 기능 패치 분해를 활용한 경량 이상 탐지",
-            "authors": "<strong>김유신</strong>, 허원제, 채척, 신동훈&dagger;",
             "venue": "Under review"
         },
         {
