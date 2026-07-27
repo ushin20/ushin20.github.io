@@ -43,7 +43,10 @@ function createPublicationItem(item, displayedYear) {
 
 function createAwardItem(item) {
   const li = document.createElement("li");
-  li.textContent = `${item.title}, ${item.venue}, ${item.year}`;
+  const title = document.createElement("strong");
+  title.className = "award-title";
+  title.textContent = item.title;
+  li.append(title, `, ${item.venue}, ${item.year}`);
   return li;
 }
 
