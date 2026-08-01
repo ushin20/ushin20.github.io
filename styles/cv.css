@@ -531,6 +531,15 @@
   filter: invert(1);
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .home-cat-strip::before {
+    left: calc((var(--cat-run) - var(--cat-size)) / 2);
+    animation: none;
+    transform: translateY(-50%);
+    will-change: auto;
+  }
+}
+
 @media (max-width: 45em) {
   .home-screen .page-shell {
     width: 100%;
@@ -628,7 +637,7 @@
 
 .about-body .cv-layout {
   grid-template-columns: minmax(0, 1fr);
-  gap: 0;
+  gap: clamp(1.25rem, 2vw, 2rem) 0;
   align-items: start;
 }
 
@@ -715,7 +724,6 @@
 .about-body .cv-section {
   grid-column: 1;
   padding: 2rem 0;
-  border-top: 1px solid var(--line);
 }
 
 .about-body .interest-section {
@@ -725,18 +733,25 @@
 .about-body .interest-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.65rem 1.25rem;
+  gap: 0.5rem;
 }
 
 .about-body .interest-list li {
-  color: var(--ink);
-  line-height: 1.4;
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  padding: 0.46rem 0.76rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--prose-ink);
+  font-size: 0.92rem;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
 }
 
 .about-body .interest-list li::before {
-  content: "/";
-  color: var(--muted);
-  margin-right: 0.45rem;
+  content: none;
 }
 
 .about-body .section-heading {
@@ -796,7 +811,6 @@
 @media (max-width: 900px) {
   .about-body .cv-layout {
     grid-template-columns: 1fr;
-    gap: 0;
   }
 
   .about-body .identity-list {
@@ -887,13 +901,14 @@
   }
 
   .about-body .interest-list {
-    display: grid;
-    gap: 0.7rem;
+    display: flex;
+    gap: 0.45rem;
   }
 
   .about-body .interest-list li {
-    font-size: 1.025rem;
-    line-height: 1.55;
+    padding: 0.44rem 0.68rem;
+    font-size: 0.9rem;
+    line-height: 1.25;
   }
 
   .about-body .entry-list {

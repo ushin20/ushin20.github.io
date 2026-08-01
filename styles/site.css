@@ -33,6 +33,8 @@
   --table-strong-line: rgb(5 5 5 / 0.55);
   --table-mid-line: rgb(5 5 5 / 0.35);
   --table-soft-line: rgb(5 5 5 / 0.08);
+  --selection-background: rgb(30 31 33);
+  --selection-foreground: #f5f5f3;
   --shadow: 0 0.75rem 2rem rgb(5 5 5 / 0.04);
 }
 
@@ -53,11 +55,18 @@
   --table-strong-line: rgb(243 240 232 / 0.48);
   --table-mid-line: rgb(243 240 232 / 0.28);
   --table-soft-line: rgb(243 240 232 / 0.1);
+  --selection-background: #f3f0e8;
+  --selection-foreground: rgb(30 31 33);
   --shadow: 0 0.75rem 2rem rgb(0 0 0 / 0.18);
 }
 
 * {
   box-sizing: border-box;
+}
+
+::selection {
+  color: var(--selection-foreground);
+  background: var(--selection-background);
 }
 
 html {
@@ -83,6 +92,11 @@ img {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+:where(a, button, input, textarea, select, [tabindex]):focus-visible {
+  outline: 1px solid var(--focus-ring);
+  outline-offset: 0.25rem;
 }
 
 p,
@@ -133,6 +147,7 @@ body:not(.home-body) > .counter-shell {
 
 .site-nav {
   display: flex;
+  align-items: center;
   gap: 1.75rem;
   flex-wrap: wrap;
 }
@@ -150,6 +165,30 @@ body:not(.home-body) > .counter-shell {
 .site-nav a[aria-current="page"] {
   color: var(--ink);
   border: 0;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.4em;
+}
+
+.site-theme-toggle {
+  width: 1.25rem;
+  height: 1.25rem;
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.9rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.site-theme-icon {
+  display: block;
+  line-height: 1;
 }
 
 .site-footer {
@@ -224,6 +263,12 @@ body:not(.home-body) > .counter-shell {
   .site-nav {
     gap: 0.625rem;
   }
+
+  .site-theme-toggle {
+    width: 1rem;
+    height: 1rem;
+    font-size: 0.78rem;
+  }
 }
 
 @media (min-width: 1280px) {
@@ -235,5 +280,15 @@ body:not(.home-body) > .counter-shell {
     padding-top: 2.25rem;
     padding-bottom: 1.75rem;
     background: var(--paper);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  body {
+    transition: none;
   }
 }

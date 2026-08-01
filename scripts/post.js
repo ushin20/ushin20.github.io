@@ -5,6 +5,7 @@ const postAuthor = document.getElementById("post-author");
 const postPublished = document.getElementById("post-published");
 const postContent = document.getElementById("post-content");
 const postToc = document.getElementById("post-toc");
+let disposeTocTracking = null;
 
 function formatDate(dateString) {
   const date = new Date(`${dateString}T00:00:00`);
@@ -268,6 +269,70 @@ function ensureHeadingId(heading, usedIds) {
   usedIds.add(id);
 }
 
+function trackActiveTableOfContentsItem(headings, links) {
+  if (disposeTocTracking) {
+    disposeTocTracking();
+  }
+
+  let frameId = 0;
+
+  function setActiveItem(activeIndex) {
+    links.forEach((link, index) => {
+      const isActive = index === activeIndex;
+      link.classList.toggle("is-active", isActive);
+      if (isActive) {
+        link.setAttribute("aria-current", "location");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+  }
+
+  function updateActiveItem() {
+    frameId = 0;
+    const readingLine = Math.min(Math.max(window.innerHeight * 0.25, 120), 220);
+    let activeIndex = 0;
+
+    headings.forEach((heading, index) => {
+      if (heading.getBoundingClientRect().top <= readingLine) {
+        activeIndex = index;
+      }
+    });
+
+    const pageBottom = window.scrollY + window.innerHeight;
+    if (pageBottom >= document.documentElement.scrollHeight - 2) {
+      activeIndex = headings.length - 1;
+    }
+
+    setActiveItem(activeIndex);
+  }
+
+  function queueActiveItemUpdate() {
+    if (!frameId) {
+      frameId = window.requestAnimationFrame(updateActiveItem);
+    }
+  }
+
+  function handleTocClick(event) {
+    setActiveItem(links.indexOf(event.currentTarget));
+  }
+
+  window.addEventListener("scroll", queueActiveItemUpdate, { passive: true });
+  window.addEventListener("resize", queueActiveItemUpdate);
+  links.forEach((link) => link.addEventListener("click", handleTocClick));
+  updateActiveItem();
+
+  disposeTocTracking = () => {
+    window.removeEventListener("scroll", queueActiveItemUpdate);
+    window.removeEventListener("resize", queueActiveItemUpdate);
+    links.forEach((link) => link.removeEventListener("click", handleTocClick));
+    if (frameId) {
+      window.cancelAnimationFrame(frameId);
+    }
+    disposeTocTracking = null;
+  };
+}
+
 function renderTableOfContents() {
   if (!postToc) {
     return;
@@ -280,6 +345,9 @@ function renderTableOfContents() {
   postToc.replaceChildren();
 
   if (!headings.length) {
+    if (disposeTocTracking) {
+      disposeTocTracking();
+    }
     postToc.hidden = true;
     return;
   }
@@ -292,6 +360,7 @@ function renderTableOfContents() {
   title.textContent = "Contents";
 
   const list = document.createElement("ol");
+  const links = [];
 
   headings.forEach((heading) => {
     const level = heading.tagName.toLowerCase().replace("h", "");
@@ -304,10 +373,12 @@ function renderTableOfContents() {
 
     item.append(link);
     list.append(item);
+    links.push(link);
   });
 
   postToc.append(title, list);
   postToc.hidden = false;
+  trackActiveTableOfContentsItem(headings, links);
 }
 
 function renderPost(metadata, markdown) {
@@ -332,6 +403,9 @@ function renderError(message) {
   postPublished.textContent = "-";
   postContent.innerHTML = `<p>${message}</p>`;
   if (postToc) {
+    if (disposeTocTracking) {
+      disposeTocTracking();
+    }
     postToc.replaceChildren();
     postToc.hidden = true;
   }

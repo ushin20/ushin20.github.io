@@ -23,15 +23,46 @@
     return root.dataset.theme === "dark" ? "dark" : "light";
   }
 
+  function ensureSiteThemeToggle() {
+    if (document.body.classList.contains("home-body") || document.querySelector(".site-theme-toggle")) {
+      return;
+    }
+
+    const nav = document.querySelector(".site-nav");
+    if (!nav) {
+      return;
+    }
+
+    const toggle = document.createElement("button");
+    toggle.className = "site-theme-toggle";
+    toggle.type = "button";
+    toggle.setAttribute("aria-pressed", "false");
+    toggle.setAttribute("data-theme-toggle", "");
+
+    const icon = document.createElement("span");
+    icon.className = "site-theme-icon";
+    icon.setAttribute("aria-hidden", "true");
+    icon.setAttribute("data-theme-icon", "");
+
+    toggle.append(icon);
+    nav.append(toggle);
+  }
+
   function setToggleState(theme) {
     const isDark = theme === "dark";
     document.querySelectorAll("[data-theme-toggle]").forEach((toggle) => {
       toggle.setAttribute("aria-pressed", String(isDark));
       toggle.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
+      toggle.title = isDark ? "Switch to light mode" : "Switch to dark mode";
 
       const icon = toggle.querySelector("i");
       if (icon) {
         icon.className = isDark ? "fa-solid fa-sun" : "fa-solid fa-moon";
+      }
+
+      const siteIcon = toggle.querySelector("[data-theme-icon]");
+      if (siteIcon) {
+        siteIcon.textContent = isDark ? "☀" : "☾";
       }
     });
   }
@@ -42,6 +73,7 @@
     setToggleState(theme);
   }
 
+  ensureSiteThemeToggle();
   applyTheme(root.dataset.theme === "dark" ? "dark" : getStoredTheme() || "light");
 
   document.querySelectorAll("[data-theme-toggle]").forEach((toggle) => {
