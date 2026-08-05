@@ -669,6 +669,42 @@
   font-size: 1.1rem;
 }
 
+.about-body .cv-actions {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.35rem 0 0.25rem;
+}
+
+.about-body .cv-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  min-height: 2.75rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  text-transform: uppercase;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease;
+}
+
+.about-body .cv-button:hover {
+  background: transparent;
+  color: var(--ink);
+}
+
+.about-body .cv-button span {
+  font-size: 1rem;
+  line-height: 0;
+}
+
 .about-body .identity-list {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.9rem 2.5rem;
