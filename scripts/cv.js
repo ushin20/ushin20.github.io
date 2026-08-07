@@ -18,15 +18,31 @@ function createPublicationItem(item, displayedYear) {
   copy.className = "publication-copy";
 
   const title = document.createElement("h2");
+  title.textContent = item.title;
+
+  const links = document.createElement("div");
+  links.className = "publication-links";
+
   if (item.link) {
     const anchor = document.createElement("a");
     anchor.href = item.link;
     anchor.target = "_blank";
     anchor.rel = "noopener";
-    anchor.textContent = item.title;
-    title.append(anchor);
-  } else {
-    title.textContent = item.title;
+    anchor.setAttribute("aria-label", `Open paper: ${item.title}`);
+    anchor.title = "Paper";
+    anchor.textContent = "[Paper]";
+    links.append(anchor);
+  }
+
+  if (item.code) {
+    const anchor = document.createElement("a");
+    anchor.href = item.code;
+    anchor.target = "_blank";
+    anchor.rel = "noopener";
+    anchor.setAttribute("aria-label", `Open code repository: ${item.title}`);
+    anchor.title = "GitHub repository";
+    anchor.textContent = "[Code]";
+    links.append(anchor);
   }
 
   const authors = document.createElement("p");
@@ -36,7 +52,7 @@ function createPublicationItem(item, displayedYear) {
   const venue = document.createElement("p");
   venue.textContent = item.venue;
 
-  copy.append(title, authors, venue);
+  copy.append(title, authors, venue, links);
   article.append(year, copy);
   return article;
 }
@@ -95,6 +111,7 @@ function renderCvError() {
       <h2>CV records could not be loaded.</h2>
       <p class="publication-authors">Please check whether <code>data/cv.json</code> is available.</p>
       <p>Unavailable</p>
+      <div class="publication-links"></div>
     </div>
   `;
 

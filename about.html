@@ -5,19 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Yooshin Kim | About</title>
         <meta name="description" content="Curriculum vitae of Yooshin Kim, a researcher working on industrial AI security, anomaly detection, and resilient cyber-physical systems." />
-        <script>
-            (function () {
-                try {
-                    var theme = localStorage.getItem("ushin20-theme");
-                    if (theme === "dark" || theme === "light") {
-                        document.documentElement.dataset.theme = theme;
-                    }
-                } catch (error) {}
-            })();
-        </script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
         <link rel="stylesheet" href="./styles/site.css" />
         <link rel="stylesheet" href="./styles/cv.css" />
-        <script src="./scripts/theme.js" defer></script>
         <script src="./scripts/cv.js" defer></script>
     </head>
     <body class="about-body">
@@ -49,32 +39,24 @@
                         </a>
                     </div>
 
-                    <dl class="identity-list cv-meta-list">
-                        <div>
-                            <dt>Advisor</dt>
-                            <dd>
-                                <a href="https://scholar.dgist.ac.kr/researcher/dc2e7157-fee5-4518-9a81-eaa750c1a014">Prof. Donghoon Shin</a>
-                            </dd>
-                        </div>
-                        <div>
-                            <dt>Email</dt>
-                            <dd>
-                                <a href="mailto:yooshin0303@dgist.ac.kr">yooshin0303@dgist.ac.kr</a>
-                            </dd>
-                        </div>
-                        <div>
-                            <dt>Google Scholar</dt>
-                            <dd>
-                                <a href="https://scholar.google.com/citations?user=jgpnm14AAAAJ&hl=ko" target="_blank" rel="noopener">Publication profile</a>
-                            </dd>
-                        </div>
-                        <div>
-                            <dt>GitHub</dt>
-                            <dd>
-                                <a href="https://github.com/ushin20" target="_blank" rel="noopener">github.com/ushin20</a>
-                            </dd>
-                        </div>
-                    </dl>
+                    <nav class="cv-contact-links" aria-label="Professional profiles">
+                        <a href="mailto:yooshin0303@dgist.ac.kr">
+                            <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+                            <span>yooshin0303@dgist.ac.kr</span>
+                        </a>
+                        <a href="https://github.com/ushin20" target="_blank" rel="noopener">
+                            <i class="fa-brands fa-github" aria-hidden="true"></i>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://scholar.google.com/citations?user=jgpnm14AAAAJ" target="_blank" rel="noopener">
+                            <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+                            <span>Google Scholar</span>
+                        </a>
+                        <a href="https://orcid.org/0009-0002-1687-7432" target="_blank" rel="noopener">
+                            <i class="fa-brands fa-orcid" aria-hidden="true"></i>
+                            <span>ORCID</span>
+                        </a>
+                    </nav>
                 </section>
 
                 <section class="cv-section interest-section">
@@ -90,30 +72,94 @@
                     </ul>
                 </section>
 
-                <section class="cv-section">
+                <section class="cv-section education-section">
                     <div class="section-heading">
                         <p class="section-label">Education</p>
                     </div>
-                    <div class="entry-list">
-                        <article class="entry">
-                            <div class="entry-meta">2023 - Present</div>
+                    <div class="entry-list education-list">
+                        <article class="entry education-entry">
+                            <div class="entry-meta">Feb 2023 - Present</div>
                             <div>
-                                <h2>M.S. and Ph.D. Integrated Course</h2>
-                                <p>DGIST, Department of Electrical Engineering and Computer Science</p>
+                                <h2>Daegu Gyeongbuk Institute of Science and Technology (DGIST)</h2>
+                                <div class="education-details">
+                                    <p class="education-degree">Integrated M.S.-Ph.D. Program, Electrical Engineering and Computer Science</p>
+                                    <p class="education-location">Daegu, South Korea</p>
+                                </div>
+                                <p class="education-advisor">
+                                    Advisor:
+                                    <a href="https://scholar.dgist.ac.kr/researcher/dc2e7157-fee5-4518-9a81-eaa750c1a014">Prof. Donghoon Shin</a>
+                                </p>
                             </div>
                         </article>
-                        <article class="entry">
-                            <div class="entry-meta">2018 - 2023</div>
+                        <article class="entry education-entry">
+                            <div class="entry-meta">Feb 2018 - Feb 2023</div>
                             <div>
-                                <h2>B.S. in DGIST</h2>
-                                <p>Daegu Gyeongbuk Institute of Science and Technology, South Korea</p>
+                                <h2>DGIST</h2>
+                                <div class="education-details">
+                                    <p class="education-degree">B.S., School of Undergraduate Studies</p>
+                                    <p class="education-location">Daegu, South Korea</p>
+                                </div>
                             </div>
                         </article>
-                        <article class="entry">
-                            <div class="entry-meta">2022</div>
+                        <article class="entry education-entry">
+                            <div class="entry-meta">Jun 2022 - Aug 2022</div>
                             <div>
-                                <h2>Exchange Student</h2>
-                                <p>University of California, Berkeley</p>
+                                <h2>University of California, Berkeley</h2>
+                                <div class="education-details">
+                                    <p class="education-degree">Exchange Student</p>
+                                    <p class="education-location">Berkeley, CA, USA</p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="cv-section experience-section">
+                    <div class="section-heading">
+                        <p class="section-label">Research Experience</p>
+                    </div>
+                    <div class="entry-list experience-list">
+                        <article class="entry experience-entry">
+                            <div class="entry-meta">Apr 2025 - Dec 2026</div>
+                            <div>
+                                <h2>Digital Twin-Based Fault Diagnosis and Prognosis for Power Plants</h2>
+                                <p class="experience-organization">
+                                    <span>Ministry of Science and ICT (MSIT)</span>
+                                    <span>Daegu, South Korea</span>
+                                </p>
+                                <ul class="experience-points">
+                                    <li>Led development of a drift-aware anomaly detector with dynamic spatio-temporal weighting.</li>
+                                    <li>Built a contextual digital twin using sensor-actuator correlations for anomaly diagnosis.</li>
+                                    <li>Designed a metric to evaluate the utility of time-series anomaly scores.</li>
+                                </ul>
+                            </div>
+                        </article>
+                        <article class="entry experience-entry">
+                            <div class="entry-meta">Mar 2023 - Oct 2024</div>
+                            <div>
+                                <h2>Cloud-Based Cybersecurity Training Environment for Critical Infrastructure</h2>
+                                <p class="experience-organization">
+                                    <span>National Security Research Institute (NSR)</span>
+                                    <span>Daegu, South Korea</span>
+                                </p>
+                                <ul class="experience-points">
+                                    <li>Led PLC and HMI virtualization using OpenPLC and AdvancedHMI.</li>
+                                    <li>Developed a CODESYS-to-OpenPLC porting tool.</li>
+                                    <li>Designed scenarios and deployed a cloud-based cyber training environment.</li>
+                                </ul>
+                            </div>
+                        </article>
+                        <article class="entry experience-entry">
+                            <div class="entry-meta">Mar 2023 - Feb 2024</div>
+                            <div>
+                                <h2>ICS Network Visualization System</h2>
+                                <p class="experience-organization">
+                                    <span>National Security Research Institute (NSR)</span>
+                                    <span>Daegu, South Korea</span>
+                                </p>
+                                <ul class="experience-points">
+                                    <li>Led the design and implementation of a Go-based framework for visualizing ICS networks.</li>
+                                </ul>
                             </div>
                         </article>
                     </div>
