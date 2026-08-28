@@ -1,9 +1,13 @@
 const fs = require("fs");
+const os = require("os");
 const path = require("path");
 
 const repoRoot = path.resolve(__dirname, "..");
 const markdownDir = path.join(repoRoot, "articles", "mds");
 const outputPath = path.join(repoRoot, "articles", "posts.json");
+const requiredFields = ["title", "author", "published", "date", "category"];
+const filenamePattern =
+  /^(\d{4}-\d{2}-\d{2})(?:-[a-z0-9]+(?:-[a-z0-9]+)*)?\.md$/;
 
 function parseFrontmatter(content, filename) {
   const lines = content.split(/\r?\n/);
@@ -34,6 +38,51 @@ function parseFrontmatter(content, filename) {
   return metadata;
 }
 
+function isValidDate(value) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) {
+    return false;
+  }
+
+  const [year, month, day] = value.split("-").map(Number);
+  const date = new Date(Date.UTC(year, month - 1, day));
+
+  return (
+    date.getUTCFullYear() === year &&
+    date.getUTCMonth() === month - 1 &&
+    date.getUTCDate() === day
+  );
+}
+
+function validateMetadata(metadata, filename) {
+  const filenameMatch = filename.match(filenamePattern);
+  if (!filenameMatch) {
+    throw new Error(
+      `Invalid filename ${filename}: use YYYY-MM-DD.md or YYYY-MM-DD-short-slug.md`,
+    );
+  }
+
+  const missingFields = requiredFields.filter(
+    (field) => !metadata[field]?.trim(),
+  );
+  if (missingFields.length > 0) {
+    throw new Error(
+      `Missing required frontmatter in ${filename}: ${missingFields.join(", ")}`,
+    );
+  }
+
+  if (!isValidDate(metadata.date)) {
+    throw new Error(
+      `Invalid date in ${filename}: use a real date in YYYY-MM-DD format`,
+    );
+  }
+
+  if (metadata.date !== filenameMatch[1]) {
+    throw new Error(
+      `Date mismatch in ${filename}: frontmatter date must be ${filenameMatch[1]}`,
+    );
+  }
+}
+
 function readPosts() {
   const markdownFiles = fs
     .readdirSync(markdownDir)
@@ -41,25 +90,38 @@ function readPosts() {
     .sort()
     .reverse();
 
-  return markdownFiles.map((filename) => {
-    const filePath = path.join(markdownDir, filename);
-    const content = fs.readFileSync(filePath, "utf8");
-    const metadata = parseFrontmatter(content, filename);
+  return markdownFiles
+    .map((filename) => {
+      const filePath = path.join(markdownDir, filename);
+      const content = fs.readFileSync(filePath, "utf8");
+      const metadata = parseFrontmatter(content, filename);
+      validateMetadata(metadata, filename);
 
-    return {
-      title: metadata.title || "",
-      author: metadata.author || "",
-      published: metadata.published || "",
-      date: metadata.date || filename.replace(/\.md$/i, ""),
-      category: metadata.category || "",
-      filename,
-    };
-  });
+      return {
+        title: metadata.title,
+        author: metadata.author,
+        published: metadata.published,
+        date: metadata.date,
+        category: metadata.category,
+        filename,
+      };
+    })
+    .sort(
+      (a, b) =>
+        b.date.localeCompare(a.date) || b.filename.localeCompare(a.filename),
+    );
 }
 
 function main() {
   const posts = readPosts();
-  fs.writeFileSync(outputPath, `${JSON.stringify(posts, null, 2)}\n`, "utf8");
+  const output = `${JSON.stringify(posts, null, 2)}\n`.replace(/\n/g, os.EOL);
+
+  if (fs.existsSync(outputPath) && fs.readFileSync(outputPath, "utf8") === output) {
+    console.log(`Already up to date: ${posts.length} posts in ${outputPath}`);
+    return;
+  }
+
+  fs.writeFileSync(outputPath, output, "utf8");
   console.log(`Generated ${posts.length} posts in ${outputPath}`);
 }
 

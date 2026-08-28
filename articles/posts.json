@@ -40,11 +40,11 @@
     "filename": "2025-03-14.md"
   },
   {
-    "title": "TSMixer: An All-MLP Architecture for Times Series Forecasting",
-    "author": "Si-An Chen, Chunn-Liang Li, Nathanael C. Yoder, Sercan O. Ank and Tomas Pfister.",
-    "published": "Transactions on Machine Learning Research",
+    "title": "TSMixer: An All-MLP Architecture for Time Series Forecasting",
+    "author": "Si-An Chen, Chun-Liang Li, Nathanael C. Yoder, Sercan O. Arik, Tomas Pfister",
+    "published": "Transactions on Machine Learning Research (TMLR), 2023",
     "date": "2024-02-05",
-    "category": "anomaly detection",
+    "category": "time-series forecasting",
     "filename": "2024-02-05.md"
   }
 ]
