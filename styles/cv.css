@@ -448,8 +448,6 @@
   inset: 0;
   width: 100%;
   height: 100%;
-  /* Blend the GIF's white backdrop into the page while keeping every frame. */
-  mix-blend-mode: multiply;
 }
 
 .home-cat-strip img {
