@@ -5,60 +5,55 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Lotto Number Picker | Yooshin Kim</title>
         <meta name="description" content="A small lotto number picker that generates random number sets from 1 to 45." />
+        <link rel="preload" href="../../fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin />
         <link rel="stylesheet" href="../../styles/site.css" />
+        <link rel="stylesheet" href="../../styles/cv.css" />
+        <link rel="stylesheet" href="../../styles/tools.css" />
         <link rel="stylesheet" href="./style.css" />
         <script src="./script.js" defer></script>
+        <script src="../../scripts/footer.js" defer></script>
     </head>
-    <body class="lotto-body">
-        <div class="lotto-shell">
-            <header class="site-header">
-                <a class="site-mark" href="../../index.html">ushin20</a>
-                <nav class="site-nav" aria-label="Primary">
-                    <a href="../../about.html">About</a>
-                    <a href="../../blog.html">Blog</a>
-                    <a aria-current="page" href="../../lab.html">Tool</a>
-                    <a href="mailto:yooshin0303@dgist.ac.kr">Contact</a>
-                </nav>
-            </header>
+    <body class="tool-body lotto-body">
+        <a class="skip-link" href="#main">Skip to content</a>
+        <div class="page-shell cv-shell">
+            <a class="paper-back" href="../../lab.html"><span aria-hidden="true">←</span> Yooshin Kim / Tool</a>
 
-            <main class="lotto-layout">
-                <p class="lotto-back"><a href="../../lab.html">Back to tool</a></p>
-
-                <section class="lotto-hero">
+            <main id="main" class="tool-layout">
+                <section class="tool-hero">
                     <div class="lotto-hero-copy">
-                        <p class="lotto-kicker">Mini App</p>
                         <h1>Lotto Number Picker</h1>
-                        <p class="lotto-lead">
-                            Pick quick lottery combinations with six unique numbers from 1 to 45. You can generate a single set or create several lines at once.
-                        </p>
-                    </div>
-
-                    <div class="lotto-hero-panel">
-                        <p>Rules</p>
-                        <ul>
-                            <li>6 unique numbers</li>
-                            <li>Range from 1 to 45</li>
-                            <li>1 bonus number</li>
-                        </ul>
+                        <p class="tool-lead">Pick six unique numbers from 1 to 45, plus a bonus number. Generate one or several lines at a time.</p>
                     </div>
                 </section>
 
                 <section class="lotto-panel">
                     <div class="lotto-controls">
-                        <label class="lotto-label" for="line-count">Number of lines</label>
+                        <label class="tool-label" for="line-count">Number of lines</label>
                         <select id="line-count" class="lotto-select">
                             <option value="1">1 line</option>
                             <option value="3" selected>3 lines</option>
                             <option value="5">5 lines</option>
                         </select>
-                        <button id="generate-button" class="lotto-button" type="button">Generate Numbers</button>
+                        <button id="generate-button" class="tool-button" type="button">Generate numbers</button>
                     </div>
 
                     <div id="lotto-results" class="lotto-results" aria-live="polite"></div>
                 </section>
             </main>
-            <footer class="site-footer">
-                <a href="../../index.html">- ushin20</a>
+            <footer class="site-footer portfolio-footer">
+                <div class="footer-main">
+                    <a href="../../index.html">© Yooshin Kim</a>
+                    <div class="footer-links">
+                        <a class="footer-tool-link" href="../../lab.html">Tool <span aria-hidden="true">→</span></a>
+                    </div>
+                </div>
+                <div class="footer-meta" hidden>
+                    <p>Updated <time data-site-updated></time></p>
+                    <p class="footer-location">
+                        <span><time data-korea-clock></time> in South Korea</span>
+                        <img class="footer-chaltteok" src="../../assets/chaltteok_bunny_hop_transparent.gif" width="36" height="29" alt="" aria-hidden="true" />
+                    </p>
+                </div>
             </footer>
         </div>
     </body>

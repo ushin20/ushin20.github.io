@@ -1,17 +1,7 @@
 const labList = document.getElementById("lab-list");
 const labProjectCount = document.getElementById("lab-project-count");
 
-function toTitleCase(text) {
-  return text.replace(/\b\w/g, (char) => char.toUpperCase());
-}
-
-function buildTag(text) {
-  const tag = document.createElement("span");
-  tag.textContent = text;
-  return tag;
-}
-
-function buildLabItem(project) {
+function buildLabItem(project, index) {
   const article = document.createElement("article");
   article.className = "lab-item";
 
@@ -19,13 +9,10 @@ function buildLabItem(project) {
   meta.className = "lab-item-meta";
 
   const category = document.createElement("span");
-  category.textContent = toTitleCase(project.category || "Tool");
+  category.textContent = String(index + 1).padStart(2, "0");
+  category.setAttribute("aria-hidden", "true");
 
-  const status = document.createElement("span");
-  status.className = "lab-status";
-  status.textContent = project.status || "In progress";
-
-  meta.append(category, status);
+  meta.append(category);
 
   const copy = document.createElement("div");
   copy.className = "lab-item-copy";
@@ -36,15 +23,12 @@ function buildLabItem(project) {
   const summary = document.createElement("p");
   summary.textContent = project.summary;
 
-  const tags = document.createElement("div");
-  tags.className = "lab-tags";
-  (project.tags || []).forEach((tag) => tags.append(buildTag(tag)));
-
-  copy.append(title, summary, tags);
+  copy.append(title, summary);
 
   const cta = document.createElement("div");
   cta.className = "lab-item-cta";
-  cta.textContent = "Open Tool";
+  cta.textContent = "↗";
+  cta.setAttribute("aria-hidden", "true");
 
   const link = document.createElement("a");
   link.className = "lab-item-link";
@@ -84,7 +68,7 @@ async function initLab() {
     renderLabs(projects);
   } catch (error) {
     console.error(error);
-    renderEmptyState("Tools could not be loaded. Please check whether data/labs.json is available.");
+    renderEmptyState("Tools could not be loaded. Please refresh the page and try again.");
   }
 }
 

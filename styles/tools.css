@@ -1,0 +1,12 @@
+.tool-layout { display: grid; gap: 40px; padding: 48px 0 64px; }
+.tool-hero h1 { font-size: 18px; font-weight: 600; line-height: 1.4; letter-spacing: -0.5px; }
+.tool-lead { margin-top: 16px; color: var(--prose-ink); font-size: 13px; line-height: 1.75; }
+.tool-label { color: var(--muted); font-size: 12px; }
+.tool-button { min-height: 40px; padding: 9px 16px; border: 1px solid var(--ink); border-radius: 3px; background: var(--ink); color: var(--paper); font-size: 12px; cursor: pointer; transition: background 160ms ease; }
+.tool-button:hover { background: #454545; }
+.tool-button.secondary { border-color: var(--line); background: var(--paper); color: var(--ink); }
+.tool-button.secondary:hover { background: #f7f7f7; }
+
+@media (max-width: 600px) {
+  .tool-layout { gap: 32px; padding: 36px 0 48px; }
+}

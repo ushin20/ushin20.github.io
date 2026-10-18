@@ -5,47 +5,30 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Text Counter | Yooshin Kim</title>
         <meta name="description" content="A small text counting tool that shows multiple character and text metrics in real time." />
+        <link rel="preload" href="../../fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin />
         <link rel="stylesheet" href="../../styles/site.css" />
+        <link rel="stylesheet" href="../../styles/cv.css" />
+        <link rel="stylesheet" href="../../styles/tools.css" />
         <link rel="stylesheet" href="./style.css" />
         <script src="./script.js" defer></script>
+        <script src="../../scripts/footer.js" defer></script>
     </head>
-    <body class="counter-body">
-        <div class="counter-shell">
-            <header class="site-header">
-                <a class="site-mark" href="../../index.html">ushin20</a>
-                <nav class="site-nav" aria-label="Primary">
-                    <a href="../../about.html">About</a>
-                    <a href="../../blog.html">Blog</a>
-                    <a aria-current="page" href="../../lab.html">Tool</a>
-                    <a href="mailto:yooshin0303@dgist.ac.kr">Contact</a>
-                </nav>
-            </header>
+    <body class="tool-body counter-body">
+        <a class="skip-link" href="#main">Skip to content</a>
+        <div class="page-shell cv-shell">
+            <a class="paper-back" href="../../lab.html"><span aria-hidden="true">←</span> Yooshin Kim / Tool</a>
 
-            <main class="counter-layout">
-                <p class="counter-back"><a href="../../lab.html">Back to tool</a></p>
-
-                <section class="counter-hero">
+            <main id="main" class="tool-layout">
+                <section class="tool-hero">
                     <div class="counter-hero-copy">
-                        <p class="counter-kicker">Mini App</p>
                         <h1>Text Counter</h1>
-                        <p class="counter-lead">
-                            Type or paste text and see the counts update right away. Useful for quick checks when you want character count with spaces, without spaces, and a few extra text stats.
-                        </p>
-                    </div>
-
-                    <div class="counter-hero-panel">
-                        <p>Metrics</p>
-                        <ul>
-                            <li>Characters with spaces</li>
-                            <li>Characters without whitespace</li>
-                            <li>Words, lines, paragraphs</li>
-                        </ul>
+                        <p class="tool-lead">Count characters, words, lines, and paragraphs as you type or paste text.</p>
                     </div>
                 </section>
 
                 <section class="counter-panel">
                     <div class="counter-input-wrap">
-                        <label class="counter-label" for="text-input">Input text</label>
+                        <label class="tool-label" for="text-input">Input text</label>
                         <textarea
                             id="text-input"
                             class="counter-textarea"
@@ -54,8 +37,8 @@
                     </div>
 
                     <div class="counter-actions">
-                        <button id="sample-button" class="counter-button secondary" type="button">Use Sample</button>
-                        <button id="clear-button" class="counter-button" type="button">Clear</button>
+                        <button id="sample-button" class="tool-button secondary" type="button">Use sample</button>
+                        <button id="clear-button" class="tool-button" type="button">Clear</button>
                     </div>
 
                     <div class="counter-stats" aria-live="polite">
@@ -65,7 +48,7 @@
                             <span>Including spaces and line breaks</span>
                         </article>
                         <article class="counter-stat">
-                            <p class="counter-stat-label">Without Whitespace</p>
+                            <p class="counter-stat-label">Without whitespace</p>
                             <strong id="count-no-whitespace">0</strong>
                             <span>Spaces, tabs, and line breaks removed</span>
                         </article>
@@ -87,8 +70,20 @@
                     </div>
                 </section>
             </main>
-            <footer class="site-footer">
-                <a href="../../index.html">- ushin20</a>
+            <footer class="site-footer portfolio-footer">
+                <div class="footer-main">
+                    <a href="../../index.html">© Yooshin Kim</a>
+                    <div class="footer-links">
+                        <a class="footer-tool-link" href="../../lab.html">Tool <span aria-hidden="true">→</span></a>
+                    </div>
+                </div>
+                <div class="footer-meta" hidden>
+                    <p>Updated <time data-site-updated></time></p>
+                    <p class="footer-location">
+                        <span><time data-korea-clock></time> in South Korea</span>
+                        <img class="footer-chaltteok" src="../../assets/chaltteok_bunny_hop_transparent.gif" width="36" height="29" alt="" aria-hidden="true" />
+                    </p>
+                </div>
             </footer>
         </div>
     </body>
