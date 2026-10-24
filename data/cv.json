@@ -38,6 +38,15 @@
             "title": "International Journal",
             "items": [
                 {
+                    "year": "2026",
+                    "title": "ICSDiag: Sensor–Actuator Anomaly Detection and Validator-Gated Diagnosis for Industrial IoT Systems",
+                    "authors": "Woo, E., <strong>Kim, Y.</strong>, Heo, W., &amp; Shin, D.&dagger;",
+                    "venue": "IEEE Access",
+                    "link": "#",
+                    "id": "ICSDiag-2026",
+                    "short_venue": "ACCESS"
+                },
+                {
                     "year": "2025",
                     "title": "KDPrint: Passive Authentication using Keystroke Dynamics-to-Image Encoding via Standardization",
                     "authors": "<strong>Kim, Y.</strong>, Kwon, N., &amp; Shin, D.&dagger;",
@@ -106,13 +115,6 @@
             "authors": "<strong>Kim, Y.</strong>, &amp; Shin, D.&dagger;",
             "venue": "Under review",
             "id": "marq-2026"
-        },
-        {
-            "year": "2026",
-            "title": "System-Aware Contextual Digital Twin for ICS Anomaly Diagnosis",
-            "authors": "Woo, E., <strong>Kim, Y.</strong>, Heo, W., &amp; Shin, D.&dagger;",
-            "venue": "Under review",
-            "id": "contextual-digital-twin-2026"
         },
         {
             "year": "2026",
