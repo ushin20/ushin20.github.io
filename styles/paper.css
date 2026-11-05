@@ -13,6 +13,7 @@
 .paper-contents summary:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 5px; }
 
 .paper-title { color: #111; font-size: 14px; font-weight: 500; line-height: 1.6; letter-spacing: -0.09px; word-break: keep-all; overflow-wrap: anywhere; }
+.paper-title-note { margin-top: 6px; color: var(--muted); font-size: 12px; line-height: 1.6; word-break: keep-all; overflow-wrap: anywhere; }
 .paper-venue { margin-top: 6px; color: var(--muted); font-size: 13px; }
 .paper-authors { margin-top: 8px; color: var(--prose-ink); font-size: 13px; overflow-wrap: anywhere; }
 .paper-authors strong { color: #111; font-weight: 500; }

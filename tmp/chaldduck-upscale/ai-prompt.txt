@@ -1,0 +1,7 @@
+Use case: identity-preserve
+Asset type: four consecutive frames of an existing cat GIF, arranged in a strict 2 by 2 sprite sheet.
+Input image: the only referenced image is the EDIT TARGET, not a style reference.
+Primary request: upscale and conservatively restore fine photographic fur detail in this exact sprite sheet, producing a 2048 by 2048 RGBA PNG.
+The source is 1024 by 1024, with four 512 by 512 cells. Output must have the exact same 2 by 2 layout with four 1024 by 1024 cells. Each source coordinate maps to exactly twice that coordinate in the output. Do not reposition, recenter, zoom, rotate or crop any cat within its cell. Preserve every cell's pose, silhouette, paw positions, face, stripe patterns, anatomy, scale, camera view and existing empty margins. This is a temporal sequence: ALL FOUR DISTINCT POSES must stay distinct and match their own source cell exactly.
+Change only resolution, mild deblurring and subtle coherent fur texture. Preserve the recognizable individual cat, original low-contrast color and soft illumination. No extra whiskers, limbs, markings, shadows, objects, text, borders, grids or labels. Do not beautify or redesign.
+Background: actual transparent alpha, preserving the transparent cutout in every cell. No black, white or checkerboard background. The dark background visible in the preview is transparent space.

@@ -147,31 +147,6 @@ body > .page-shell, body > .lab-shell, body > .lotto-shell, body > .counter-shel
   text-underline-offset: 6px;
 }
 
-.site-footer {
-  margin-top: auto;
-  padding-top: 64px;
-  color: var(--muted);
-  font-size: 12px;
-  text-align: center;
-}
-
-.site-footer a { transition: color 160ms ease; }
-.site-footer a:hover { color: var(--ink); }
-
-.portfolio-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  padding-top: 20px;
-  border-top: 1px solid var(--line);
-  text-align: left;
-}
-
-.footer-links { display: flex; align-items: center; gap: 28px; }
-.footer-links a { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; }
-.footer-tool-link { color: var(--ink); }
-
 .text-link {
   display: inline-flex;
   align-items: center;
@@ -180,7 +155,7 @@ body > .page-shell, body > .lab-shell, body > .lotto-shell, body > .counter-shel
   font-size: 13px;
 }
 
-.text-link:hover, .footer-links a:hover {
+.text-link:hover {
   text-decoration: underline;
   text-underline-offset: 5px;
 }
@@ -196,17 +171,11 @@ body > .page-shell, body > .lab-shell, body > .lotto-shell, body > .counter-shel
   .site-header { min-height: 72px; padding: 12px 0; gap: 16px; }
   .site-nav { gap: 20px; }
   .site-mark { font-size: 25px; }
-  .site-footer { padding-top: 40px; }
-  .portfolio-footer { padding-top: 20px; }
-  .footer-links { gap: 20px; }
 }
 
 @media (max-width: 380px) {
   .site-nav { gap: 13px; }
   .site-nav a { font-size: 11px; }
-  .footer-links { gap: 14px; }
-  .footer-links a { gap: 6px; }
-  .site-footer { font-size: 11px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

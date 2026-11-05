@@ -9,6 +9,7 @@
         <link rel="preload" href="./fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin />
         <link rel="stylesheet" href="./styles/site.css" />
         <link rel="stylesheet" href="./styles/cv.css" />
+        <link rel="stylesheet" href="./styles/footer.css" />
         <script src="./scripts/cv.js" defer></script>
         <script src="./scripts/footer.js" defer></script>
     </head>
@@ -37,11 +38,12 @@
                     <div id="publication-sections" class="publication-sections">
                         <p class="loading-note" role="status">Loading publications…</p>
                     </div>
-                </section>
-
-                <section id="preprints" class="preprints-section" aria-labelledby="preprints-title">
-                    <h2 id="preprints-title" class="section-label">Preprints</h2>
-                    <div id="preprint-list" class="publication-sections"></div>
+                    <details id="preprints" class="publication-category">
+                        <summary class="publication-category-toggle">
+                            <h3 id="preprints-title" class="publication-category-title">Preprints <span id="preprint-count" class="publication-count"></span></h3>
+                        </summary>
+                        <div id="preprint-list" class="publication-sections"></div>
+                    </details>
                 </section>
 
                 <div id="background" class="background-section">
@@ -170,21 +172,8 @@
                 </section>
                 <noscript><p class="loading-note">Enable JavaScript to view publications and awards, or <a href="./assets/Yooshin_Kim_CV.pdf">read the full CV</a>.</p></noscript>
             </main>
-            <footer class="site-footer portfolio-footer">
-                <div class="footer-main">
-                    <a href="./index.html">© Yooshin Kim</a>
-                    <div class="footer-links">
-                        <a href="#about">Back to top <span aria-hidden="true">↑</span></a>
-                        <a class="footer-tool-link" href="./lab.html">Tool <span aria-hidden="true">→</span></a>
-                    </div>
-                </div>
-                <div class="footer-meta" hidden>
-                    <p>Updated <time data-site-updated></time></p>
-                    <p class="footer-location">
-                        <span><time data-korea-clock></time> in South Korea</span>
-                        <img class="footer-chaltteok" src="./assets/chaltteok_bunny_hop_transparent.gif" width="36" height="29" alt="" aria-hidden="true" />
-                    </p>
-                </div>
+            <footer class="site-footer" data-site-footer>
+                <a href="./index.html">© Yooshin Kim</a>
             </footer>
         </div>
     </body>

@@ -1,0 +1,12 @@
+Use case: precise-object-edit
+Asset type: blink keyframes for an existing photographic cat GIF.
+Input image: the sole referenced image is the EXACT EDIT TARGET. The cat is already lying on its side with its face visible, and both eyes open.
+Create a strict 2 by 2 sprite sheet on true transparent alpha, ideally 2048 by 2048 pixels with four 1024 by 1024 cells. Repeat the exact input image in each cell, keeping identical scale, coordinates and empty margins.
+CHANGE ONLY THE EYELIDS within each eye's small local region. Every other feature must be invariant: head orientation, neck, ears, muzzle, nose, gaze direction, whiskers, fur, body, legs, paws and tail. Absolutely no head turn, head tilt change, neck rotation, body movement, recentering or zoom.
+Cell order:
+Top-left: eyelids lowered slightly, eyes about 70 percent open.
+Top-right: eyelids halfway closed, eyes about 35 percent open.
+Bottom-left: both eyes fully and gently closed, a calm natural cat blink.
+Bottom-right: original relaxed open eyes matching the input exactly.
+This is one cat blinking in a fixed pose, not four different poses. The eyes retain their original shape and orientation when reopening; closed eyelids follow the tilted face's anatomy. Preserve the original amber/brown eye color and pupils. Keep all four frames perfectly registered.
+Photographic realism, original colors and soft lighting. Preserve the input's actual transparent background, no solid background, no checkerboard, text, grids, borders or labels.

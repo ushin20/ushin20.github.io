@@ -110,7 +110,22 @@ function renderPaper(item, isPreprint) {
   authors.className = "paper-authors";
   // Author formatting comes from the repository-owned CV data.
   authors.innerHTML = item.authors;
-  header.append(title, venue, authors);
+  header.append(title);
+  if (item.language === "ko") {
+    const note = document.createElement("p");
+    note.className = "paper-title-note";
+    if (item.original_title) {
+      const originalTitle = document.createElement("span");
+      originalTitle.lang = "ko";
+      originalTitle.textContent = item.original_title;
+      note.append(originalTitle, " ");
+    } else {
+      title.lang = "ko";
+    }
+    note.append("(in Korean)");
+    header.append(note);
+  }
+  header.append(venue, authors);
   article.append(header);
 
   const entries = [{ element: header, label: "Overview" }];
