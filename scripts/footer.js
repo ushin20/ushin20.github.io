@@ -30,7 +30,7 @@
     </div>
   `;
 
-  // Change this date when publishing a content or design update.
+  // The Pages workflow replaces this fallback date in the deployed copy.
   const lastUpdated = "2026-10-18";
   const dateFormatter = new Intl.DateTimeFormat("en-US", {
     timeZone: "UTC",

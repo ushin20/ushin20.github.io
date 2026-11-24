@@ -1,0 +1,51 @@
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Prepare site with the current date in Korea
+        shell: bash
+        run: |
+          site_dir="$RUNNER_TEMP/site"
+          mkdir -p "$site_dir"
+          git archive HEAD | tar -xf - -C "$site_dir"
+
+          updated=$(TZ=Asia/Seoul date +%F)
+          footer="$site_dir/scripts/footer.js"
+          sed -i "s/^  const lastUpdated = .*/  const lastUpdated = \"$updated\";/" "$footer"
+          grep -Fx "  const lastUpdated = \"$updated\";" "$footer"
+
+      - name: Upload site
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: ${{ runner.temp }}/site
+
+      - name: Deploy site
+        id: deployment
+        uses: actions/deploy-pages@v4
