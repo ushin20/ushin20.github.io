@@ -1,174 +1,179 @@
 {
-    "publication_sections": [
+  "publication_sections": [
+    {
+      "title": "International Conference",
+      "scope": "international",
+      "items": [
         {
-            "title": "International Conference",
-            "scope": "international",
-            "items": [
-                {
-                    "year": "2026",
-                    "month": 8,
-                    "title": "Drift-Aware Memory-Augmented Spatio-Temporal Graph Attention for Industrial Anomaly Detection",
-                    "authors": "<strong>Kim, Y.</strong> &amp; Shin, D.&dagger;",
-                    "venue": "ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD 2026)",
-                    "link": "https://doi.org/10.1145/3770855.3818125",
-                    "code": "https://github.com/ushin20/DRAMA",
-                    "id": "drama-kdd-2026",
-                    "short_venue": "KDD"
-                },
-                {
-                    "year": "2026",
-                    "month": 9,
-                    "title": "Tracing the Origins: Legacy Codec Identification in Neural Audio Transcoding",
-                    "authors": "Heo, W.*, Youn, S.*, <strong>Kim, Y.</strong>, Chae, C., &amp; Shin, D.&dagger;",
-                    "venue": "Annual Conference of the International Speech Communication Association (INTERSPEECH 2026)",
-                    "link": "https://www.isca-archive.org/interspeech_2026/heo26b_interspeech.html",
-                    "id": "legacy-codec-interspeech-2026",
-                    "short_venue": "INTERSPEECH"
-                },
-                {
-                    "year": "2025",
-                    "month": 12,
-                    "title": "LCDTwin: Contextual Digital Twin for Actuator-Sensor Correlation in ICS",
-                    "authors": "<strong>Kim, Y.*</strong>, Heo, W.*, Woo, E., &amp; Shin, D.&dagger;",
-                    "venue": "2025 5th International Conference on Robotics, Automation and Artificial Intelligence (RAAI 2025)",
-                    "link": "https://doi.org/10.1109/RAAI67517.2025.11423321",
-                    "id": "lcdtwin-raai-2025",
-                    "short_venue": "RAAI"
-                }
-            ]
+          "year": "2026",
+          "month": 8,
+          "title": "Drift-Aware Memory-Augmented Spatio-Temporal Graph Attention for Industrial Anomaly Detection",
+          "authors": "<strong>Kim, Y.</strong> &amp; Shin, D.&dagger;",
+          "venue": "ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD 2026)",
+          "link": "https://doi.org/10.1145/3770855.3818125",
+          "code": "https://github.com/ushin20/DRAMA",
+          "id": "drama-kdd-2026",
+          "short_venue": "KDD"
         },
         {
-            "title": "International Journal",
-            "scope": "international",
-            "items": [
-                {
-                    "year": "2026",
-                    "month": 11,
-                    "title": "ICSDiag: Sensor–Actuator Anomaly Detection and Validator-Gated Diagnosis for Industrial IoT Systems",
-                    "authors": "Woo, E., <strong>Kim, Y.</strong>, Heo, W., &amp; Shin, D.&dagger;",
-                    "venue": "IEEE Access",
-                    "link": "https://ieeexplore.ieee.org/document/11769927",
-                    "id": "ICSDiag-2026",
-                    "short_venue": "ACCESS"
-                },
-                {
-                    "year": "2026",
-                    "month": 1,
-                    "title": "KDPrint: Passive Authentication using Keystroke Dynamics-to-Image Encoding via Standardization",
-                    "authors": "<strong>Kim, Y.</strong>, Kwon, N., &amp; Shin, D.&dagger;",
-                    "venue": "Computers & Security",
-                    "link": "https://doi.org/10.1016/j.cose.2025.104725",
-                    "id": "kdprint-2025",
-                    "short_venue": "C&S"
-                },
-                {
-                    "year": "2025",
-                    "month": 8,
-                    "title": "Privacy-Preserving Anomaly Detection with Homomorphic Encryption for Industrial Control Systems in Critical Infrastructure",
-                    "authors": "Jeong, D.*, <strong>Kim, Y.*</strong>, &amp; Shin, D.&dagger;",
-                    "venue": "IEEE Embedded Systems Letters",
-                    "link": "https://doi.org/10.1109/LES.2025.3538013",
-                    "id": "homomorphic-anomaly-detection-2025",
-                    "short_venue": "ESL"
-                }
-            ]
+          "year": "2026",
+          "month": 9,
+          "title": "Tracing the Origins: Legacy Codec Identification in Neural Audio Transcoding",
+          "authors": "Heo, W.*, Youn, S.*, <strong>Kim, Y.</strong>, Chae, C., &amp; Shin, D.&dagger;",
+          "venue": "Annual Conference of the International Speech Communication Association (INTERSPEECH 2026)",
+          "link": "https://www.isca-archive.org/interspeech_2026/heo26b_interspeech.html",
+          "id": "legacy-codec-interspeech-2026",
+          "short_venue": "INTERSPEECH"
         },
         {
-            "title": "Domestic Conference and Journal",
-            "scope": "domestic",
-            "items": [
-                {
-                    "year": "2026",
-                    "month": 6,
-                    "title": "Topology-based Lightweight Anomaly Detection via Functional Patch Decomposition in Industrial Control Systems",
-                    "original_title": "산업제어시스템에서의 토폴로지 기반 기능 패치 분해를 활용한 경량 이상 탐지",
-                    "language": "ko",
-                    "authors": "<strong>김유신</strong>, 허원제, 채척, 신동훈&dagger;",
-                    "venue": "한국정보과학회논문지, 53(6), 455-464",
-                    "link": "https://jok.kiise.or.kr/digital-library/107651",
-                    "id": "topology-functional-patches-2026",
-                    "short_venue": "KIISE"
-                },
-                {
-                    "year": "2025",
-                    "month": 7,
-                    "title": "Original Codec Identification in Re-Encoded Audio Using Multi-Scale Spectral Attention",
-                    "original_title": "다중 스케일 스펙트럼 특징을 활용한 이중 인코딩 음성의 원 코덱 식별",
-                    "language": "ko",
-                    "authors": "허원제, <strong>김유신</strong>, 우은규, 신동훈&dagger;",
-                    "venue": "한국정보과학회 2025 한국컴퓨터종합학술대회 논문집",
-                    "link": "https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12318564",
-                    "id": "spectral-codec-identification-2025",
-                    "short_venue": "KCC"
-                },
-                {
-                    "year": "2025",
-                    "month": 7,
-                    "title": "Functional Patch-Based Lightweight Anomaly Detection in Industrial Control Systems",
-                    "original_title": "산업제어시스템에서의 기능 패치 기반 경량 이상 탐지",
-                    "language": "ko",
-                    "authors": "<strong>김유신</strong>, 허원제, 채척, 신동훈&dagger;",
-                    "venue": "한국정보과학회 2025 한국컴퓨터종합학술대회 논문집",
-                    "link": "https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12318563",
-                    "id": "functional-patch-anomaly-detection-2025",
-                    "short_venue": "KCC"
-                },
-                {
-                    "year": "2023",
-                    "month": 12,
-                    "title": "Data Quality for Improving AI-Based Intrusion Detection in Industrial Control Systems: Research Trends and Recommendations",
-                    "original_title": "산업제어시스템에서의 AI IDS 성능 향상을 위한 데이터 품질 연구 동향 및 제언",
-                    "language": "ko",
-                    "authors": "권남혁*, <strong>김유신*</strong>, 우은규*, 정다훈*, 채척*, 신동훈&dagger;",
-                    "venue": "한국정보보호학회지, 33(6), 5-14",
-                    "link": "https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11653410",
-                    "id": "ics-ai-ids-survey-2023",
-                    "short_venue": "KIISC"
-                }
-            ]
+          "year": "2025",
+          "month": 12,
+          "title": "LCDTwin: Contextual Digital Twin for Actuator-Sensor Correlation in ICS",
+          "authors": "<strong>Kim, Y.*</strong>, Heo, W.*, Woo, E., &amp; Shin, D.&dagger;",
+          "venue": "2025 5th International Conference on Robotics, Automation and Artificial Intelligence (RAAI 2025)",
+          "link": "https://doi.org/10.1109/RAAI67517.2025.11423321",
+          "id": "lcdtwin-raai-2025",
+          "short_venue": "RAAI"
         }
-    ],
-    "preprints": [
+      ]
+    },
+    {
+      "title": "International Journal",
+      "scope": "international",
+      "items": [
         {
-            "year": "2026",
-            "month": null,
-            "title": "MARQ: A Reference-Conditioned Metric for Time-Series Anomaly Score Interfaces",
-            "authors": "<strong>Kim, Y.</strong>, &amp; Shin, D.&dagger;",
-            "venue": "Under review",
-            "id": "marq-2026"
+          "year": "2026",
+          "month": 11,
+          "title": "ICSDiag: Sensor–Actuator Anomaly Detection and Validator-Gated Diagnosis for Industrial IoT Systems",
+          "authors": "Woo, E., <strong>Kim, Y.</strong>, Heo, W., &amp; Shin, D.&dagger;",
+          "venue": "IEEE Access",
+          "link": "https://ieeexplore.ieee.org/document/11769927",
+          "id": "ICSDiag-2026",
+          "short_venue": "ACCESS"
         },
         {
-            "year": "2026",
-            "month": null,
-            "title": "ELStego: Exact Latent Steganography via Content-Aware Adaptive Margin and Dithered PIT",
-            "authors": "Chae, C.*, <strong>Kim, Y.*</strong>, &amp; Shin, D.&dagger;",
-            "venue": "Under review",
-            "id": "elstego-2026"
+          "year": "2026",
+          "month": 1,
+          "title": "KDPrint: Passive Authentication using Keystroke Dynamics-to-Image Encoding via Standardization",
+          "authors": "<strong>Kim, Y.</strong>, Kwon, N., &amp; Shin, D.&dagger;",
+          "venue": "Computers & Security",
+          "link": "https://doi.org/10.1016/j.cose.2025.104725",
+          "id": "kdprint-2025",
+          "short_venue": "C&S"
         },
         {
-            "year": "2026",
-            "month": null,
-            "title": "A Phased Zero Trust Migration Framework for Resilient Space Systems",
-            "authors": "Cho, Y., <strong>Kim, Y.</strong>, &amp; Shin, D.&dagger;",
-            "venue": "Under review",
-            "id": "space-zero-trust-2026"
+          "year": "2025",
+          "month": 8,
+          "title": "Privacy-Preserving Anomaly Detection with Homomorphic Encryption for Industrial Control Systems in Critical Infrastructure",
+          "authors": "Jeong, D.*, <strong>Kim, Y.*</strong>, &amp; Shin, D.&dagger;",
+          "venue": "IEEE Embedded Systems Letters",
+          "link": "https://doi.org/10.1109/LES.2025.3538013",
+          "id": "homomorphic-anomaly-detection-2025",
+          "short_venue": "ESL"
         }
-    ],
-    "awards": [
+      ]
+    },
+    {
+      "title": "Domestic Conference and Journal",
+      "scope": "domestic",
+      "items": [
         {
-            "title": "Best Presentation Award",
-            "venue": "Robotics, Automation, and Artificial Intelligence",
-            "year": "2025"
+          "year": "2026",
+          "month": 6,
+          "title": "Topology-based Lightweight Anomaly Detection via Functional Patch Decomposition in Industrial Control Systems",
+          "original_title": "산업제어시스템에서의 토폴로지 기반 기능 패치 분해를 활용한 경량 이상 탐지",
+          "language": "ko",
+          "authors": "<strong>김유신</strong>, 허원제, 채척, 신동훈&dagger;",
+          "venue": "한국정보과학회논문지, 53(6), 455-464",
+          "link": "https://jok.kiise.or.kr/digital-library/107651",
+          "id": "topology-functional-patches-2026",
+          "short_venue": "KIISE"
         },
         {
-            "title": "Best Paper Award",
-            "venue": "Korea Computer Congress",
-            "year": "2025"
+          "year": "2025",
+          "month": 7,
+          "title": "Original Codec Identification in Re-Encoded Audio Using Multi-Scale Spectral Attention",
+          "original_title": "다중 스케일 스펙트럼 특징을 활용한 이중 인코딩 음성의 원 코덱 식별",
+          "language": "ko",
+          "authors": "허원제, <strong>김유신</strong>, 우은규, 신동훈&dagger;",
+          "venue": "한국정보과학회 2025 한국컴퓨터종합학술대회 논문집",
+          "link": "https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12318564",
+          "id": "spectral-codec-identification-2025",
+          "short_venue": "KCC"
         },
         {
-            "title": "Dean's List, 3 times",
-            "venue": "DGIST",
-            "year": "Undergraduate"
+          "year": "2025",
+          "month": 7,
+          "title": "Functional Patch-Based Lightweight Anomaly Detection in Industrial Control Systems",
+          "original_title": "산업제어시스템에서의 기능 패치 기반 경량 이상 탐지",
+          "language": "ko",
+          "authors": "<strong>김유신</strong>, 허원제, 채척, 신동훈&dagger;",
+          "venue": "한국정보과학회 2025 한국컴퓨터종합학술대회 논문집",
+          "link": "https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12318563",
+          "id": "functional-patch-anomaly-detection-2025",
+          "short_venue": "KCC"
+        },
+        {
+          "year": "2023",
+          "month": 12,
+          "title": "Data Quality for Improving AI-Based Intrusion Detection in Industrial Control Systems: Research Trends and Recommendations",
+          "original_title": "산업제어시스템에서의 AI IDS 성능 향상을 위한 데이터 품질 연구 동향 및 제언",
+          "language": "ko",
+          "authors": "권남혁*, <strong>김유신*</strong>, 우은규*, 정다훈*, 채척*, 신동훈&dagger;",
+          "venue": "한국정보보호학회지, 33(6), 5-14",
+          "link": "https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11653410",
+          "id": "ics-ai-ids-survey-2023",
+          "short_venue": "KIISC"
         }
-    ]
+      ]
+    }
+  ],
+  "preprints": [
+    {
+      "year": "2026",
+      "month": null,
+      "title": "MARQ: A Reference-Conditioned Metric for Time-Series Anomaly Score Interfaces",
+      "authors": "<strong>Kim, Y.</strong>, &amp; Shin, D.&dagger;",
+      "venue": "Under review",
+      "id": "marq-2026"
+    },
+    {
+      "year": "2026",
+      "month": null,
+      "title": "ELStego: Exact Latent Steganography via Content-Aware Adaptive Margin and Dithered PIT",
+      "authors": "Chae, C.*, <strong>Kim, Y.*</strong>, &amp; Shin, D.&dagger;",
+      "venue": "Under review",
+      "id": "elstego-2026"
+    },
+    {
+      "year": "2026",
+      "month": null,
+      "title": "A Phased Zero Trust Migration Framework for Resilient Space Systems",
+      "authors": "Cho, Y., <strong>Kim, Y.</strong>, &amp; Shin, D.&dagger;",
+      "venue": "Under review",
+      "id": "space-zero-trust-2026"
+    }
+  ],
+  "awards": [
+    {
+      "title": "Kyu-Young Whang Outstanding Research Award",
+      "venue": "DGIST",
+      "year": "2026"
+    },
+    {
+      "title": "Best Presentation Award",
+      "venue": "RAAI",
+      "year": "2025"
+    },
+    {
+      "title": "Best Paper Award",
+      "venue": "KCC",
+      "year": "2025"
+    },
+    {
+      "title": "Dean's List",
+      "venue": "DGIST",
+      "year": "Spring/Fall 2021, Fall 2022"
+    }
+  ]
 }
