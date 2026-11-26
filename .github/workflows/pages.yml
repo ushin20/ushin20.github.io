@@ -3,6 +3,8 @@ name: Deploy GitHub Pages
 on:
   push:
     branches: [main]
+  schedule:
+    - cron: '23 20 * * *'
   workflow_dispatch:
 
 concurrency:
@@ -36,6 +38,27 @@ jobs:
           sed -i "s/^  const lastUpdated = .*/  const lastUpdated = \"$updated\";/" "$footer"
           grep -Fx "  const lastUpdated = \"$updated\";" "$footer"
           printf 'artifact_name=github-pages-%s\n' "$GITHUB_RUN_ATTEMPT" >> "$GITHUB_OUTPUT"
+
+      - name: Refresh conference deadlines
+        shell: bash
+        run: |
+          deadlines="$RUNNER_TEMP/site/labs/conference-deadlines/deadline-data.js"
+          venv="$RUNNER_TEMP/conference-deadlines-venv"
+          sync_script="scripts/sync_conference_deadlines.py"
+
+          if python3 -m venv "$venv" &&
+             "$venv/bin/python" -m pip install --quiet --disable-pip-version-check PyYAML==6.0.3 &&
+             "$venv/bin/python" "$sync_script" "$deadlines"; then
+            exit 0
+          fi
+
+          if [[ "$GITHUB_EVENT_NAME" == "schedule" ]]; then
+            echo "::error::Conference deadline sync failed. The published site remains available."
+            exit 1
+          fi
+
+          echo "::warning::Conference deadline sync failed. Using the published or bundled snapshot."
+          python3 "$sync_script" "$deadlines" --restore
 
       - name: Upload site
         uses: actions/upload-pages-artifact@v5

@@ -4,23 +4,23 @@
 
 .paper-sidebar { position: fixed; top: 80px; left: max(24px, calc((100vw - 1280px) / 2)); width: 160px; max-height: calc(100svh - 112px); overflow-y: auto; padding: 4px 6px; margin: -4px -6px; }
 .paper-sidebar .paper-back { display: inline-flex; align-items: center; gap: 6px; line-height: 22px; text-decoration: none; }
-.paper-sidebar .paper-back:hover { color: #111; }
+.paper-sidebar .paper-back:hover { color: var(--strong-ink); }
 .paper-contents { margin-top: 32px; }
 .paper-contents summary { display: none; }
 .paper-toc { display: grid; gap: 2px; margin: 0; padding: 0; list-style: none; }
-.paper-toc a { display: block; padding: 6px 0; color: #929292; font-size: 12px; line-height: 1.5; overflow-wrap: anywhere; transition: color 200ms ease; }
-.paper-toc a:hover, .paper-toc a[aria-current="location"] { color: #111; }
+.paper-toc a { display: block; padding: 6px 0; color: var(--subtle-ink); font-size: 12px; line-height: 1.5; overflow-wrap: anywhere; transition: color 200ms ease; }
+.paper-toc a:hover, .paper-toc a[aria-current="location"] { color: var(--strong-ink); }
 .paper-contents summary:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 5px; }
 
-.paper-title { color: #111; font-size: 14px; font-weight: 500; line-height: 1.6; letter-spacing: -0.09px; word-break: keep-all; overflow-wrap: anywhere; }
+.paper-title { color: var(--strong-ink); font-size: 14px; font-weight: 500; line-height: 1.6; letter-spacing: -0.09px; word-break: keep-all; overflow-wrap: anywhere; }
 .paper-title-note { margin-top: 6px; color: var(--muted); font-size: 12px; line-height: 1.6; word-break: keep-all; overflow-wrap: anywhere; }
 .paper-venue { margin-top: 6px; color: var(--muted); font-size: 13px; }
 .paper-authors { margin-top: 8px; color: var(--prose-ink); font-size: 13px; overflow-wrap: anywhere; }
-.paper-authors strong { color: #111; font-weight: 500; }
+.paper-authors strong { color: var(--strong-ink); font-weight: 500; }
 .paper-prose { color: var(--prose-ink); font-size: 14px; line-height: 1.7; overflow-wrap: anywhere; }
 .paper-prose > p { margin-top: 24px; white-space: pre-line; }
 .paper-section { margin-top: 48px; }
-.paper-section h2 { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; color: #111; font-size: 14px; font-weight: 600; line-height: 1.6; word-break: keep-all; }
+.paper-section h2 { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; color: var(--strong-ink); font-size: 14px; font-weight: 600; line-height: 1.6; word-break: keep-all; }
 .paper-section h2::after { content: ""; flex: 1; min-width: 24px; height: 1px; background: var(--line); }
 .paper-section p { white-space: pre-line; }
 .paper-section p + p { margin-top: 16px; }

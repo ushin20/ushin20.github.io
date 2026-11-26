@@ -13,6 +13,9 @@
     <div class="footer-main">
       <a href="${homeUrl}">© Yooshin Kim</a>
       <div class="footer-links">
+        <button class="footer-theme-toggle" type="button" aria-pressed="false" data-theme-toggle>
+          Dark mode <span class="footer-theme-indicator" aria-hidden="true"></span>
+        </button>
         ${isHome ? '<a href="#about">Back to top <span aria-hidden="true">↑</span></a>' : ""}
         ${isToolIndex
           ? `<a href="${homeUrl}">About <span aria-hidden="true">→</span></a>`

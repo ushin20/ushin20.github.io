@@ -1,0 +1,94 @@
+{
+  "kdd": {
+    "name": "KDD",
+    "source": "DB/sigkdd",
+    "site": "https://www.kdd.org/",
+    "track": "Research Track",
+    "cycles": 2,
+    "editions": {
+      "2027": {
+        "url": "https://kdd2027.kdd.org/research-track-call-for-papers/",
+        "rounds": {
+          "2": { "url": "https://openreview.net/group?id=KDD.org/2027/Research_Track_Cycle_2" }
+        }
+      }
+    }
+  },
+  "icdm": {
+    "name": "ICDM",
+    "source": "DB/icdm",
+    "site": "https://www.ieee-icdm.org/",
+    "editions": {
+      "2027": { "url": "https://icdm2027.org/" }
+    }
+  },
+  "ecml-pkdd": {
+    "name": "ECML PKDD",
+    "source": "DB/pkdd",
+    "site": "https://ecmlpkdd.org/",
+    "track": "Research Track"
+  },
+  "aaai": {
+    "name": "AAAI",
+    "source": "AI/aaai",
+    "site": "https://aaai.org/conference/aaai/",
+    "track": "Main Technical Track",
+    "editions": {
+      "2027": { "url": "https://aaai.org/conference/aaai/aaai-27/main-technical-track-call/" }
+    }
+  },
+  "icml": {
+    "name": "ICML",
+    "source": "AI/icml",
+    "site": "https://icml.cc/",
+    "editions": {
+      "2027": { "url": "https://icml.cc/Conferences/2027/CallForPapers" }
+    }
+  },
+  "iclr": {
+    "name": "ICLR",
+    "source": "AI/iclr",
+    "site": "https://iclr.cc/",
+    "editions": {
+      "2027": { "url": "https://iclr.cc/Conferences/2027/CallForPapers" }
+    }
+  },
+  "raid": {
+    "name": "RAID",
+    "source": "SC/raid",
+    "site": "https://raid-symposium.org/",
+    "editions": {
+      "2027": { "url": "https://raid2027.org/" }
+    }
+  },
+  "acsac": {
+    "name": "ACSAC",
+    "source": "SC/acsac",
+    "site": "https://www.acsac.org/",
+    "editions": {
+      "2026": { "url": "https://www.acsac.org/2026/submissions/papers/" }
+    }
+  },
+  "usenix-security": {
+    "name": "USENIX Security",
+    "source": "SC/uss",
+    "site": "https://www.usenix.org/conferences",
+    "registration_label": "Mandatory registration",
+    "editions": {
+      "2027": { "url": "https://www.usenix.org/conference/usenixsecurity27/call-for-papers" }
+    }
+  },
+  "dsn": {
+    "name": "DSN",
+    "source": "SC/dsn",
+    "site": "https://www.dependability.org/",
+    "editions": {
+      "2027": {
+        "url": "https://dsn2027-berlin.github.io/call-for-contributions/",
+        "rounds": {
+          "1": { "date_only": true }
+        }
+      }
+    }
+  }
+}

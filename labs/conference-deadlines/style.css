@@ -1,0 +1,142 @@
+.deadlines-body .tool-lead {
+  max-width: 54ch;
+  font-size: 0.9375rem;
+}
+
+.deadline-groups {
+  --deadline-status-width: 8rem;
+  display: grid;
+  gap: 32px;
+}
+
+.deadline-group h2,
+.deadline-group summary {
+  margin-bottom: 10px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.deadline-group summary {
+  width: fit-content;
+  cursor: pointer;
+}
+
+.deadline-list {
+  padding: 0;
+  list-style: none;
+}
+
+.deadline-venue {
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+}
+
+.deadline-venue-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 10px;
+  margin-bottom: 4px;
+}
+
+.deadline-venue-heading h3 {
+  font-size: 0.9375rem;
+  font-weight: 550;
+}
+
+.deadline-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 10.5rem var(--deadline-status-width);
+  align-items: baseline;
+  gap: 12px;
+  padding: 5px 0;
+}
+
+.deadline-link {
+  color: var(--ink);
+  font-size: 0.9375rem;
+  font-weight: 550;
+}
+
+.deadline-link,
+.deadline-stage a,
+.deadline-source a {
+  text-decoration: underline;
+  text-decoration-color: var(--link-underline);
+  text-underline-offset: 4px;
+}
+
+.deadline-link:hover,
+.deadline-stage a:hover,
+.deadline-source a:hover {
+  text-decoration-color: currentColor;
+}
+
+.deadline-track,
+.deadline-note,
+.deadline-source {
+  color: var(--muted);
+  font-size: 0.8125rem;
+}
+
+.deadline-stage {
+  color: var(--prose-ink);
+  font-size: 0.875rem;
+}
+
+.deadline-when time,
+.deadline-status {
+  font-size: 0.875rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.deadline-when time {
+  display: block;
+}
+
+.deadline-status {
+  grid-column: 3;
+  grid-row: 1;
+  color: var(--muted);
+  text-align: right;
+}
+
+.deadline-item[data-status="upcoming"] .deadline-status {
+  color: var(--accent);
+  font-weight: 550;
+}
+
+.deadline-item[data-status="pending"] .deadline-when {
+  display: none;
+}
+
+.deadline-item[data-status="past"],
+#past .deadline-venue-heading {
+  color: var(--subtle-ink);
+}
+
+.deadline-item[data-status="past"] :is(.deadline-stage, .deadline-note, .deadline-status),
+#past .deadline-venue-heading :is(.deadline-link, .deadline-track) {
+  color: inherit;
+}
+
+.deadline-item[data-status="past"]:focus-within,
+#past .deadline-venue-heading:focus-within {
+  color: var(--ink);
+}
+
+@media (max-width: 520px) {
+  .deadline-item {
+    grid-template-columns: minmax(0, 1fr) var(--deadline-status-width);
+    gap: 2px 12px;
+  }
+
+  .deadline-status {
+    grid-column: 2;
+  }
+
+  .deadline-when {
+    grid-column: 1;
+    grid-row: 2;
+  }
+}

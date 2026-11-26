@@ -3,6 +3,11 @@
 .tool-body {
   --content-width: 640px;
   --page-gutter: 48px;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+:root:not([data-theme="dark"]) :is(.about-body, .paper-body, .tool-body) {
   --ink: #252525;
   --prose-ink: #454545;
   --muted: #737373;
@@ -10,8 +15,6 @@
   --focus-ring: #555;
   --selection-background: #e8e8e8;
   --selection-foreground: #222;
-  font-size: 15px;
-  line-height: 1.7;
 }
 
 .cv-shell { padding: 100px 0 28px; }
@@ -44,7 +47,7 @@
 .paper-back,
 .paper-resources a {
   text-decoration: underline;
-  text-decoration-color: #c9c9c9;
+  text-decoration-color: var(--link-underline);
   text-underline-offset: 4px;
   text-decoration-thickness: 1px;
   transition: text-decoration-color 150ms ease;
@@ -73,7 +76,7 @@
 .publication-group { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 20px; border-top: 1px solid var(--line); }
 .publication-year { padding-top: 13px; color: var(--muted); font-size: 12px; font-weight: 400; font-variant-numeric: tabular-nums; }
 .publication-item + .publication-item { border-top: 1px solid var(--line); }
-.publication-link { display: block; padding: 12px 0 13px; color: #111; font-weight: 460; }
+.publication-link { display: block; padding: 12px 0 13px; color: var(--strong-ink); font-weight: 460; }
 .publication-copy { display: grid; grid-template-columns: minmax(0, 1fr) 104px; align-items: baseline; gap: 16px; }
 .publication-title { min-width: 0; overflow: hidden; white-space: nowrap; font-size: 14px; font-weight: inherit; line-height: 1.55; letter-spacing: -0.09px; transition: opacity 600ms ease; }
 .publication-title-text { display: inline-block; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; vertical-align: top; }
@@ -95,7 +98,7 @@
 .experience-organization span { display: block; }
 .experience-points { margin-top: 12px; padding-left: 15px; color: var(--prose-ink); font-size: 13px; }
 .experience-points li + li { margin-top: 5px; }
-.experience-points li::marker { color: #a0a0a0; }
+.experience-points li::marker { color: var(--subtle-ink); }
 
 .detail-list { padding: 0; list-style: none; }
 .detail-list li { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 20px; padding: 14px 0; border-top: 1px solid var(--line); }

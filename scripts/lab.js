@@ -58,18 +58,20 @@ function renderLabs(projects) {
 }
 
 async function initLab() {
-  try {
-    const response = await fetch("./data/labs.json");
-    if (!response.ok) {
-      throw new Error(`Failed to load labs: ${response.status}`);
-    }
+  if (window.location.protocol !== "file:") {
+    try {
+      const response = await fetch("./data/labs.json");
+      if (!response.ok) {
+        throw new Error(`Failed to load labs: ${response.status}`);
+      }
 
-    const projects = await response.json();
-    renderLabs(projects);
-  } catch (error) {
-    console.error(error);
-    renderEmptyState("Tools could not be loaded. Please refresh the page and try again.");
+      renderLabs(await response.json());
+      return;
+    } catch (error) {
+      console.error(error);
+    }
   }
+  labProjectCount.textContent = String(labList.querySelectorAll("a").length);
 }
 
 initLab();

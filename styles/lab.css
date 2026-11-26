@@ -3,7 +3,7 @@
 .lab-section-note { color: var(--muted); font-size: 11px; font-variant-numeric: tabular-nums; }
 .lab-item { position: relative; display: grid; grid-template-columns: 40px minmax(0, 1fr) 16px; gap: 20px; padding: 20px 0; border-top: 1px solid var(--line); }
 .lab-item-meta { padding-top: 2px; color: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; }
-.lab-item-copy h3 { color: #111; font-size: 14px; font-weight: 460; line-height: 1.55; letter-spacing: -0.09px; transition: opacity 600ms ease; }
+.lab-item-copy h3 { color: var(--strong-ink); font-size: 14px; font-weight: 460; line-height: 1.55; letter-spacing: -0.09px; transition: opacity 600ms ease; }
 .lab-item-copy p { margin-top: 7px; color: var(--muted); font-size: 12px; line-height: 1.75; }
 .lab-item-cta { align-self: start; color: var(--muted); font-size: 14px; }
 .lab-item-link { position: absolute; inset: 0; }

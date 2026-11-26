@@ -8,6 +8,6 @@
 .lotto-line-label, .lotto-bonus-label { color: var(--muted); font-size: 11px; }
 .lotto-bonus-wrap { display: flex; align-items: center; gap: 10px; }
 .lotto-ball-row { display: flex; flex-wrap: wrap; gap: 8px; }
-.lotto-ball { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--line); border-radius: 50%; background: var(--paper); color: #111; font-size: 13px; font-variant-numeric: tabular-nums; }
-.lotto-bonus-wrap .lotto-ball { background: #f7f7f7; color: var(--muted); }
+.lotto-ball { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--line); border-radius: 50%; background: var(--paper); color: var(--strong-ink); font-size: 13px; font-variant-numeric: tabular-nums; }
+.lotto-bonus-wrap .lotto-ball { background: var(--surface); color: var(--muted); }
 .lotto-empty { color: var(--muted); font-size: 13px; }

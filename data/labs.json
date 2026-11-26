@@ -1,5 +1,14 @@
 [
   {
+    "title": "Conference Deadlines",
+    "slug": "conference-deadlines",
+    "summary": "Track research conference submission deadlines and countdowns in Korea Standard Time.",
+    "category": "research tool",
+    "status": "Ready",
+    "path": "./labs/conference-deadlines/index.html",
+    "tags": ["Research", "Conferences", "Deadlines"]
+  },
+  {
     "title": "Lotto Number Picker",
     "slug": "lotto",
     "summary": "Generate six unique numbers from 1 to 45 for a quick lottery pick, with a bonus number and multiple automatic lines.",
